@@ -25,7 +25,7 @@ public class HttpClientConfig {
 
     private Integer defaultMaxPerRoute;// 每个host的最大连接
 
-    private Integer connectTimeout;// 连接超时时间
+    private Integer connectionTimeout;// 连接超时时间
 
     private Integer connectionRequestTimeout;// 请求超时时间
 
@@ -48,7 +48,7 @@ public class HttpClientConfig {
      */
     @Bean
     public RequestConfig requestConfig() {
-        return RequestConfig.custom().setConnectTimeout(connectTimeout)
+        return RequestConfig.custom().setConnectTimeout(connectionTimeout)
                 .setConnectionRequestTimeout(connectionRequestTimeout).setSocketTimeout(socketTimeout)
                 .build();
     }
@@ -105,12 +105,12 @@ public class HttpClientConfig {
         this.defaultMaxPerRoute = defaultMaxPerRoute;
     }
 
-    public Integer getConnectTimeout() {
-        return connectTimeout;
+    public Integer getConnectionTimeout() {
+        return connectionTimeout;
     }
 
-    public void setConnectTimeout(Integer connectTimeout) {
-        this.connectTimeout = connectTimeout;
+    public void setConnectionTimeout(Integer connectionTimeout) {
+        this.connectionTimeout = connectionTimeout;
     }
 
     public Integer getConnectionRequestTimeout() {
