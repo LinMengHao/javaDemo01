@@ -2,7 +2,12 @@ package com.example.demo01.conf;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.config.Registry;
+import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.HttpClientConnectionManager;
+import org.apache.http.conn.socket.ConnectionSocketFactory;
+import org.apache.http.conn.socket.PlainConnectionSocketFactory;
+import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,6 +42,12 @@ public class HttpClientConfig {
      */
     @Bean
     public HttpClientConnectionManager getHHttpClientConnectionManager(){
+//        //支持http https
+//        Registry<ConnectionSocketFactory> registry=RegistryBuilder.<ConnectionSocketFactory> create()
+//                .register("http", PlainConnectionSocketFactory.getSocketFactory())
+//                .register("https", SSLConnectionSocketFactory.getSocketFactory())
+//                .build();
+//        PoolingHttpClientConnectionManager connectionManager=new PoolingHttpClientConnectionManager(registry);
         PoolingHttpClientConnectionManager connectionManager=new PoolingHttpClientConnectionManager();
         connectionManager.setMaxTotal(maxTotal);
         connectionManager.setDefaultMaxPerRoute(defaultMaxPerRoute);

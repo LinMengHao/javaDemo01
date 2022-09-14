@@ -2,15 +2,39 @@ package com.example.demo01.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
-import org.apache.commons.codec.binary.Base64;
 import org.junit.jupiter.api.Test;
-
-import java.io.UnsupportedEncodingException;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class TokenUtils {
+    //获取GMT时间
+    public static String getGMTDate() {
+        String format=null;
+        try {
+            SimpleDateFormat simpleDateFormat=new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z",Locale.US);
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+            Date date=new Date();
+            format = simpleDateFormat.format(date);
+            System.out.println(format);
+        }catch (Exception e){
+            e.printStackTrace();
+            //TODO 日志
+        }
+        return format;
+    }
+    //获取鉴权字符串 Authorization
+    public static String getAuthorization(String cspid,String cspToken){
+        String date = getGMTDate();
+        String sha256 = Sha256Utils.getSHA256(cspToken + date);
+        String authorization = Base64Utils.encode(cspid + ":" + sha256);
+        return authorization;
+    }
+
+
+
+//==========================================TEST==============================================
+
     //获取sign，签名规则：去除null后，字典排序，通过sha256后用base64
     public static String getSign(JSONObject jsonObject){
         //将json字符串转treeMap，在treeMap做排序，并去除null
@@ -56,6 +80,25 @@ public class TokenUtils {
         jsonObject.put("reqTime","1642670601273");
         String sign = getSign(jsonObject);
         System.out.println(sign);
+    }
+
+    @Test
+    public void test1() throws ParseException {
+        String token="ff556388699c84a4ae73bc719eda6480c0d8290c575f297d7f65dad8f9c6804f";
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date = simpleDateFormat.parse("2020-07-06 19:28:53");
+        String s = date.toGMTString();
+        System.out.println(s);
+        String appid=Sha256Utils.getSHA256(token+"Mon, 0"+s);
+        System.out.println(appid);
+        String encode = Base64Utils.encode("test12345"+":"+appid);
+        System.out.println(encode);
+    }
+
+
+    @Test
+    public void test2() throws ParseException {
+        getGMTDate();
     }
 
 }

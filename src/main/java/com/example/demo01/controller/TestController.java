@@ -3,11 +3,15 @@ package com.example.demo01.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo01.common.R;
 import com.example.demo01.common.ResponseUtil;
+import com.example.demo01.conf.HttpsClientRequestFactory;
 import com.example.demo01.entity.UserModel;
 import com.example.demo01.utils.RedisUtils;
 import com.example.demo01.utils.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.UnsupportedEncodingException;
 import java.util.concurrent.TimeUnit;
 
 @RestController
@@ -77,5 +82,19 @@ public class TestController {
         String token = (String)redisUtils.getCacheObject("token");
         System.out.println(token);
         return entity.getBody().getToken();
+    }
+
+    //https请求
+    private static RestTemplate httpsTemplate=new RestTemplate(new HttpsClientRequestFactory());
+    @RequestMapping("testHttps")
+    public String testHttps() throws UnsupportedEncodingException {
+        HttpHeaders headers = new HttpHeaders();
+        MediaType type = MediaType.parseMediaType("application/json; charset=UTF-8");
+        headers.setContentType(type);
+        headers.add("Accept", MediaType.APPLICATION_JSON.toString());
+
+        ResponseEntity<String> response = httpsTemplate.exchange("https://www.baidu.com",
+                HttpMethod.POST, null, String.class);
+        return new String(response.getBody().getBytes("UTF-8"));
     }
 }
