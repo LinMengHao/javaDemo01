@@ -1,19 +1,19 @@
 package com.example.demo01.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo01.entity.FileInfo;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.StringUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class XMLUtil {
     public static void main(String[] args) {
@@ -32,14 +32,14 @@ public class XMLUtil {
      * @return xml字符串
      */
     //纯文本消息体（xml格式）  TODO 日志打印 xml内容
-    public static String FixedTemplateXml(Map<String,String> map,String root,String xmlns){
+    public static String FixedTemplateXml(Map<String,String> map,String root,String xmlns,String el){
         String xmlStr=null;
         try{
             Document document=DocumentHelper.createDocument();
             //根结点(一级标签)
             Element element = document.addElement(root, xmlns);
             //（二级标签）
-            Element outboundIMMessage = element.addElement("outboundIMMessage");
+            Element outboundIMMessage = element.addElement(el);
             //（三级标签）
             Element serviceCapability = outboundIMMessage.addElement("serviceCapability");
 
@@ -67,7 +67,7 @@ public class XMLUtil {
                 }
                 //二级标签所属下的特殊格式标签
                 else if("smsBodyText".equals(value)||"bodyText".equals(value)
-                        ||"mmsBodyText".equals(value)){
+                        ||"mmsBodyText".equals(value)||"mmsBodyTextLarge".equals(value)){
                     StringBuilder stringBuilder2=new StringBuilder();
                     stringBuilder2.append("![CDATA[");
                     stringBuilder2.append(key);
@@ -80,7 +80,8 @@ public class XMLUtil {
                     conversationID.setText(key);
                     Element contributionID = outboundIMMessage.addElement("contributionID");
                     contributionID.setText(key);
-                }else if("shortMessageSupported".equals(value)||"storeSupported".equals(value)){
+                }else if("shortMessageSupported".equals(value)||"storeSupported".equals(value)
+                        ||"multimediaMessageSupported".equals(value)){
                     //参数键，使用奇偶数，区分true和false，也保证键唯一
                     Element element1 = outboundIMMessage.addElement(value);
                     int i = Integer.parseInt(key);
@@ -125,8 +126,7 @@ public class XMLUtil {
         }
         return xmlStr;
     }
-
-    //参数测试
+    //FixedTemplateXml方法参数测试
     @Test
     public void test1(){
         String uuid321= UUIDUtil.getUUID32();
@@ -199,9 +199,149 @@ public class XMLUtil {
         map.put("1","storeSupported");
         map.put("2","shortMessageSupported");
         map.put("给你发送了一则测试阅信 rcs.10086.cn/82pYTd","smsBodyText");
-        String xml = FixedTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1");
+        String xml = FixedTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1","outboundIMMessage");
         System.out.println(xml);
     }
+    /**
+     * //TODO 利用反射机制，做通用优化
+     * @param list file文件列表
+     * @param root 根结点
+     * @param xmlns
+     * @return
+     */
+    public static String FileTemplateXml(List<FileInfo> list,String root,String xmlns){
+        String xmlStr=null;
+        try {
+            Document document = DocumentHelper.createDocument();
+            Element files = document.addElement(root, xmlns);
+            for (int i = 0; i < list.size(); i++) {
+                FileInfo fileInfo=list.get(i);
+                Element file = files.addElement("file-info");
+                if(StringUtils.hasText(fileInfo.getType())){
+                    file.addAttribute("type",fileInfo.getType());
+                }
+
+                if(StringUtils.hasText(fileInfo.getFileSize())){
+                    Element file_size = file.addElement("file-size");
+                    file_size.setText(fileInfo.getFileSize());
+                }
+
+                if(StringUtils.hasText(fileInfo.getFileName())){
+                    Element file_name = file.addElement("file-name");
+                    file_name.setText(fileInfo.getFileName());
+                }
+
+                if(StringUtils.hasText(fileInfo.getContentType())){
+                    Element content_type = file.addElement("content-type");
+                    content_type.setText(fileInfo.getContentType());
+                }
+
+                Map<String, String> map = fileInfo.getData();
+                if(map.containsKey("url")&&StringUtils.hasText(map.get("url"))){
+                    Element data = file.addElement("data");
+                    data.addAttribute("url",map.get("url"));
+                    if (map.containsKey("until")&&StringUtils.hasText(map.get("until"))){
+                        data.addAttribute("until",map.get("until"));
+                    }
+                }
+
+            }
+            xmlStr = getXmlStr(document, "UTF-8", false,false,"/Users/yoca-391/Documents/demo01/xmlfiles/test1.xml");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return xmlStr;
+    }
+    //FileTemplateXml测试
+    @Test
+    public void test2(){
+        List<FileInfo> fileInfos=new ArrayList<>();
+        FileInfo info1=new FileInfo();
+        info1.setContentType("image/jpeg");
+        info1.setFileSize("15191");
+        info1.setType("thumbnail");
+        Map<String, String> data = info1.getData();
+        data.put("url","https://http01.hn.rcs.chinamobile.com:9091/Access/PF?ID=QzYzNTE5Njc2NDUzMzhDQTk3OUMzQzQxQTkwN0ZCNjQyOTFGMjU4OTlFOURFREE4NTAyN0IxNjcyOUZEQTBFNjNEQTQ0M0E5OENCQjE4MzdGQzQzRkJENkM0RjQwOTE0");
+        data.put("until","2022-08-12T23:59:59Z");
+
+        FileInfo info2=new FileInfo();
+        info2.setContentType("video/mp4");
+        info2.setFileSize("1482235");
+        info2.setType("file");
+        info2.setFileName("mda-merqtf8xju5x91gn.mp4");
+        Map<String, String> data2 = info2.getData();
+        data2.put("url","https://http01.hn.rcs.chinamobile.com:9091/Access/PF?ID=NjJBNDEyNURGMzc1NjgxNTZBMzdFOERFQ0M5NDE4QzlEODc2MTRCNkM1NDlEQzhEQkZGQjBBQ0YxQ0MyMTZGQ0UyMzk5NkNGRTk3NTg5QURGRjg1RjBFRTkxNDI3QzZD");
+        data2.put("until","2022-08-12T23:59:59Z");
+        fileInfos.add(info1);
+        fileInfos.add(info2);
+        FileTemplateXml(fileInfos,"file","urn:gsma:params:xml:ns:rcs:rcs:fthttp");
+    }
+
+
+    /**
+     * 返回字符串，并打印xml文件
+     * @param document xml创建对象
+     * @param code 编码（UTF-8）
+     * @param escapeText1 字符串是否转义
+     * @param escapeText2 文件是否转义
+     * @param path 文件地址
+     * @return
+     */
+    public static String getXmlStr(Document document,String code,boolean escapeText1,boolean escapeText2,String path){
+        String xmlStr=null;
+        try {
+            // 设置生成xml的格式
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            // 设置编码格式
+            format.setEncoding("UTF-8");
+            // 生成xml文件
+            File file = new File("/Users/yoca-391/Documents/demo01/xmlfiles/test1.xml");
+            XMLWriter writer = new XMLWriter(new FileOutputStream(file), format);
+            writer.setEscapeText(false);
+            writer.write(document);
+            writer.close();
+            // 生成xml字符串
+            StringWriter sw = new StringWriter();
+            XMLWriter xmlWriter = new XMLWriter(sw, format);
+            // 设置是否转义，默认使用转义字符
+            xmlWriter.setEscapeText(false);
+            xmlWriter.write(document);
+            xmlWriter.close();
+            xmlStr=sw.toString();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return xmlStr;
+    }
+
+    /**
+     * 只返回字符串
+     * @param document xml创建对象
+     * @param code 编码（UTF-8）
+     * @param escapeText1 是否转义
+     * @return xml字符串
+     */
+    public static String getXmlStr(Document document,String code,boolean escapeText1){
+        String xmlStr=null;
+        try {
+            // 设置生成xml的格式
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            // 设置编码格式
+            format.setEncoding("UTF-8");
+            // 生成xml字符串
+            StringWriter sw = new StringWriter();
+            XMLWriter xmlWriter = new XMLWriter(sw, format);
+            // 设置是否转义，默认使用转义字符
+            xmlWriter.setEscapeText(false);
+            xmlWriter.write(document);
+            xmlWriter.close();
+            xmlStr=sw.toString();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return xmlStr;
+    }
+
 
     //TODO 文件 卡片...  在bodyText 中插入json 和xml的一些内容
 

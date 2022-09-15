@@ -28,7 +28,7 @@ public class TokenUtils {
         String date = getGMTDate();
         String sha256 = Sha256Utils.getSHA256(cspToken + date);
         String authorization = Base64Utils.encode(cspid + ":" + sha256);
-        return authorization;
+        return "Basic "+authorization;
     }
 
 
