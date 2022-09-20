@@ -277,6 +277,190 @@ public class XMLUtil {
         FileTemplateXml(fileInfos,"file","urn:gsma:params:xml:ns:rcs:rcs:fthttp");
     }
 
+    /**
+     * 构造消息体xml
+     * @param map 参数为value，标签为key  其中奇偶将true，false分开
+     * @param root 根结点
+     * @param xmlns 根结点的属性
+     * @return xml字符串
+     */
+    //纯文本消息体（xml格式）  TODO 日志打印 xml内容
+    public static String txtTemplateXml(Map<String,String> map,String root,String xmlns,String el){
+        String xmlStr=null;
+        try{
+            Document document=DocumentHelper.createDocument();
+            //根结点(一级标签)
+            Element element = document.addElement(root, xmlns);
+            //（二级标签）
+            Element outboundIMMessage = element.addElement(el);
+            //（三级标签）
+            Element serviceCapability = outboundIMMessage.addElement("serviceCapability");
+
+            int count=0;
+            for (Map.Entry<String,String> entry:map.entrySet()){
+                String key=entry.getKey();
+                String value=entry.getValue();
+                //一级标签所属
+                //电话标签,值为电话号码，多个号码时，用逗号隔开
+                if("destinationAddress".equals(key)){
+                    if(value.indexOf(",")!=-1){
+                        String[] split = value.split(",");
+                        //address 多个或者一个目标地址时，默认写第一个。
+                        Element address = element.addElement("address");
+                        address.setText("tel:+86"+split[0]);
+                        for (int i = 0; i < split.length; i++) {
+                            Element phoneNum = element.addElement(key);
+                            phoneNum.setText("tel:+86"+split[i]);
+                        }
+                    }else if(StringUtils.hasText(value)){
+                        Element address = element.addElement("address");
+                        address.setText("tel:+86"+value);
+                        Element phoneNum = element.addElement(key);
+                        phoneNum.setText("tel:+86"+value);
+                    }
+                }else if("senderAddress".equals(key)||"clientCorrelator".equals(key)){
+                    Element e = element.addElement(key);
+                    e.setText(value);
+                }else if("destinationAddress".equals(key)){
+                    if(value.indexOf(",")!=-1){
+                        String[] split = key.split(",");
+                        //address 多个或者一个目标地址时，默认写第一个。
+                        Element address = element.addElement("address");
+                        address.setText("tel:+86"+split[0]);
+                        for (int i = 0; i < split.length; i++) {
+                            Element phoneNum = element.addElement(key);
+                            phoneNum.setText("tel:+86"+split[i]);
+                        }
+                    }else if(StringUtils.hasText(value)){
+                        Element address = element.addElement("address");
+                        address.setText("tel:+86"+value);
+                        Element phoneNum = element.addElement(key);
+                        phoneNum.setText("tel:+86"+value);
+                    }
+                }else if("senderAddress".equals(key)||"clientCorrelator".equals(key)){
+                    Element e = element.addElement(key);
+                    e.setText(value);
+                }
+                //二级标签所属下的特殊格式标签
+                else if("smsBodyText".equals(key)||"bodyText".equals(key)
+                        ||"mmsBodyText".equals(key)||"mmsBodyTextLarge".equals(key)){
+                    StringBuilder stringBuilder2=new StringBuilder();
+                    stringBuilder2.append("![CDATA[");
+                    stringBuilder2.append(value);
+                    stringBuilder2.append("]]");
+                    Element body=outboundIMMessage.addElement(key);
+                    body.setText(stringBuilder2.toString());
+                }else if("reportRequest".equals(key)){
+                    if(value.indexOf(",")!=-1){
+                        String[] split = value.split(",");
+                        for (int i = 0; i < split.length; i++) {
+                            Element phoneNum = element.addElement(key);
+                            phoneNum.setText(split[i]);
+                        }
+                    }else if(StringUtils.hasText(value)){
+                        Element phoneNum = element.addElement(key);
+                        phoneNum.setText(value);
+                    }
+                } else if(("conversationID".equals(key)||"contributionID".equals(key))
+                        &&(!map.containsValue("conversationID")||!map.containsValue("contributionID"))){
+                    Element conversationID = outboundIMMessage.addElement("conversationID");
+                    conversationID.setText(value);
+                    Element contributionID = outboundIMMessage.addElement("contributionID");
+                    contributionID.setText(value);
+                }//else if("shortMessageSupported".equals(key)||"storeSupported".equals(key)
+//                        ||"multimediaMessageSupported".equals(key)){
+//                    //参数键，使用奇偶数，区分true和false，也保证键唯一
+//                    Element element1 = outboundIMMessage.addElement(key);
+//                    int i = Integer.parseInt(value);
+//                    if (i%2==0){
+//                        element1.setText("false");
+//                    }else {
+//                        element1.setText("true");
+//                    }
+//                }
+
+                //三级标签所属
+                else if("capabilityId".equals(key)||"version".equals(key)){
+                    Element element1 = serviceCapability.addElement(key);
+                    element1.setText(value);
+                }else {
+                    //二级标签所属(较多)
+                    Element addElement = outboundIMMessage.addElement(key);
+                    addElement.setText(value);
+                }
+                xmlStr = getXmlStr(document, "UTF-8", false);
+            }
+        }catch (Exception e){
+            //生成错误
+            e.printStackTrace();
+            //TODO 日志
+        }
+        return xmlStr;
+    }
+    //TxtTemplateXml方法测试
+    @Test
+    public void test3(){
+        Map<String,String> map=new HashMap<>();
+        map.put("destinationAddress","18756232770,18756232771,18756232772,18756232773");
+        map.put("reportRequest","Delivered,Failed,Interworking");
+        map.put("senderAddress","sip%3A12599%40botplatform.rcs.chinamobile.com");
+        map.put("conversationID",UUIDUtil.getUUID32());
+        map.put("capabilityId","ChatbotSA");
+        map.put("version","+g.gsma.rcs.botversion=&quot;#=1&quot;");
+        map.put("contentType","text/plain");
+        map.put("bodyText","Hello world");
+        map.put("clientCorrelator","567895");
+        System.out.println(map.toString());
+        String xml = txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
+        System.out.println(xml);
+    }
+
+    /**
+     * 构造消息体xml,状态报告报文
+     * @param map
+     * @param root 根结点
+     * @param xmlns 根结点的属性
+     * @return xml字符串
+     */
+    //纯文本消息体（xml格式）  TODO 日志打印 xml内容
+    public static String notifyTemplateXml(Map<String,String> map,String root,String xmlns,String el){
+        String xmlStr=null;
+        try{
+            Document document=DocumentHelper.createDocument();
+            //根结点(一级标签)
+            Element element = document.addElement(root, xmlns);
+            //（二级标签）
+            Element outboundIMMessage = element.addElement(el);
+
+            int count=0;
+            for (Map.Entry<String,String> entry:map.entrySet()){
+                String key=entry.getKey();
+                String value=entry.getValue();
+                //一级标签所属
+                //电话标签,值为电话号码，多个号码时，用逗号隔开
+                if("description".equals(key)){
+                    Element element1 = element.addElement(key);
+                    element1.setText(value);
+                }else if("rel".equals(key)||"href".equals(key)){
+                    Element link = element.addElement("link");
+                    link.addAttribute(key,value);
+                }
+                else {
+                    //二级标签所属(较多)
+                    Element addElement = outboundIMMessage.addElement(key);
+                    addElement.setText(value);
+                }
+                xmlStr = getXmlStr(document, "UTF-8", false);
+            }
+        }catch (Exception e){
+            //生成错误
+            e.printStackTrace();
+            //TODO 日志
+        }
+        return xmlStr;
+    }
+
+
 
     /**
      * 返回字符串，并打印xml文件
@@ -448,4 +632,6 @@ public class XMLUtil {
         }
         return "fail";
     }
+
+
 }

@@ -30,6 +30,11 @@ public class TokenUtils {
         String authorization = Base64Utils.encode(cspid + ":" + sha256);
         return "Basic "+authorization;
     }
+    public static String getAuthorization(String cspid,String cspToken,String date){
+        String sha256 = Sha256Utils.getSHA256(cspToken + date);
+        String authorization = Base64Utils.encode(cspid + ":" + sha256);
+        return "Basic "+authorization;
+    }
 
 
 

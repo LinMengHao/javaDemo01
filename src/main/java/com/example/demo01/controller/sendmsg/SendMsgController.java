@@ -1,33 +1,41 @@
 package com.example.demo01.controller.sendmsg;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo01.common.R;
 import com.example.demo01.conf.HttpsClientRequestFactory;
 import com.example.demo01.entity.FileInfo;
 import com.example.demo01.entity.msgModel.MessageModel;
 import com.example.demo01.entity.msgModel.ResponseModel;
+import com.example.demo01.entity.msgModel.TextMsgModel;
 import com.example.demo01.utils.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.lang.reflect.Field;
 import java.time.Duration;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+//TODO 状态响应
 @RestController
 @RequestMapping("sendmsg")
+@Api(value = "发送消息接口测试",tags = "发送消息相关接口")
 public class SendMsgController {
     @Autowired
     RestTemplate restTemplate;
@@ -37,218 +45,306 @@ public class SendMsgController {
     MessageModel messageModel;
     @Autowired
     RedisUtils redisUtils;
+    @Autowired
+    HttpHeaderUtil httpHeaderUtil;
     /**
      * 发送纯文本即时消息
      * @return
      */
-    @RequestMapping("groupSend")
-    public R textMsg(){
-        initMessageModel();
-        //TODO 请求头可提取工具类（待办）
-        //请求头
-        HttpHeaders headers=new HttpHeaders();
-        headers.set("Content-Type",messageModel.getContentType());
-        StringBuilder address=new StringBuilder();
-        //多发为00000，单发为手机号
-        if (!"00000".equals(messageModel.getAddress())){
-            address.append("+86");
-        }
-        address.append(messageModel.getAddress());
-        headers.set("address",address.toString());
-        headers.set("Authorization",messageModel.getAuthorization());
-        headers.set("Date",messageModel.getDate());
-
-        //xml请求体
-        List<String> list = messageModel.getDestinationAddress();
-        List<String> reportRequest = messageModel.getReportRequest();
-        Map<String,String> map=new HashMap<>();
-        for (int i = 0; i < messageModel.getDestinationAddress().size(); i++) {
-            map.put(list.get(i),"destinationAddress");
-        }
-        for (int i = 0; i < reportRequest.size(); i++) {
-            map.put(reportRequest.get(i),"reportRequest");
-        }
+    @RequestMapping("txtSend")
+    @ApiOperation(value = "文本消息发送",notes = "文本相关消息的发送功能")
+    public R txtMsg(@RequestBody TextMsgModel textMsgModel) {
+        System.out.println(textMsgModel.toString());
+        Map<String, String> map = textMsgModel.getMap();
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
-        map.put(uuid32,"conversationID");
-        map.put(messageModel.getSenderAddress(),"senderAddress");
-        map.put(messageModel.getClientCorrelator(),"clientCorrelator");
-        map.put(messageModel.getCapabilityId(),"capabilityId");
-        map.put(messageModel.getVersion(),"version");
-        map.put(messageModel.getContentType(),"contentType");
-        map.put(messageModel.getBodyText(),"bodyText");
-        String xml = XMLUtil.FixedTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1","outboundIMMessage");
+        map.put("conversationID",uuid32);
+
+        //消息内容请求体
+        String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
+        //状态报告通知xml请求体
+        Map<String, String> notify = textMsgModel.getNotify();
+        String notifyXml = XMLUtil.notifyTemplateXml(notify, "msg:deliveryInfoNotification", "urn:oma:xml:rest:netapi:messaging:1", "deliveryInfo");
 
         HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
         //https
-//        ResponseEntity<String> response = httpsTemplate.postForEntity("http://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
-        //TODO 接受消息发送后的响应
+        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
         //响应数据
-        String s = responseModelResponseEntity.getBody().toString();
-        //转化
-        ResponseModel responseModel = xmlToResponseModel(s);
+        //xml转化bean
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
-    /**
-     * 发送纯文件即时消息
-     * @return
-     */
+
     @RequestMapping("fileSend")
-    public R fileMsg(){
-        initMessageModel();
-        HttpHeaders headers = getHttpHeadersByText();
-        Map<String, String> map = getParamByFile();
-        String xml = XMLUtil.FixedTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1","outboundIMMessage");
+    @ApiOperation(value = "文件消息发送",notes = "文件相关消息的发送功能")
+    public R fileMsg(@RequestBody TextMsgModel textMsgModel) {
+        System.out.println(textMsgModel.toString());
+        Map<String, String> map = textMsgModel.getMap();
+        List<FileInfo> fileInfos = textMsgModel.getFileInfos();
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        //标签 带上需要的随机id
+        String uuid32 = UUIDUtil.getUUID32();
+        map.put("conversationID",uuid32);
+        String bodyText = XMLUtil.FileTemplateXml(fileInfos, "file", "urn:gsma:params:xml:ns:rcs:rcs:fthttp");
+        map.put("bodyText",bodyText);
+        String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
         HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
         //https
-//        ResponseEntity<String> response = httpsTemplate.postForEntity("http://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
-        //TODO 接受消息发送后的响应
+        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
         //响应数据
-        String s = responseModelResponseEntity.getBody().toString();
-        //转化
-        ResponseModel responseModel = xmlToResponseModel(s);
+        //xml转化bean
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
 
-    /**
-     * 将响应回来的xml字符串类型，转化成bean，提供后续使用
-     * @param s
-     * @return
-     */
-    private ResponseModel xmlToResponseModel(String s){
-        ResponseModel responseModel=null;
-        try {
-            Document document= DocumentHelper.parseText(s);
-            responseModel=new ResponseModel();
-            //获取根节点
-            Element rootElement = document.getRootElement();
-            Element messageId = rootElement.element("messageId");
-            Element clientCorrelator = rootElement.element("clientCorrelator");
-            responseModel.setMessageId(messageId.getText());
-            responseModel.setClientCorrelator(clientCorrelator.getText());
-            System.out.println(responseModel.toString());
-        }catch (DocumentException e){
-            e.printStackTrace();
-        }
-        return responseModel;
-    }
-
-
-    //=========================================测试工具方法，非正式版本使用=====================================================
-    //初始化一些数据，测试方便，后面应该用不上
-    private void initMessageModel(){
-        String date = DateUtil.getGMTDate();
-        messageModel.setDate(date);
-        if(!StringUtils.hasText(redisUtils.getCacheObject("authorization"))){
-            String cspid = messageModel.getCspid();
-            String csptoken = messageModel.getCsptoken();
-            String authorization = TokenUtils.getAuthorization(cspid, csptoken);
-            messageModel.setAuthorization(authorization);
-            //24小时过期
-            redisUtils.setCacheObject("authorization",authorization, Duration.ofHours(24));
-        }else {
-            messageModel.setAuthorization(redisUtils.getCacheObject("authorization"));
-        }
-        String testAddress = messageModel.getTestAddress();
-        String reports = messageModel.getReports();
-        List<String> list = messageModel.getDestinationAddress();
-        List<String> reportRequest = messageModel.getReportRequest();
-        if(testAddress.indexOf(",")!=-1){
-            String[] split = testAddress.split(",");
-            for (String phone:split){
-                list.add(phone);
-            }
-        }else {
-            list.add(testAddress);
-        }
-        if(reports.indexOf(",")!=-1){
-            String[] split = reports.split(",");
-            for (String report:split){
-                reportRequest.add(report);
-            }
-        }else {
-            reportRequest.add(reports);
-        }
-    }
-
-    //文本消息 获取请求头（文件也可用）
-    private HttpHeaders getHttpHeadersByText(){
-        //请求头
-        HttpHeaders headers=new HttpHeaders();
-        headers.set("Content-Type",messageModel.getContentType());
-        StringBuilder address=new StringBuilder();
-        //多发为00000，单发为手机号
-        if (!"00000".equals(messageModel.getAddress())){
-            address.append("+86");
-        }
-        address.append(messageModel.getAddress());
-        headers.set("address",address.toString());
-        headers.set("Authorization",messageModel.getAuthorization());
-        headers.set("Date",messageModel.getDate());
-        return headers;
-    }
-    //基础参数
-    private Map<String,String> getParam(){
-        //xml请求体
-        List<String> list = messageModel.getDestinationAddress();
-        Map<String,String> map=new HashMap<>();
-        for (int i = 0; i < messageModel.getDestinationAddress().size(); i++) {
-            map.put(list.get(i),"destinationAddress");
-        }
+    @RequestMapping("cardSend")
+    @ApiOperation(value = "单卡片或多卡片或消息",tags = "单卡片或多卡片消息")
+    public R cardMsg(@RequestBody TextMsgModel textMsgModel){
+        System.out.println(textMsgModel.toString());
+        Map<String, String> map = textMsgModel.getMap();
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
-        map.put(uuid32,"conversationID");
-        map.put(messageModel.getSenderAddress(),"senderAddress");
-        map.put(messageModel.getCapabilityId(),"capabilityId");
-        map.put(messageModel.getVersion(),"version");
-        map.put(messageModel.getContentType(),"contentType");
-        return map;
+        map.put("conversationID",uuid32);
+        String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
+        HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
+        //https
+        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //响应数据
+        //xml转化bean
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModel.toString());
+        return R.ok();
     }
-    //文本消息所需参数
-    private Map<String,String> getParamByText(String bodyText){
-        Map<String, String> map = getParam();
-        List<String> reportRequest = messageModel.getReportRequest();
-        for (int i = 0; i < reportRequest.size(); i++) {
-            map.put(reportRequest.get(i),"reportRequest");
-        }
-        map.put(messageModel.getClientCorrelator(),"clientCorrelator");
-        map.put(bodyText,"bodyText");
-        return map;
-    }
-    //文件消息所需参数
-    private Map<String,String> getParamByFile(){
-        Map<String, String> map = getParam();
-        //xml请求体
-        List<String> list = messageModel.getDestinationAddress();
-        for (int i = 0; i < messageModel.getDestinationAddress().size(); i++) {
-            map.put(list.get(i),"destinationAddress");
-        }
-        map.put(messageModel.getClientCorrelator(),"clientCorrelator");
-        List<FileInfo> infos=new ArrayList<>();
-        FileInfo info1=new FileInfo();
-        info1.setContentType("image/jpeg");
-        info1.setFileSize("15191");
-        info1.setType("thumbnail");
-        Map<String, String> data = info1.getData();
-        data.put("url","https://http01.hn.rcs.chinamobile.com:9091/Access/PF?ID=QzYzNTE5Njc2NDUzMzhDQTk3OUMzQzQxQTkwN0ZCNjQyOTFGMjU4OTlFOURFREE4NTAyN0IxNjcyOUZEQTBFNjNEQTQ0M0E5OENCQjE4MzdGQzQzRkJENkM0RjQwOTE0");
-        data.put("until","2022-08-12T23:59:59Z");
 
-        FileInfo info2=new FileInfo();
-        info2.setContentType("video/mp4");
-        info2.setFileSize("1482235");
-        info2.setType("file");
-        info2.setFileName("mda-merqtf8xju5x91gn.mp4");
-        Map<String, String> data2 = info2.getData();
-        data2.put("url","https://http01.hn.rcs.chinamobile.com:9091/Access/PF?ID=NjJBNDEyNURGMzc1NjgxNTZBMzdFOERFQ0M5NDE4QzlEODc2MTRCNkM1NDlEQzhEQkZGQjBBQ0YxQ0MyMTZGQ0UyMzk5NkNGRTk3NTg5QURGRjg1RjBFRTkxNDI3QzZD");
-        data2.put("until","2022-08-12T23:59:59Z");
-        infos.add(info1);
-        infos.add(info2);
-        String xml = XMLUtil.FileTemplateXml(infos, "file", "urn:gsma:params:xml:ns:rcs:rcs:fthttp");
-        map.put(xml,"bodyText");
-        return map;
+    @RequestMapping("cardSuggestSend")
+    @ApiOperation(value = "下行单卡片带内置按钮",tags = "下行单卡片带内置按钮")
+    public R cardSuggestSend(@RequestBody TextMsgModel textMsgModel){
+        System.out.println(textMsgModel.toString());
+        Map<String, String> map = textMsgModel.getMap();
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        //标签 带上需要的随机id
+        String uuid32 = UUIDUtil.getUUID32();
+        map.put("conversationID",uuid32);
+        String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
+        HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
+        //https
+        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //响应数据
+        //xml转化bean
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModel.toString());
+        return R.ok();
     }
+
+    @RequestMapping("cardsSuggestSend")
+    @ApiOperation(value = "下行单播多卡片带内置按钮",tags = "下行单播多卡片带内置按钮")
+    public R cardsSuggestSend(@RequestBody TextMsgModel textMsgModel){
+        System.out.println(textMsgModel.toString());
+        Map<String, String> map = textMsgModel.getMap();
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        //标签 带上需要的随机id
+        String uuid32 = UUIDUtil.getUUID32();
+        map.put("conversationID",uuid32);
+        String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
+        HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
+        //https
+        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //响应数据
+        //xml转化bean
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModel.toString());
+        return R.ok();
+    }
+
+    @RequestMapping("txtMenuSend")
+    @ApiOperation(value = "下行单播携带悬浮菜单文本消息",tags = "下行单播携带悬浮菜单文本消息")
+    public R txtMenuSend(@RequestBody TextMsgModel textMsgModel){
+        System.out.println(textMsgModel.toString());
+        Map<String, String> map = textMsgModel.getMap();
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        //标签 带上需要的随机id
+        String uuid32 = UUIDUtil.getUUID32();
+        map.put("conversationID",uuid32);
+        String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
+        HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
+        //https
+        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //响应数据
+        //xml转化bean
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModel.toString());
+        return R.ok();
+    }
+
+    @RequestMapping("contributionMsg")
+    @ApiOperation(value = "交互下行消息",tags = "交互下行消息")
+    public R contributionMsg(@RequestBody TextMsgModel textMsgModel){
+        System.out.println(textMsgModel.toString());
+        Map<String, String> map = textMsgModel.getMap();
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        //标签 带上需要的随机id
+        String uuid32 = UUIDUtil.getUUID32();
+        map.put("conversationID",uuid32);
+        //获取上行信息交互id
+        String inReplyToContribution = textMsgModel.getContributionID();
+        map.put("inReplyToContribution",inReplyToContribution);
+        String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
+        HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
+        //https
+        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //响应数据
+        //xml转化bean
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModel.toString());
+        return R.ok();
+    }
+
+    //各种消息回落，直接在各种消息参数，补上对应即可，可用愿方法，该方法用于测试
+    @RequestMapping("fallbackSend")
+    @ApiOperation(value = "下行消息回落up1.0文本消息",tags = "下行消息回落up1.0文本消息")
+    public R fallbackSend(@RequestBody TextMsgModel textMsgModel){
+        System.out.println(textMsgModel.toString());
+        Map<String, String> map = textMsgModel.getMap();
+        List<FileInfo> fileInfos = textMsgModel.getFileInfos();
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        //标签 带上需要的随机id
+        String uuid32 = UUIDUtil.getUUID32();
+        map.put("conversationID",uuid32);
+        String bodyText = XMLUtil.FileTemplateXml(fileInfos, "file", "urn:gsma:params:xml:ns:rcs:rcs:fthttp");
+        map.put("bodyText",bodyText);
+        String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
+        HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
+        //https
+        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //响应数据
+        //xml转化bean
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModel.toString());
+        return R.ok();
+    }
+
+    @Test
+    public void test(){
+        JSONObject object=new JSONObject();
+        object.put("bodyText","--next\n" +
+                "Content-Type: text/plain\n" +
+                "Content-Disposition: inline; filename=\"Message\"\n" +
+                "Content-Length: 42\n" +
+                "\n" +
+                "只是一条带悬浮菜单纯文本消息\n" +
+                "--next\n" +
+                "Content-Type: application/vnd.gsma.botsuggestion.v1.0+json\n" +
+                "Content-Disposition: inline; filename=\"Chiplist.lst\"\n" +
+                "Content-Length: 572\n" +
+                "\n" +
+                "{\n" +
+                "    \"suggestions\": [\n" +
+                "        {\n" +
+                "            \"reply\": {\n" +
+                "                \"displayText\": \"上行YES\",\n" +
+                "                \"postback\": {\n" +
+                "                    \"data\": \"YES\"\n" +
+                "                }\n" +
+                "            }\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"action\": {\n" +
+                "                \"displayText\": \"打开链接\",\n" +
+                "                \"postback\": {\n" +
+                "                    \"data\": \"user_open_url\"\n" +
+                "                },\n" +
+                "                \"urlAction\": {\n" +
+                "                    \"openUrl\": {\n" +
+                "                        \"application\": \"webview\",\n" +
+                "                        \"url\": \"https://rcs.10086.cn/\"\n" +
+                "                    }\n" +
+                "                }\n" +
+                "            }\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"action\": {\n" +
+                "                \"dialerAction\": {\n" +
+                "                    \"dialPhoneNumber\": {\n" +
+                "                        \"phoneNumber\": \"10086\"\n" +
+                "                    }\n" +
+                "                },\n" +
+                "                \"displayText\": \"拨打10086\",\n" +
+                "                \"postback\": {\n" +
+                "                    \"data\": \"dialPhoneNumber_10086\"\n" +
+                "                }\n" +
+                "            }\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"action\": {\n" +
+                "                \"mapAction\": {\n" +
+                "                    \"requestLocationPush\": {}\n" +
+                "                },\n" +
+                "                \"displayText\": \"上报当前位置\",\n" +
+                "                \"postback\": {\n" +
+                "                    \"data\": \"set_by_chatbot_request_location_push\"\n" +
+                "                }\n" +
+                "            }\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"action\": {\n" +
+                "                \"mapAction\": {\n" +
+                "                    \"showLocation\": {\n" +
+                "                        \"location\": {\n" +
+                "                            \"latitude\": 23.170408552888855,\n" +
+                "                            \"longitude\": 113.40224851582335,\n" +
+                "                            \"label\": \"中国移动南方基地智汇中心\"\n" +
+                "                        },\n" +
+                "                        \"fallbackUrl\": \"https://j.map.baidu.com/eb/XWkf\"\n" +
+                "                    }\n" +
+                "                },\n" +
+                "                \"displayText\": \"搜索并导航到“中国移动南方基地智汇中心”\",\n" +
+                "                \"postback\": {\n" +
+                "                    \"data\": \"set_by_chatbot_open_map\"\n" +
+                "                }\n" +
+                "            }\n" +
+                "        }\n" +
+                "    ]\n" +
+                "}\n" +
+                "--next--");
+        System.out.println(object.toJSONString());
+    }
+
+
 }
+
