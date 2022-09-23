@@ -1,12 +1,8 @@
 package com.example.demo01.entity.msgModel;
 
+import com.example.demo01.common.GroupMsgResponseCode;
 import com.example.demo01.entity.DeliveryInfo;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapters;
 import java.util.ArrayList;
 import java.util.List;
 

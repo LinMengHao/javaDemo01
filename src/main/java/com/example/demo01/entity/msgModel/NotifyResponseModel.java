@@ -1,8 +1,11 @@
 package com.example.demo01.entity.msgModel;
+
+import com.example.demo01.common.NotifyCode;
+
 //状态报告通知实体类
 public class NotifyResponseModel {
     //发送失败还是成功
-    private String code="error";
+    private String code= NotifyCode.ERROR;
     //发送回执消息的发送方地址（原消息的目的方地址
     private String address;
     //源消息ID
@@ -16,6 +19,16 @@ public class NotifyResponseModel {
     private String rel;
     //对应源消息resourceURL 属性 href。
     private String href;
+
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public NotifyResponseModel() {
     }
@@ -87,7 +100,7 @@ public class NotifyResponseModel {
     @Override
     public String toString() {
         return "NotifyResponseModel{" +
-                "code=" + code +
+                "code='" + code + '\'' +
                 ", address='" + address + '\'' +
                 ", messageId='" + messageId + '\'' +
                 ", deliveryStatus='" + deliveryStatus + '\'' +
@@ -95,6 +108,7 @@ public class NotifyResponseModel {
                 ", text='" + text + '\'' +
                 ", rel='" + rel + '\'' +
                 ", href='" + href + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }

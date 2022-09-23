@@ -15,11 +15,31 @@ public class FileInfo implements Serializable {
     //content-type值
     private String contentType;
     //data标签，属性： url：xxx  until：xxx
+    private String url;
+    //data标签，属性： url：xxx  until：xxx
+    private String until;
+    //data标签，属性： url：xxx  until：xxx
     private Map<String,String> data=new HashMap<>();
 
     public FileInfo() {
         data.put("url","");
         data.put("until","");
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getUntil() {
+        return until;
+    }
+
+    public void setUntil(String until) {
+        this.until = until;
     }
 
     public String getType() {
@@ -60,5 +80,18 @@ public class FileInfo implements Serializable {
 
     public void setData(Map<String, String> data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "FileInfo{" +
+                "type='" + type + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", fileSize='" + fileSize + '\'' +
+                ", contentType='" + contentType + '\'' +
+                ", url='" + url + '\'' +
+                ", until='" + until + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

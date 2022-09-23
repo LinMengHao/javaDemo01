@@ -1,6 +1,7 @@
 package com.example.demo01.controller.notify;
 
 import com.example.demo01.common.R;
+import com.example.demo01.entity.msgModel.AuditResponseModel;
 import com.example.demo01.entity.msgModel.NotifyResponseModel;
 import com.example.demo01.entity.msgModel.SXMessage;
 import com.example.demo01.entity.msgModel.TextMsgModel;
@@ -80,8 +81,62 @@ public class NotifyController {
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> response = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests/"+textMsgModel.getMessageId(), entity, String.class);
+//        ResponseEntity<String> response = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests/"+textMsgModel.getMessageId()+"/status", entity, String.class);
+        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:8888/messaging/group/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests", entity, String.class);
         //响应数据
+        return R.ok();
+    }
+    @RequestMapping("notifyWithdraw")
+    @ApiOperation(value = "撤回消息结果通知",tags = "撤回消息结果通知")
+    public R notifyWithdraw(HttpServletRequest request){
+        //请求头获取主叫地址
+        String address = request.getHeader("Address");
+        BufferedReader reader=null;
+        NotifyResponseModel notifyResponseModel=null;
+        try {
+            reader=request.getReader();
+            StringBuilder s=new StringBuilder();
+            String s1=null;
+            while ((s1=reader.readLine())!=null){
+                s.append(s1);
+            }
+            notifyResponseModel = XmlToBean.xmlToWithdrawResponse(s.toString());
+            System.out.println("address："+address+"    "+notifyResponseModel.toString());
+            //TODO 先保存数据  再转发到机器人处理（业务）
+            //TODO 处理逻辑
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return R.ok().code("204");
+    }
+    //媒体审核通知
+    @RequestMapping("audit")
+    public R audit(HttpServletRequest request){
+        String tid = request.getHeader("Tid");
+        String authstatus = request.getHeader("Authstatus");
+        AuditResponseModel auditResponseModel=null;
+        BufferedReader reader=null;
+        try{
+            if(!"0".equals(authstatus)){
+                auditResponseModel=new AuditResponseModel();
+                auditResponseModel.setTid(tid);
+                auditResponseModel.setAuthstatus(authstatus);
+            }else {
+                //获取审核通过文件信息
+                reader=request.getReader();
+                StringBuilder s=new StringBuilder();
+                String s1=null;
+                while ((s1=reader.readLine())!=null){
+                    s.append(s1);
+                }
+                auditResponseModel = XmlToBean.xmlToAuditResponseModel(s.toString());
+                auditResponseModel.setAuthstatus(authstatus);
+                auditResponseModel.setTid(tid);
+                System.out.println(auditResponseModel.toString());
+            }
+        }catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return R.ok();
     }
 }

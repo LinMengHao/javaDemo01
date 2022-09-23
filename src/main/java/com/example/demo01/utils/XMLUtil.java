@@ -2,19 +2,22 @@ package com.example.demo01.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo01.entity.FileInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 import org.junit.jupiter.api.Test;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.util.StringUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.StringWriter;
 import java.util.*;
-
+@Slf4j
 public class XMLUtil {
     public static void main(String[] args) {
         JSONObject jsonObject=new JSONObject();
@@ -394,6 +397,7 @@ public class XMLUtil {
             //生成错误
             e.printStackTrace();
             //TODO 日志
+            log.info("组包出错：缺少参数");
         }
         return xmlStr;
     }
@@ -632,6 +636,7 @@ public class XMLUtil {
         }
         return "fail";
     }
+
 
 
 }

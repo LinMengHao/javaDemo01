@@ -10,6 +10,7 @@ import com.example.demo01.utils.TokenUtils;
 import com.example.demo01.utils.XmlToBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.util.StringUtils;
@@ -31,6 +32,8 @@ import java.util.List;
 public class ReceiveMsgController {
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
     @Autowired
     MessageModel messageModel;
     private static RestTemplate httpsTemplate=new RestTemplate(new HttpsClientRequestFactory());
@@ -62,7 +65,7 @@ public class ReceiveMsgController {
     //从YD下载用户上行文件，内容必须一致 TODO 判断有效期
     @RequestMapping("fileMsg")
     @ApiOperation(value = "接收上行图片消息",tags = "接收上行图片消息")
-    public R receiveFileMsg(HttpServletRequest request, HttpServletResponse response){
+    public R receiveFileMsg(HttpServletRequest request){
         String address = request.getHeader("Address");
         BufferedReader reader=null;
         SXMessage sxMessage=null;
@@ -113,7 +116,7 @@ public class ReceiveMsgController {
                     }
                     if(StringUtils.hasText(filename)){
                         if(body!=null){
-                            String filePath="./FILE/KING/"+filename;
+                            String filePath="./FILE/CHATBOT/"+filename;
                             File dest = new File(filePath);
                             // 检测是否存在目录
                             if (dest.exists()) {

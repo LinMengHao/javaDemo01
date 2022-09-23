@@ -1,4 +1,4 @@
-package com.example.demo01.entity.msgModel;
+package com.example.demo01.common;
 
 //群发响应状态
 public enum GroupMsgResponseCode {
@@ -7,7 +7,5 @@ public enum GroupMsgResponseCode {
 //    部分响应成功
     SEGMENT,
 //    列表过大，响应失败｜｜状态报告通知发送成功
-    ERROR,
-//    状态报告通知发送成功
-    SUCCESS
+    ERROR
 }

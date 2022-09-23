@@ -65,10 +65,6 @@ public class SendMsgController {
 
         //消息内容请求体
         String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
-        //状态报告通知xml请求体
-        Map<String, String> notify = textMsgModel.getNotify();
-        String notifyXml = XMLUtil.notifyTemplateXml(notify, "msg:deliveryInfoNotification", "urn:oma:xml:rest:netapi:messaging:1", "deliveryInfo");
-
         HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);

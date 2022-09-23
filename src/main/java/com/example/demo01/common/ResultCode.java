@@ -22,7 +22,16 @@ public enum ResultCode implements IResultCode{
     USER_ACCOUNT_LOCKED("2006", "账号被锁定"),
     USER_ACCOUNT_NOT_EXIST("2007", "账号不存在"),
     USER_ACCOUNT_ALREADY_EXIST("2008", "账号已存在"),
-    USER_ACCOUNT_USE_BY_OTHERS("2009", "账号下线"),;
+    USER_ACCOUNT_USE_BY_OTHERS("2009", "账号下线"),
+
+    /*Chatbot下行消息的状态报告*/
+    DELIVERYIMPOSSIBLE("DeliveryImpossible","下行消息投递失败"),
+    MESSAGESENT("MessageSent","消息已发送到5G消息接入层"),
+    DELIVEREDTONETWORK("DeliveredToNetwork","发送到终端成功"),
+    MESSAGEDISPLAYED("MessageDisplayed ","消息已阅"),
+    DELIVEREDTOTERMINAL("DeliveredToTerminal","以消息的形态达到终端，包括MaaP消息和普通P2P消息送达"),
+    ;
+
     private String code;
     private String message;
 

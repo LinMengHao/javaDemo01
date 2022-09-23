@@ -72,6 +72,13 @@ public class TextMsgModel implements Serializable {
     //消息内容
     private String bodyText;
 
+    //文件上传id
+    private String tid;
+
+    //文件公网URL地址
+    private String fileURL;
+
+
 
     /*
     状态事件报告列表，每个状态事件的可选值为:
@@ -107,6 +114,22 @@ public class TextMsgModel implements Serializable {
 
     //  主叫地址
     private String callingAddress;
+
+    public String getTid() {
+        return tid;
+    }
+
+    public void setTid(String tid) {
+        this.tid = tid;
+    }
+
+    public String getFileURL() {
+        return fileURL;
+    }
+
+    public void setFileURL(String fileURL) {
+        this.fileURL = fileURL;
+    }
 
     public String getCallingAddress() {
         return callingAddress;
@@ -348,6 +371,8 @@ public class TextMsgModel implements Serializable {
                 ", capabilityId='" + capabilityId + '\'' +
                 ", version='" + version + '\'' +
                 ", bodyText='" + bodyText + '\'' +
+                ", tid='" + tid + '\'' +
+                ", fileURL='" + fileURL + '\'' +
                 ", reportRequest=" + reportRequest +
                 ", clientCorrelator='" + clientCorrelator + '\'' +
                 ", shortMessageSupported='" + shortMessageSupported + '\'' +

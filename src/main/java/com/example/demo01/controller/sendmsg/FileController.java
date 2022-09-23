@@ -1,7 +1,10 @@
 package com.example.demo01.controller.sendmsg;
 
 import com.example.demo01.common.R;
+import com.example.demo01.entity.msgModel.MessageModel;
+import com.example.demo01.entity.msgModel.TextMsgModel;
 import com.example.demo01.utils.DateUtil;
+import com.example.demo01.utils.HttpHeaderUtil;
 import com.example.demo01.utils.TokenUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,10 +16,7 @@ import org.springframework.http.*;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -37,6 +37,10 @@ import java.util.List;
 public class FileController {
     @Autowired
     RestTemplate restTemplate;
+    @Autowired
+    HttpHeaderUtil httpHeaderUtil;
+    @Autowired
+    MessageModel messageModel;
 
 
     @RequestMapping("upload")
@@ -112,6 +116,7 @@ public class FileController {
     public R batchToYD(HttpServletRequest request){
         List<MultipartFile> thumbnails = ((MultipartHttpServletRequest) request).getFiles("Thumbnail");
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("File");
+        String tid = request.getParameter("tid");
         LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
         if(files.size()<=0&&files==null){
             return R.error().message("文件上传失败因为文件为空");
@@ -124,10 +129,19 @@ public class FileController {
         if(thumbnails.size()>0){
             getResource(thumbnails,map,"Thumbnail");
         }
+        map.add("tid",tid);
         //请求组包 TODO
         HttpHeaders httpHeaders = new HttpHeaders();
+        String date = DateUtil.getGMTDate();
+        String authorization = TokenUtils.getAuthorization(messageModel.getCspid(), messageModel.getCsptoken(), date);
+        httpHeaders.set("Authorization",authorization);
+        httpHeaders.set("Date",date);
+        httpHeaders.set("Terminal-type","Chatbot");
+        httpHeaders.set("User-Agent","SP/"+messageModel.getChatbotURI());
+        httpHeaders.set("X-3GPP-Intended-Identity",messageModel.getChatbotURI());
         httpHeaders.setContentType(MediaType.MULTIPART_FORM_DATA);
-        HttpEntity<LinkedMultiValueMap<String, Object>> param = new HttpEntity<>(map, httpHeaders);
+        HttpEntity<LinkedMultiValueMap<String, Object>> entity = new HttpEntity<>(map, httpHeaders);
+        restTemplate.postForEntity("http://localhost:8888/testbatchYD",entity,String.class);
         return R.ok();
     }
     //多文件组包
@@ -201,6 +215,22 @@ public class FileController {
             }
         }
 
+        return R.ok();
+    }
+
+    @RequestMapping("deleteFile")
+    public R deleteFile(@RequestBody TextMsgModel textMsgModel){
+        HttpHeaders headers=new HttpHeaders();
+        String date = DateUtil.getGMTDate();
+        headers.set("Authorization",TokenUtils.getAuthorization(textMsgModel.getCspid(),textMsgModel.getCsptoken(),date));
+        headers.set("Date",date);
+        headers.set("Terminal-type","Chatbot");
+        headers.set("User-Agent","SP/"+textMsgModel.getChatbotURI());
+        headers.set("X-3GPP-Intended-Identity",textMsgModel.getChatbotURI());
+        headers.set("tid",textMsgModel.getTid());
+        headers.set("fileURL",textMsgModel.getFileURL());
+        HttpEntity<String> entity=new HttpEntity<>(headers);
+        restTemplate.exchange("",HttpMethod.DELETE,entity,String.class);
         return R.ok();
     }
 }

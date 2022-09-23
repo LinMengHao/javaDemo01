@@ -1,19 +1,23 @@
 package com.example.demo01.controller.sendmsg;
 
+import com.example.demo01.common.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.util.Enumeration;
+import java.util.List;
+
+import static java.lang.System.out;
 
 @RestController
 public class TestMsgBodyController {
@@ -23,11 +27,11 @@ public class TestMsgBodyController {
         BufferedWriter writer=null;
         try{
             writer=new BufferedWriter(new FileWriter(new File("/Users/yoca-391/Documents/demo01/xmlfiles/test1.xml")));
-            System.out.println(request.getMethod());
-            System.out.println(request.getPathInfo());
-            System.out.println(request.getRequestURI());
-            System.out.println(request.getRequestURL());
-            System.out.println(request.getQueryString());
+            out.println(request.getMethod());
+            out.println(request.getPathInfo());
+            out.println(request.getRequestURI());
+            out.println(request.getRequestURL());
+            out.println(request.getQueryString());
             Enumeration<String> headerNames = request.getHeaderNames();
             StringBuilder sb=new StringBuilder();
             while  (headerNames.hasMoreElements())              //读取请求消息头
@@ -45,7 +49,7 @@ public class TestMsgBodyController {
                 writer.write(s);
                 writer.newLine();
                 writer.flush();
-                System.out.println(s);
+                out.println(s);
             }
             //TODO 模拟返回响应xml
             response.setHeader("Content-Type","application/xml");
@@ -168,4 +172,107 @@ public class TestMsgBodyController {
             }
         }
     }
+    @RequestMapping("testbatchYD")
+    public R testbatchYD(HttpServletRequest request){
+        System.out.println(request.getContentType());
+        Enumeration<String> parameterNames = request.getParameterNames();
+        while (parameterNames.hasMoreElements()) {
+            String name = parameterNames.nextElement();
+            out.println("参数名："+name + "\t" +"结果："+ request.getParameter(name));
+        }
+        List<MultipartFile> thumbnails = ((MultipartHttpServletRequest) request).getFiles("Thumbnail");
+        List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("File");
+        for (int i = 0; i < thumbnails.size(); i++) {
+            MultipartFile file = thumbnails.get(i);
+            if (file.isEmpty()) {
+                return R.error().message("文件为空");
+            }
+            String contentType = file.getContentType();
+            System.out.println("文件格式："+contentType);
+            long size = file.getSize();
+            System.out.println("文件大小："+size+"字节（磁盘约"+size/1000+"KB)");
+            // 获取文件名
+            String fileName = file.getOriginalFilename();
+            System.out.println("上传的文件名为：" + fileName);//写日志
+            // 获取文件的后缀名
+            String suffixName = fileName.substring(fileName.lastIndexOf("."));
+            System.out.println("文件的后缀名为：" + suffixName);//写日志
+            // 设置文件存储路径         *************************************************
+            String filePath = "./FILE/CHATBOT/";
+            String path = filePath + fileName;
+            File dest = new File(new File(path).getAbsolutePath());// dist为文件，有多级目录的文件
+            // 检测是否存在目录
+            if (!dest.getParentFile().exists()) {//因此这里使用.getParentFile()，目的就是取文件前面目录的路径
+                dest.getParentFile().mkdirs();// 新建文件夹
+            }
+            try {
+                file.transferTo(dest);// 文件写入
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        for (int i = 0; i < files.size(); i++) {
+            MultipartFile file = files.get(i);
+            if (file.isEmpty()) {
+                return R.error().message("文件为空");
+            }
+            String contentType = file.getContentType();
+            System.out.println("文件格式："+contentType);
+            long size = file.getSize();
+            System.out.println("文件大小："+size+"字节（磁盘约"+size/1000+"KB)");
+            // 获取文件名
+            String fileName = file.getOriginalFilename();
+            System.out.println("上传的文件名为：" + fileName);//写日志
+            // 获取文件的后缀名
+            String suffixName = fileName.substring(fileName.lastIndexOf("."));
+            System.out.println("文件的后缀名为：" + suffixName);//写日志
+            // 设置文件存储路径         *************************************************
+            String filePath = "./FILE/CHATBOT/";
+            String path = filePath + fileName;
+            File dest = new File(new File(path).getAbsolutePath());// dist为文件，有多级目录的文件
+            // 检测是否存在目录
+            if (!dest.getParentFile().exists()) {//因此这里使用.getParentFile()，目的就是取文件前面目录的路径
+                dest.getParentFile().mkdirs();// 新建文件夹
+            }
+            try {
+                file.transferTo(dest);// 文件写入
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return R.ok();
+    }
+
+    @RequestMapping("testDeleteFile")
+    public R testDeleteFile(HttpServletRequest request){
+        BufferedWriter writer=null;
+        try{
+            writer=new BufferedWriter(new FileWriter(new File("/Users/yoca-391/Documents/demo01/xmlfiles/test2.txt")));
+            out.println(request.getMethod());
+            out.println(request.getPathInfo());
+            out.println(request.getRequestURI());
+            out.println(request.getRequestURL());
+            out.println(request.getQueryString());
+            Enumeration<String> headerNames = request.getHeaderNames();
+            StringBuilder sb=new StringBuilder();
+            while  (headerNames.hasMoreElements())              //读取请求消息头
+            {
+                String name = headerNames.nextElement();
+                String str=name +  ":"  + request.getHeader(name);
+                writer.write(str);
+                writer.newLine();
+                writer.flush();
+            }
+        }catch(IOException e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return R.ok();
+    }
+
 }

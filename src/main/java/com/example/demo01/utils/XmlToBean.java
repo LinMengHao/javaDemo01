@@ -1,9 +1,11 @@
 package com.example.demo01.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo01.common.NotifyCode;
 import com.example.demo01.entity.DeliveryInfo;
 import com.example.demo01.entity.FileInfo;
-import com.example.demo01.entity.msgModel.GroupMsgResponseCode;
+import com.example.demo01.common.GroupMsgResponseCode;
+import com.example.demo01.entity.msgModel.AuditResponseModel;
 import com.example.demo01.entity.msgModel.NotifyResponseModel;
 import com.example.demo01.entity.msgModel.ResponseModel;
 import com.example.demo01.entity.msgModel.SXMessage;
@@ -78,6 +80,7 @@ public class XmlToBean {
         return responseModel;
     }
 
+    //状态通知
     public static NotifyResponseModel xmlToNotifyResponseModel(String s){
         Map<String,String>map=new HashMap<>();
         NotifyResponseModel o=null;
@@ -110,9 +113,83 @@ public class XmlToBean {
         } catch (DocumentException e) {
             e.printStackTrace();
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return o;
+    }
+
+    //撤回通知
+    public static NotifyResponseModel xmlToWithdrawResponse(String s){
+        Map<String,String>map =new HashMap<>();
+        NotifyResponseModel notify=null;
+        try {
+            Document document=DocumentHelper.parseText(s);
+            Element rootElement = document.getRootElement();
+            List<Element> elements = rootElement.elements();
+            for (int i = 0; i < elements.size(); i++) {
+                Element element = elements.get(i);
+                if("link".equals(element.getName())){
+                    if(StringUtils.hasText(element.attributeValue("rel"))){
+                        map.put("rel", element.attributeValue("rel"));
+                    }
+                    if(StringUtils.hasText(element.attributeValue("href"))){
+                        map.put("href", element.attributeValue("href"));
+                    }
+                }
+                map.put(element.getName(),element.getText());
+            }
+            String status = map.get("status");
+            if(StringUtils.hasText(status)||"Revoked".equals(status)){
+                map.put("code", NotifyCode.SUCCESS);
+            }
+            notify=(NotifyResponseModel)mapToObject(map, NotifyResponseModel.class);
+            System.out.println(notify.toString());
+        } catch (DocumentException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return notify;
+    }
+
+    //媒体审核响应实体转转化
+    public static AuditResponseModel xmlToAuditResponseModel(String s){
+        AuditResponseModel auditResponseModel=new AuditResponseModel();
+        List<FileInfo> fileInfos=auditResponseModel.getFileInfos();
+        try {
+            Document document=DocumentHelper.parseText(s);
+            Element rootElement = document.getRootElement();
+            List<Element> elements = rootElement.elements("file-info");
+            if (elements.size()<=0||elements==null){
+                return null;
+            }
+            for (int i = 0; i < elements.size(); i++) {
+                Element element = elements.get(i);
+                FileInfo fileInfo = new FileInfo();
+                fileInfo.setType(element.attributeValue("type"));
+                Element element1 = element.element("file-size");
+                fileInfo.setFileSize(element1.getText());
+                Element element2 = element.element("file-name");
+                if (element2!=null){
+                    fileInfo.setFileName(element2.getText());
+                }
+                Element element3 = element.element("content-type");
+                fileInfo.setContentType(element3.getText());
+                Element data = element.element("data");
+                if(data!=null){
+                    if (StringUtils.hasText(data.attributeValue("url"))){
+                        fileInfo.setUrl(data.attributeValue("url"));
+                    }
+                    if(StringUtils.hasText(data.attributeValue("until"))){
+                        fileInfo.setUntil(data.attributeValue("until"));
+                    }
+                }
+                fileInfos.add(fileInfo);
+            }
+        } catch (DocumentException e) {
+            throw new RuntimeException(e);
+        }
+        return auditResponseModel;
     }
 
     //map转java对象
@@ -123,17 +200,13 @@ public class XmlToBean {
 
     @Test
     public void test(){
-        xmlToNotifyResponseModel("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-                "<msg:deliveryInfoNotification xmlns:msg=\"urn:oma:xml:rest:netapi:messaging:1\">  \n" +
-                "<deliveryInfo>\n" +
-                "    <address> tel:+8619585550103</address>\n" +
-                "    <messageId>5eae954c-42ca-4181-9ab4-9c0ef2e2ac55</messageId>\n" +
-                "    <deliveryStatus>DeliveryImpossible</deliveryStatus>\n" +
-                "<description>SVC0002</description>\n" +
-                "    <text>AO msg service capability invalid</text>\n" +
-                "</deliveryInfo>\n" +
-                "<link rel=\"OutboundMessageRequest\"    href=\"http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55\"/>\n" +
-                "</msg:deliveryInfoNotification>");
+        xmlToWithdrawResponse("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<msg:messageStatusNotification xmlns:msg=\"urn:oma:xml:rest:netapi:messaging:1\">  \n" +
+                "<address>tel:+8619585550104</address>\n" +
+                "<messageId>5eae954c-42ca-4181-9ab4-9c0ef2e2ac55</messageId>\n" +
+                "  <status>Revoked</status>\n" +
+                "<link rel=\"OutboundMessageRequest\"  href=\"https://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55\"/>\n" +
+                "</msg:messageStatusNotification>");
     }
 
     public static SXMessage xmlToSXMessage(String s){
