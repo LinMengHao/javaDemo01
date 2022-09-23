@@ -62,6 +62,7 @@ public class ReceiveMsgCustomer {
             }else if(msg.getInboundMessage()!=null&&msg.getDeliveryInfos()==null){
                 //终端主动上行消息...
                 //根据contentType 判断是什么类型信息
+
                 channel.basicAck(deliveryTag,false);
             }else if(msg.getDeliveryInfos()==null&&msg.getInboundMessage()==null){
                 //消息撤回...

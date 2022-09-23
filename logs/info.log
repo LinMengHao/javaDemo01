@@ -1,0 +1,21 @@
+09:57:26.569 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on localhost with PID 6024 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+09:57:26.657 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+09:57:30.133 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+09:57:30.134 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+09:57:30.135 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+09:57:30.366 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+09:57:32.598 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+09:57:33.605 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+09:57:33.644 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+09:57:33.692 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+09:57:33.766 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+09:57:34.528 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 9.085 seconds (JVM running for 21.403)
+15:26:18.211 [main] INFO  com.example.demo01.Demo01ApplicationTests - Starting Demo01ApplicationTests using Java 1.8.0_341 on bogon with PID 56775 (started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:26:18.221 [main] INFO  com.example.demo01.Demo01ApplicationTests - No active profile set, falling back to 1 default profile: "default"
+15:26:25.670 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:26:27.340 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:26:27.386 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:26:27.447 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:26:28.747 [main] INFO  com.example.demo01.Demo01ApplicationTests - Started Demo01ApplicationTests in 11.323 seconds (JVM running for 17.455)
+16:13:04.273 [http-nio-8888-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:13:04.417 [http-nio-8888-exec-1] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]

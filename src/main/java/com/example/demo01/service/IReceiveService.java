@@ -10,4 +10,11 @@ public interface IReceiveService {
      * @return
      */
     public abstract R notifyStatus(Messages messages);
+
+    /**
+     * 解析用于5G消息接入层向Chatbot发送上行消息
+     * @param messages
+     * @return
+     */
+    public abstract R receiveMsg(Messages messages);
 }

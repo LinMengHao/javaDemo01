@@ -1,0 +1,34 @@
+accept:text/plain, application/json, application/*+json, */*
+content-type:application/xml
+address:00000
+authorization:Basic dGVzdDEyMzQ1OjkyZjhhMTZlNjc1Y2E2MGVlODk1NzY4NDJhMDllNjcxMTQ5YTE5YmUzMGFmMTNiZTZlODNlMDczYzZkZWZjNmU=
+date:Wed, 21 Sep 2022 09:18:57 GMT
+content-length:1121
+host:localhost:8888
+connection:Keep-Alive
+user-agent:Apache-HttpClient/4.5.13 (Java/1.8.0_341)
+accept-encoding:gzip,deflate
+<?xml version="1.0" encoding="UTF-8"?>
+
+<msg:outboundMessageRequest xmlns:msg="urn:oma:xml:rest:netapi:messaging:1">
+  <outboundIMMessage>
+    <serviceCapability>
+      <capabilityId>ChatbotSA</capabilityId>
+      <version>+g.gsma.rcs.botversion=&quot;#=1&quot;</version>
+    </serviceCapability>
+    <bodyText>![CDATA[Hello world]]</bodyText>
+    <contentType>text/plain</contentType>
+    <conversationID>6a04c1a4e9d34063a578d31ee607461c</conversationID>
+    <contributionID>6a04c1a4e9d34063a578d31ee607461c</contributionID>
+  </outboundIMMessage>
+  <senderAddress>sip%3A12599%40botplatform.rcs.chinamobile.com</senderAddress>
+  <address>tel:+8618756232770</address>
+  <destinationAddress>tel:+8618756232770</destinationAddress>
+  <destinationAddress>tel:+8618756232771</destinationAddress>
+  <destinationAddress>tel:+8618756232772</destinationAddress>
+  <destinationAddress>tel:+8618756232773</destinationAddress>
+  <reportRequest>Delivered</reportRequest>
+  <reportRequest>Failed</reportRequest>
+  <reportRequest>Interworking</reportRequest>
+  <clientCorrelator>567895</clientCorrelator>
+</msg:outboundMessageRequest>

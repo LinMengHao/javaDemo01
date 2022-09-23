@@ -1,0 +1,16 @@
+accept:text/plain, application/json, application/*+json, */*
+content-type:application/xml
+address:+8618756232770
+authorization:Basic dGVzdDEyMzQ1OjkyZjhhMTZlNjc1Y2E2MGVlODk1NzY4NDJhMDllNjcxMTQ5YTE5YmUzMGFmMTNiZTZlODNlMDczYzZkZWZjNmU=
+date:Wed, 21 Sep 2022 07:50:50 GMT
+content-length:216
+host:localhost:8888
+connection:Keep-Alive
+user-agent:Apache-HttpClient/4.5.13 (Java/1.8.0_341)
+accept-encoding:gzip,deflate
+<?xml version="1.0" encoding="UTF-8"?>
+
+<msg:messageStatusReport xmlns:msg="urn:oma:xml:rest:netapi:messaging:1">
+  <status>RevokeRequested</status>
+  <address>tel:+8618756232770</address>
+</msg:messageStatusReport>
