@@ -26,7 +26,8 @@ public class TestMsgBodyController {
         BufferedReader reader=null;
         BufferedWriter writer=null;
         try{
-            writer=new BufferedWriter(new FileWriter(new File("/Users/yoca-391/Documents/demo01/xmlfiles/test1.xml")));
+      writer =
+          new BufferedWriter(new FileWriter(new File("E:\\GitHub\\5G_xzkj\\xmlfiles\\test1.xml")));
             out.println(request.getMethod());
             out.println(request.getPathInfo());
             out.println(request.getRequestURI());

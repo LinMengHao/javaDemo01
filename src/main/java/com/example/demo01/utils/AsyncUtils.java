@@ -4,6 +4,7 @@ import com.example.demo01.entity.msgModel.TextMsgModel;
 import com.example.demo01.entity.xmlToBean.Messages;
 import com.example.demo01.entity.xmlToBean.Multimedia;
 import com.example.demo01.rabbitMQ.conf.DirectRabbitConfig;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 //异步请求管理工具
+@Slf4j
 @Component
 public class AsyncUtils {
     //打印数据到特定日志文件
@@ -34,6 +36,7 @@ public class AsyncUtils {
     }
     @Async("asyncPoolTaskExecutor")
     public void sendMsgToMQ(TextMsgModel textMsgModel) {
+        log.info("异步线程： "+Thread.currentThread().getName());
         rabbitTemplate.convertAndSend(DirectRabbitConfig.EXCHANGE_WORK_SEND,DirectRabbitConfig.ROUTING_WORK_SEND,textMsgModel);
     }
 }

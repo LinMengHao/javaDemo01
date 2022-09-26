@@ -33,8 +33,11 @@ public class TaskExecutorConfiguration {
         executor.setThreadNamePrefix("thread-queue");
         // 设置拒绝策略rejection-policy：当pool已经达到max size的时候，丢弃
         // executor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy());
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        executor.initialize();
         // 等待所有任务结束后再关闭线程池
         executor.setWaitForTasksToCompleteOnShutdown(true);
+        executor.initialize();
         return executor;
     }
 

@@ -2,6 +2,8 @@ package com.example.demo01.rabbitMQ.listening;
 
 import com.example.demo01.common.MsgType;
 import com.example.demo01.common.R;
+import com.example.demo01.conf.TaskExecutorConfiguration;
+import com.example.demo01.entity.msgModel.ResponseModel;
 import com.example.demo01.entity.msgModel.TextMsgModel;
 import com.example.demo01.entity.xmlToBean.Messages;
 import com.example.demo01.entity.xmlToBean.Multimedia;
@@ -9,7 +11,7 @@ import com.example.demo01.rabbitMQ.conf.DirectRabbitConfig;
 import com.example.demo01.rabbitMQ.conf.RabbitConfig;
 import com.example.demo01.service.IReceiveService;
 import com.example.demo01.service.ISendService;
-import com.example.demo01.utils.RedisUtils;
+import com.example.demo01.utils.*;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
@@ -17,12 +19,18 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.time.Duration;
+import java.util.Map;
 
 //上行消息和状态通知 消息监听
 @Slf4j
@@ -38,6 +46,14 @@ public class MsgCustomerListen {
 
     @Autowired
     ISendService sendService;
+
+    @Autowired
+    HttpHeaderUtil httpHeaderUtil;
+    @Autowired
+    RestTemplate restTemplate;
+
+    @Autowired
+    TaskExecutorConfiguration executor;
 
     //状态通知，上行，撤回通知消息上行消费
     @RabbitListener(queues = DirectRabbitConfig.QUEUE_WORK_ACCESS,containerFactory = RabbitConfig.CONTAINER_FACTORY_ACCESS)
@@ -120,7 +136,7 @@ public class MsgCustomerListen {
     }
 
     //消息下行
-    @RabbitListener(queues = DirectRabbitConfig.QUEUE_WORK_AUDIT,containerFactory = RabbitConfig.CONTAINER_FACTORY_ACCESS)
+    @RabbitListener(queues = DirectRabbitConfig.QUEUE_WORK_SEND,containerFactory = RabbitConfig.CONTAINER_FACTORY_ACCESS)
     public void send(Message message, Channel channel){
         log.info("线程名称："+Thread.currentThread().getName());
         long deliveryTag = message.getMessageProperties().getDeliveryTag();
@@ -137,32 +153,39 @@ public class MsgCustomerListen {
             //划分场景：文本，卡片，媒体...
             String type = msg.getType();
             //TODO 写法暂定，无法判断各个消息字段是否可以复用
-            R r=null;
+            String code="";
             if(StringUtils.hasText(type)){
                 if(MsgType.TXT.equals(type)){
                     //纯文本消息
-                    r=sendService.sendTxtMsg(msg);
+                    R r=sendService.sendTxtMsg(msg);
+                    code="200";
                 }else if(MsgType.CARD.equals(type)){
                     //卡片消息
-                    r=sendService.sendCardMsg(msg);
+                    R r=sendService.sendCardMsg(msg);
+                    code=r.getCode();
                 }else if(MsgType.FILE.equals(type)){
                     //文件消息
-                    r=sendService.sendFileMsg(msg);
+                    R r=sendService.sendFileMsg(msg);
+                    code=r.getCode();
                 }else if(MsgType.MENU.equals(type)){
                     //菜单消息
-                    r=sendService.sendMenuMsg(msg);
+                    R r=sendService.sendMenuMsg(msg);
+                    code=r.getCode();
                 }else if(MsgType.CONTRIBUTION.equals(type)){
                     //交互下行
-                    r=sendService.sendContributionMsg(msg);
+                    R r=sendService.sendContributionMsg(msg);
+                    code=r.getCode();
                 }else if(MsgType.UP1.equals(type)){
                     //回落消息
-                    r=sendService.sendUpMsg(msg);
+                    R r=sendService.sendUpMsg(msg);
+                    code=r.getCode();
                 }
             }else {
                 //默认处理
-                r = sendService.sendMsg(msg);
+                R r = sendService.sendMsg(msg);
+                code=r.getCode();
             }
-            if("200".equals(r.getCode())){
+            if("200".equals(code)){
                 channel.basicAck(deliveryTag,false);
             }else {
                 //重发
@@ -192,8 +215,13 @@ public class MsgCustomerListen {
                 channel.basicReject(deliveryTag,true);
                 log.info("消费该"+id+"消息失败，重回队列");
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.error("缓存出错，拒绝重新入队");
+            try {
+                channel.basicReject(deliveryTag,false);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
         }
     }
