@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class TextMsgModel implements Serializable {
     private static final long serialVersionUID = 1L;
+    private String id;
     //服务器基础URL
     private String serverRoot;
 
@@ -77,6 +78,9 @@ public class TextMsgModel implements Serializable {
 
     //文件公网URL地址
     private String fileURL;
+
+    //下行消息类型
+    private String type;
 
 
 
@@ -349,6 +353,22 @@ public class TextMsgModel implements Serializable {
 
     public void setDate(String date) {
         Date = date;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override

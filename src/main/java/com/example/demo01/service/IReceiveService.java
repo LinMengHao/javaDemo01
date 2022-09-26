@@ -1,7 +1,9 @@
 package com.example.demo01.service;
 
 import com.example.demo01.common.R;
+import com.example.demo01.entity.msgModel.TextMsgModel;
 import com.example.demo01.entity.xmlToBean.Messages;
+import com.example.demo01.entity.xmlToBean.Multimedia;
 
 public interface IReceiveService {
     /**
@@ -17,4 +19,20 @@ public interface IReceiveService {
      * @return
      */
     public abstract R receiveMsg(Messages messages);
+
+    /**
+     *  撤回消息结果通知
+     * @param messages
+     * @return
+     */
+    public abstract R withdrawNotify(Messages messages);
+
+    /**
+     *  媒体文件审核通知
+     * @param multimedia
+     * @return
+     */
+    public abstract R auditFile(Multimedia multimedia);
+
+
 }

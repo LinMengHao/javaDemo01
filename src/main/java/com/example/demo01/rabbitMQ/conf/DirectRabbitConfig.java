@@ -9,9 +9,22 @@ import org.springframework.context.annotation.Configuration;
 //直连交换机类型配置
 @Configuration
 public class DirectRabbitConfig {
+    //上行共用一个交换机，下行用一个交换机
+    //状态通知
     public static final String QUEUE_WORK_ACCESS="AccessDirectQueue";
     public static final String EXCHANGE_WORK_ACCESS="AccessDirectExchange";
     public static final String ROUTING_WORK_ACCESS="AccessDirectRouting";
+
+    //视频审核
+    public static final String QUEUE_WORK_AUDIT="AuditDirectQueue";
+    public static final String ROUTING_WORK_AUDIT="AuditDirectRouting";
+
+    //上行
+    public static final String QUEUE_WORK_SEND="SendDirectQueue";
+    public static final String EXCHANGE_WORK_SEND="SendDirectExchange";
+    public static final String ROUTING_WORK_SEND="SendDirectRouting";
+
+
     //队列 起名：AccessDirectQueue(对接移动的接入层)
     @Bean
     public Queue AccessDirectQueue() {
@@ -36,6 +49,33 @@ public class DirectRabbitConfig {
     Binding bindingDirect() {
         return BindingBuilder.bind(AccessDirectQueue()).to(AccessDirectExchange()).with(ROUTING_WORK_ACCESS);
     }
+
+    @Bean
+    Queue AuditDirectQueue(){
+        return new Queue(QUEUE_WORK_AUDIT,true);
+    }
+    @Bean
+    Binding bindingAuditDirect(){
+        return BindingBuilder.bind(AuditDirectQueue()).to(AccessDirectExchange()).with(ROUTING_WORK_AUDIT);
+    }
+
+    @Bean
+    Queue sendDirectQueue(){
+        return new Queue(QUEUE_WORK_SEND,true);
+    }
+
+    @Bean
+    DirectExchange sendDirectExchange(){
+        return new DirectExchange(EXCHANGE_WORK_SEND,true,false);
+    }
+
+    @Bean
+    Binding bindingSendDirect(){
+        return BindingBuilder.bind(sendDirectQueue()).to(sendDirectExchange()).with(ROUTING_WORK_SEND);
+    }
+
+
+    //test
     @Bean
     DirectExchange lonelyDirectExchange() {
         return new DirectExchange("lonelyDirectExchange");

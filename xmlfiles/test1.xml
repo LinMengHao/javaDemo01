@@ -1,8 +1,8 @@
-accept:text/plain, application/json, application/*+json, */*
+accept:text/plain, application/xml, text/xml, application/json, application/*+xml, application/*+json, */*
 content-type:application/xml
 address:00000
-authorization:Basic dGVzdDEyMzQ1OjkyZjhhMTZlNjc1Y2E2MGVlODk1NzY4NDJhMDllNjcxMTQ5YTE5YmUzMGFmMTNiZTZlODNlMDczYzZkZWZjNmU=
-date:Wed, 21 Sep 2022 09:18:57 GMT
+authorization:Basic dGVzdDEyMzQ1OjZhNmZhNjRhMTM1MDI4MDZiZmE1ZDk2MTRmMTVmNzRiYWU3MTA2YzMwYTc0OWQ3ZGI4OTJjMGE0ZTI0MGYxZTI=
+date:Mon, 26 Sep 2022 09:28:22 GMT
 content-length:1121
 host:localhost:8888
 connection:Keep-Alive
@@ -18,8 +18,8 @@ accept-encoding:gzip,deflate
     </serviceCapability>
     <bodyText>![CDATA[Hello world]]</bodyText>
     <contentType>text/plain</contentType>
-    <conversationID>6a04c1a4e9d34063a578d31ee607461c</conversationID>
-    <contributionID>6a04c1a4e9d34063a578d31ee607461c</contributionID>
+    <conversationID>b48a5cbd01314634919a44f05aef4a31</conversationID>
+    <contributionID>b48a5cbd01314634919a44f05aef4a31</contributionID>
   </outboundIMMessage>
   <senderAddress>sip%3A12599%40botplatform.rcs.chinamobile.com</senderAddress>
   <address>tel:+8618756232770</address>

@@ -2,6 +2,7 @@ package com.example.demo01.controller.gateway;
 
 import com.example.demo01.common.R;
 import com.example.demo01.entity.xmlToBean.Messages;
+import com.example.demo01.entity.xmlToBean.Multimedia;
 import com.example.demo01.utils.AsyncUtils;
 import com.example.demo01.utils.RedisUtils;
 import com.example.demo01.utils.UUIDUtil;
@@ -32,7 +33,7 @@ public class ReceiveMsgGateWayApi {
 
     @PostMapping(value = "ChatBot/MsgMO",consumes = { MediaType.APPLICATION_XML_VALUE },
             produces = MediaType.APPLICATION_XML_VALUE)
-    public R receiveMsgGateWayApi(@RequestBody Messages messages, HttpServletRequest request){
+    public R receiveMsg(@RequestBody Messages messages, HttpServletRequest request){
         log.info("线程名称"+Thread.currentThread().getName());
         long l = System.currentTimeMillis();
         String address = request.getHeader("Address");
@@ -46,6 +47,29 @@ public class ReceiveMsgGateWayApi {
             log.info("主叫地址： "+address);
         }
         asyncUtils.sendMessageToMQ(messages);
+        long l1 = System.currentTimeMillis();
+        log.info("接受到响应耗时：" +(l1-l)+"毫秒");
+        return R.ok();
+    }
+
+    @PostMapping(value = "Media/MsgMO",consumes = { MediaType.APPLICATION_XML_VALUE },
+            produces = MediaType.APPLICATION_XML_VALUE)
+    public R auditFile(@RequestBody Multimedia multimedia, HttpServletRequest request){
+        log.info("线程名称"+Thread.currentThread().getName());
+        long l = System.currentTimeMillis();
+        String authstatus = request.getHeader("Authstatus");
+        String tid = request.getHeader("tid");
+        String uuid32 = UUIDUtil.getUUID32();
+        multimedia.setId(uuid32);
+        //记录重试，不超过3次,一个小时自动删除
+        redisUtils.setCacheObject(uuid32,1, Duration.ofHours(1));
+        if(StringUtils.hasText(authstatus)&&StringUtils.hasText(tid)){
+            //设置主叫地址
+            multimedia.setAuthstatus(authstatus);
+            multimedia.setTid(tid);
+            log.info("通知结果： "+authstatus+"交互id: "+tid);
+        }
+        asyncUtils.sendAuditToMQ(multimedia);
         long l1 = System.currentTimeMillis();
         log.info("接受到响应耗时：" +(l1-l)+"毫秒");
         return R.ok();

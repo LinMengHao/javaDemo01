@@ -1,21 +1,356 @@
-09:57:26.569 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on localhost with PID 6024 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
-09:57:26.657 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
-09:57:30.133 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
-09:57:30.134 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-09:57:30.135 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
-09:57:30.366 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-09:57:32.598 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-09:57:33.605 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
-09:57:33.644 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
-09:57:33.692 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-09:57:33.766 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
-09:57:34.528 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 9.085 seconds (JVM running for 21.403)
-15:26:18.211 [main] INFO  com.example.demo01.Demo01ApplicationTests - Starting Demo01ApplicationTests using Java 1.8.0_341 on bogon with PID 56775 (started by yoca-391 in /Users/yoca-391/Documents/demo01)
-15:26:18.221 [main] INFO  com.example.demo01.Demo01ApplicationTests - No active profile set, falling back to 1 default profile: "default"
-15:26:25.670 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-15:26:27.340 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
-15:26:27.386 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-15:26:27.447 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
-15:26:28.747 [main] INFO  com.example.demo01.Demo01ApplicationTests - Started Demo01ApplicationTests in 11.323 seconds (JVM running for 17.455)
-16:13:04.273 [http-nio-8888-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-16:13:04.417 [http-nio-8888-exec-1] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+10:07:12.858 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on localhost with PID 2928 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+10:07:12.900 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+10:07:16.525 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+10:07:16.526 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+10:07:16.526 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+10:07:16.762 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:07:18.894 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+10:07:19.910 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+10:07:19.951 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+10:07:20.000 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+10:07:20.068 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+10:07:20.635 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 8.843 seconds (JVM running for 21.265)
+10:09:26.705 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on localhost with PID 3115 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+10:09:26.723 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+10:09:29.929 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+10:09:29.930 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+10:09:29.930 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+10:09:30.084 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+10:09:31.932 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+10:09:32.838 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+10:09:32.877 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+10:09:32.910 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+10:09:32.979 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+10:09:33.625 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 7.67 seconds (JVM running for 18.083)
+14:46:04.956 [http-nio-8888-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14:47:21.896 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-6
+14:47:24.357 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+14:47:24.374 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：2476毫秒
+14:47:24.820 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+14:47:24.824 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+14:47:24.825 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='07538acbd39845caa1f6e92bbae3f00b', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+14:47:24.825 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+14:48:02.701 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-7
+14:48:02.709 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+14:48:02.710 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：9毫秒
+14:48:13.872 [http-nio-8888-exec-8] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-8
+14:48:13.877 [http-nio-8888-exec-8] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+14:48:13.879 [http-nio-8888-exec-8] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：5毫秒
+14:48:30.124 [http-nio-8888-exec-9] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-9
+14:48:30.131 [http-nio-8888-exec-9] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+14:48:30.132 [http-nio-8888-exec-9] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：6毫秒
+14:58:29.337 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue2
+14:58:29.350 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+14:58:29.351 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='672e9f70c6df4db880b360fc81a78dcc', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+14:58:29.351 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+14:58:29.417 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-1
+14:58:29.479 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+14:58:29.485 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：67毫秒
+15:04:16.939 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-5
+15:04:17.181 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+15:04:17.189 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：198毫秒
+15:04:48.625 [thread-queue3] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue3
+15:04:48.634 [thread-queue3] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:04:48.634 [thread-queue3] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='23dbe834acd74ca388ae2706bd640cf6', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:04:48.635 [thread-queue3] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:06:46.833 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 59917 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:06:46.865 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+15:06:50.459 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+15:06:50.460 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:06:50.461 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+15:06:50.663 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:06:52.833 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:06:53.791 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+15:06:53.828 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:06:53.872 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:06:53.942 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:06:54.760 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:06:54.762 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 8.874 seconds (JVM running for 20.515)
+15:06:54.768 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:06:54.768 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='07538acbd39845caa1f6e92bbae3f00b', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:06:54.768 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:12:01.557 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 60937 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:12:01.588 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+15:12:04.661 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+15:12:04.662 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:12:04.662 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+15:12:04.854 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:12:08.269 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:12:09.208 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+15:12:09.249 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:12:09.281 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:12:09.340 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:12:10.142 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:12:10.145 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 9.509 seconds (JVM running for 19.578)
+15:12:10.150 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:12:10.152 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='07538acbd39845caa1f6e92bbae3f00b', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:12:10.153 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:14:22.025 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 61398 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:14:22.046 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+15:14:25.037 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+15:14:25.038 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:14:25.038 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+15:14:25.187 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:14:27.149 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:14:27.955 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+15:14:27.994 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:14:28.032 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:14:28.092 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:14:28.777 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:14:28.782 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 7.522 seconds (JVM running for 18.222)
+15:14:28.785 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:14:28.786 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='07538acbd39845caa1f6e92bbae3f00b', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:14:28.786 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:14:28.786 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:16:15.035 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 61779 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:16:15.054 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+15:16:17.978 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+15:16:17.979 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:16:17.979 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+15:16:18.131 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:16:19.936 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:16:20.811 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+15:16:20.845 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:16:20.876 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:16:20.940 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:16:21.567 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:16:21.571 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 7.257 seconds (JVM running for 17.763)
+15:16:21.574 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:16:21.575 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='07538acbd39845caa1f6e92bbae3f00b', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:16:21.575 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:16:21.576 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:18:44.599 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 62282 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:18:44.617 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+15:18:47.650 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+15:18:47.651 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:18:47.652 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+15:18:47.804 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:18:49.788 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:18:50.721 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+15:18:50.764 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:18:50.796 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:18:50.859 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:18:51.502 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:51.506 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 7.647 seconds (JVM running for 17.899)
+15:18:51.511 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:18:51.511 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='07538acbd39845caa1f6e92bbae3f00b', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:18:51.512 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:18:51.512 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:18:54.788 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:18:54.788 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:18:54.806 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:54.809 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:18:54.809 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='672e9f70c6df4db880b360fc81a78dcc', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:18:54.810 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:18:54.810 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:18:57.795 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:18:57.796 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:18:57.811 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:57.813 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:18:57.814 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='23dbe834acd74ca388ae2706bd640cf6', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:18:57.817 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:18:57.824 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:18:57.824 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:18:57.824 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:18:57.833 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:57.834 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:18:57.836 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='b1081f7044df44e3953c83c07f12a7a1', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:18:57.836 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:18:57.837 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:18:57.837 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:18:57.838 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:18:57.853 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:57.862 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:18:57.863 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='1a770e99f02343c7ae40d3d3ed963cc8', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:18:57.869 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:18:57.869 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:18:57.869 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:18:57.869 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:18:57.881 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:57.882 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:18:57.883 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='9951ade68e254a18abc95949227b42d7', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:18:57.883 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:18:57.883 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:18:57.883 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:18:57.884 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:18:57.895 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:57.910 [thread-queue1] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
+15:18:57.934 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:57.936 [thread-queue1] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
+15:18:57.943 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:18:57.945 [thread-queue1] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
+15:19:20.471 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 62403 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:19:20.498 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+15:19:23.684 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+15:19:23.686 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:19:23.687 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+15:19:23.877 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:19:25.912 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:19:26.770 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+15:19:26.803 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:19:26.837 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:19:26.899 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:19:27.586 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 8.005 seconds (JVM running for 21.382)
+15:19:54.311 [http-nio-8888-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:19:54.650 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-2
+15:19:55.660 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+15:19:55.668 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：1018毫秒
+15:19:55.744 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:19:55.745 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:19:55.746 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='baab65b50f4b474d97d653054efe1d21', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:19:55.746 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:19:55.747 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:19:55.747 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:19:55.748 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:21:14.549 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-5
+15:21:50.405 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+15:21:50.411 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：35860毫秒
+15:21:50.425 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:21:50.433 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:21:50.435 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='371e3bb058874e568b2ca2e41b29d611', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:21:50.439 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:21:50.439 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:21:50.441 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:21:50.446 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:21:58.418 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-6
+15:22:01.714 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+15:22:01.715 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：3296毫秒
+15:22:01.749 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:22:01.752 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:22:01.752 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='605cfa338b79461ebcc5cb2557a88646', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:22:01.752 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:22:01.753 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:22:01.753 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:22:01.754 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:22:09.534 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-7
+15:22:09.547 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+15:22:09.548 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：14毫秒
+15:22:09.553 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:22:09.554 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:22:09.555 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='86fd53b4de8b47c9b7a0bf7340328b34', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:22:09.556 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:22:09.557 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:22:09.562 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:22:09.563 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+15:29:09.391 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 64312 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:29:09.411 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+15:29:12.627 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+15:29:12.628 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:29:12.628 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+15:29:12.780 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:29:14.747 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:29:15.691 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+15:29:15.729 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:29:15.763 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:29:15.827 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:29:16.518 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 7.913 seconds (JVM running for 20.808)
+15:29:28.898 [http-nio-8888-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:29:29.562 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-1
+15:29:31.599 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+15:29:31.619 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：2057毫秒
+15:29:31.974 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:29:31.979 [thread-queue1] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
+15:30:44.181 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 64649 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+15:30:44.198 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+15:30:47.133 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+15:30:47.134 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+15:30:47.135 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+15:30:47.270 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+15:30:49.090 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+15:30:50.089 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+15:30:50.136 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+15:30:50.181 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+15:30:50.250 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+15:30:50.924 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 7.467 seconds (JVM running for 17.822)
+15:30:57.229 [http-nio-8888-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+15:30:57.679 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-2
+15:30:58.473 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 主叫地址： 123456789
+15:30:58.481 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：801毫秒
+15:30:58.546 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue1
+15:30:58.548 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+15:30:58.549 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : Messages{id='efe50f787e5945a88a32ce7e5133cd4b', mainAddress='123456789', inboundMessage=null, deliveryInfos=[], description='SVC5001', link=Link{rel='OutboundMessageRequest', href='http://example.com/exampleAPI/messaging/v1/outbound/sip%3A12599%40botplatform.rcs.chinamobile.com/requests/5eae954c-42ca-4181-9ab4-9c0ef2e2ac55'}, messageId='5eae954c-42ca-4181-9ab4-9c0ef2e2ac55', address='tel:+8619585550104', status='RevokeFailed'}
+15:30:58.550 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AccessDirectQueue
+15:30:58.551 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - AAAA
+15:30:58.553 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 3333
+15:30:58.553 [thread-queue1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 撤销失败
+17:26:24.741 [http-nio-8888-exec-4] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+17:27:46.823 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on YOCA-391deMacBook-Pro.local with PID 87060 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+17:27:56.839 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+17:27:59.954 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+17:27:59.955 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+17:27:59.955 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+17:28:00.173 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:28:02.173 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+17:28:03.146 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+17:28:03.183 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+17:28:03.226 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+17:28:03.301 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+17:28:04.123 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 33.133 seconds (JVM running for 53.451)
+17:28:21.198 [http-nio-8888-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:33:16.128 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-7
+17:33:16.209 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 通知结果： 0交互id: 987654321
+17:33:16.229 [http-nio-8888-exec-7] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：98毫秒
+17:33:16.448 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue2
+17:33:16.457 [thread-queue2] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
+17:35:19.629 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on YOCA-391deMacBook-Pro.local with PID 88526 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+17:35:29.648 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+17:35:32.830 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+17:35:32.831 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+17:35:32.831 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+17:35:33.048 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:35:34.907 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+17:35:35.898 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+17:35:35.937 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+17:35:35.971 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+17:35:36.039 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+17:35:36.659 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 32.876 seconds (JVM running for 51.597)
+17:35:45.304 [http-nio-8888-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:35:45.777 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-2
+17:35:51.936 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 通知结果： 0交互id: 987654321
+17:35:51.947 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：6169毫秒
+17:35:52.032 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue2
+17:35:52.032 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+17:35:52.033 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : com.example.demo01.entity.xmlToBean.Multimedia@7db67417
+17:35:52.033 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AuditDirectQueue
+17:36:24.503 [http-nio-8888-exec-3] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-3
+17:36:24.551 [http-nio-8888-exec-3] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 通知结果： 0交互id: 987654321
+17:36:24.552 [http-nio-8888-exec-3] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：48毫秒
+17:36:24.566 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue2
+17:36:24.570 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+17:36:24.571 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : com.example.demo01.entity.xmlToBean.Multimedia@7c663d54
+17:36:24.571 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AuditDirectQueue
+17:36:34.201 [http-nio-8888-exec-4] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-4
+17:36:34.203 [http-nio-8888-exec-4] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 通知结果： 0交互id: 987654321
+17:36:34.204 [http-nio-8888-exec-4] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：3毫秒
+17:36:34.215 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue2
+17:36:34.216 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+17:36:34.220 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : com.example.demo01.entity.xmlToBean.Multimedia@1958dd20
+17:36:34.221 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AuditDirectQueue
+17:36:40.247 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-5
+17:36:40.250 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 通知结果： 0交互id: 987654321
+17:36:40.250 [http-nio-8888-exec-5] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：2毫秒
+17:36:40.254 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue2
+17:36:40.255 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+17:36:40.255 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : com.example.demo01.entity.xmlToBean.Multimedia@58eecb5c
+17:36:40.256 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AuditDirectQueue
+17:38:04.543 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 89136 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+17:38:04.560 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+17:38:07.484 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+17:38:07.485 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+17:38:07.486 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+17:38:07.635 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:38:09.447 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+17:38:10.289 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+17:38:10.323 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+17:38:10.356 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+17:38:10.425 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+17:38:11.059 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 7.231 seconds (JVM running for 15.975)
+17:38:25.716 [http-nio-8888-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:38:26.150 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 线程名称http-nio-8888-exec-2
+17:38:26.905 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 通知结果： 0交互id: 987654321
+17:38:26.911 [http-nio-8888-exec-2] INFO  com.example.demo01.controller.gateway.ReceiveMsgGateWayApi - 接受到响应耗时：759毫秒
+17:38:26.985 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：thread-queue2
+17:38:26.987 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
+17:38:26.987 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : com.example.demo01.entity.xmlToBean.Multimedia@5647adad
+17:38:26.987 [thread-queue2] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：AuditDirectQueue
+17:38:26.988 [thread-queue2] INFO  com.example.demo01.service.impl.ReceiveServiceImpl - [com.example.demo01.entity.xmlToBean.FileInfos@5f08a7c6, com.example.demo01.entity.xmlToBean.FileInfos@602771d7]

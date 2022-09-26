@@ -53,7 +53,7 @@ public class HttpHeaderUtil {
         if(!StringUtils.hasText(redisUtils.getCacheObject("authorization"))){
             String cspid = textMsgModel.getCspid();
             String csptoken = textMsgModel.getCsptoken();
-            String authorization = TokenUtils.getAuthorization(cspid, csptoken);
+            String authorization = TokenUtils.getAuthorization(cspid, csptoken,date);
             textMsgModel.setAuthorization(authorization);
             //24小时过期
             redisUtils.setCacheObject("authorization",authorization, time);

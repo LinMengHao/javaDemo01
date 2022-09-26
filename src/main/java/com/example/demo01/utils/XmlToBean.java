@@ -9,6 +9,9 @@ import com.example.demo01.entity.msgModel.AuditResponseModel;
 import com.example.demo01.entity.msgModel.NotifyResponseModel;
 import com.example.demo01.entity.msgModel.ResponseModel;
 import com.example.demo01.entity.msgModel.SXMessage;
+import com.example.demo01.entity.xmlToBean.Data;
+import com.example.demo01.entity.xmlToBean.FileInfos;
+import com.example.demo01.entity.xmlToBean.Multimedia;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -297,5 +300,51 @@ public class XmlToBean {
             throw new RuntimeException(e);
         }
         return sxMessage;
+    }
+
+    //上行文件
+    public static Multimedia xmlToMultimedia(String s){
+        Multimedia multimedia=null;
+        try {
+            Document document=DocumentHelper.parseText(s);
+            Element file = document.getRootElement();
+            String xmlns = file.attributeValue("xmlns");
+            List<FileInfos> fileInfos = multimedia.getFileInfos();
+            List<Element> elements = file.elements();
+            for (int i = 0; i < elements.size(); i++) {
+                FileInfos fileInfo=new FileInfos();
+                Element element = elements.get(i);
+                String type = element.attributeValue("type");
+                fileInfo.setType(type);
+                Element file_size = element.element("file-size");
+                if(file_size!=null){
+                    fileInfo.setFileSize(file_size.getText());
+                }
+                Element file_name = element.element("file-name");
+                if(file_name!=null){
+                    fileInfo.setFileName(file_name.getText());
+                }
+                Element content_type = element.element("content-type");
+                if(content_type!=null){
+                    fileInfo.setContentType(content_type.getText());
+                }
+
+                Element data = element.element("data");
+                Data data1=new Data();
+                if(data!=null){
+                    if(StringUtils.hasText(data.attributeValue("url"))){
+                        data1.setUrl(data.attributeValue("url"));
+                    }
+                    if(StringUtils.hasText(data.attributeValue("url"))){
+                        data1.setUntil(data.attributeValue("until"));
+                    }
+                }
+                fileInfo.setData(data1);
+                fileInfos.add(fileInfo);
+            }
+        } catch (DocumentException e) {
+            throw new RuntimeException(e);
+        }
+        return multimedia;
     }
 }

@@ -1,10 +1,17 @@
 package com.example.demo01.entity.xmlToBean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.io.Serializable;
 
-public class FileInfo implements Serializable {
+public class FileInfos implements Serializable {
+    @JsonIgnore
+    private String status;
+
+    @JsonIgnore
+    private String tid;
+
     //file-info标签type属性
     @JacksonXmlProperty(localName = "type",isAttribute = true)
     private String type;
@@ -64,6 +71,22 @@ public class FileInfo implements Serializable {
         this.data = data;
     }
 
-    public FileInfo() {
+    public FileInfos() {
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getTid() {
+        return tid;
+    }
+
+    public void setTid(String tid) {
+        this.tid = tid;
     }
 }

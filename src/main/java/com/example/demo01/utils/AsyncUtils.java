@@ -1,6 +1,8 @@
 package com.example.demo01.utils;
 
+import com.example.demo01.entity.msgModel.TextMsgModel;
 import com.example.demo01.entity.xmlToBean.Messages;
+import com.example.demo01.entity.xmlToBean.Multimedia;
 import com.example.demo01.rabbitMQ.conf.DirectRabbitConfig;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -19,10 +21,19 @@ public class AsyncUtils {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
+    //状态通知，上行，撤回通知消息上行
     @Async("asyncPoolTaskExecutor")
     public void sendMessageToMQ(Messages messages) {
         rabbitTemplate.convertAndSend(DirectRabbitConfig.EXCHANGE_WORK_ACCESS,DirectRabbitConfig.ROUTING_WORK_ACCESS, messages);
     }
 
-
+    //审核消息上行
+    @Async("asyncPoolTaskExecutor")
+    public void sendAuditToMQ(Multimedia multimedia) {
+        rabbitTemplate.convertAndSend(DirectRabbitConfig.EXCHANGE_WORK_ACCESS,DirectRabbitConfig.ROUTING_WORK_AUDIT, multimedia);
+    }
+    @Async("asyncPoolTaskExecutor")
+    public void sendMsgToMQ(TextMsgModel textMsgModel) {
+        rabbitTemplate.convertAndSend(DirectRabbitConfig.EXCHANGE_WORK_SEND,DirectRabbitConfig.ROUTING_WORK_SEND,textMsgModel);
+    }
 }
