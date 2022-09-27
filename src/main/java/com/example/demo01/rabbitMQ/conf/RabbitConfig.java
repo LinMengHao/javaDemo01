@@ -68,16 +68,16 @@ public class RabbitConfig {
     ){
         SimpleRabbitListenerContainerFactory container = new SimpleRabbitListenerContainerFactory();
         //多消费者处理统一队列的消息（多线程监听）
-//        container.setConcurrentConsumers(50);
-        container.setConcurrentConsumers(1);
+        container.setConcurrentConsumers(50);
+//        container.setConcurrentConsumers(1);
         //最大多线程监听数量
-//        container.setMaxConcurrentConsumers(50);
-        container.setMaxConcurrentConsumers(1);
+        container.setMaxConcurrentConsumers(50);
+//        container.setMaxConcurrentConsumers(1);
         configurer.configure(container,connectionFactory);
         //限流 单位时间内消费多少条记录
         container.setPrefetchCount(50);
         //使用自定义线程池来启动消费者。
-        container.setTaskExecutor(taskExecutor);
+//        container.setTaskExecutor(taskExecutor);
         //是否重返队列
         container.setDefaultRequeueRejected(true);
         //手动确认

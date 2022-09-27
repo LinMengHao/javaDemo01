@@ -24,7 +24,7 @@ public class SendMsgGateWayApi {
     @Autowired
     RedisUtils redisUtils;
 
-    @PostMapping("MsgSync")
+    @PostMapping("MsgSend")
     public R sendMsg(@RequestBody TextMsgModel textMsgModel){
         log.info("网关线程名称"+Thread.currentThread().getName());
         long l = System.currentTimeMillis();

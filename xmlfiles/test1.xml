@@ -2,7 +2,7 @@ accept:text/plain, application/xml, text/xml, application/json, application/*+xm
 content-type:application/xml
 address:00000
 authorization:Basic dGVzdDEyMzQ1OjQzZTU4MmJiYjM3MDAzYzdhOThiOGFiZmMxY2M3ZDIxOTM3ZTQ5OTA5ZDIwMTE5YTE1YjNhYzk2OWIwMmJhNmU=
-date:Mon, 26 Sep 2022 17:23:12 GMT
+date:Tue, 27 Sep 2022 14:37:31 GMT
 content-length:1121
 host:localhost:8888
 connection:Keep-Alive
@@ -18,8 +18,8 @@ accept-encoding:gzip,deflate
     </serviceCapability>
     <bodyText>![CDATA[Hello world]]</bodyText>
     <contentType>text/plain</contentType>
-    <conversationID>a3ce9994c65e403fa3bb1090f246379f</conversationID>
-    <contributionID>a3ce9994c65e403fa3bb1090f246379f</contributionID>
+    <conversationID>8dde952681944e60ab5d253f1a318c5f</conversationID>
+    <contributionID>8dde952681944e60ab5d253f1a318c5f</contributionID>
   </outboundIMMessage>
   <senderAddress>sip%3A12599%40botplatform.rcs.chinamobile.com</senderAddress>
   <address>tel:+8618756232770</address>

@@ -55,16 +55,16 @@ public class SendServiceImpl implements ISendService {
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-//        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot()
-//                + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot()
+                + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
         //响应数据
         //xml转化bean
-//        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
-        ResponseModel responseModel = XmlToBean.xmlToResponseModel("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-                "<msg:outboundMessageRequest xmlns:msg=\"urn:oma:xml:rest:netapi:messaging:1\">\n" +
-                "<messageId>5eae954c-42ca-4181-9ab4-9c0ef2e2ac66</messageId>\n" +
-                "    <clientCorrelator>567895</clientCorrelator>\n" +
-                "</msg:outboundMessageRequest>");
+        ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+//        ResponseModel responseModel = XmlToBean.xmlToResponseModel("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+//                "<msg:outboundMessageRequest xmlns:msg=\"urn:oma:xml:rest:netapi:messaging:1\">\n" +
+//                "<messageId>5eae954c-42ca-4181-9ab4-9c0ef2e2ac66</messageId>\n" +
+//                "    <clientCorrelator>567895</clientCorrelator>\n" +
+//                "</msg:outboundMessageRequest>");
         System.out.println(responseModel.toString());
         long l1 = System.currentTimeMillis();
         log.info("消费结束时间："+l1);
