@@ -32,6 +32,7 @@ public class SendMsgGateWayApi {
         textMsgModel.setId(uuid32);
         //记录重试，不超过3次,一个小时自动删除
         redisUtils.setCacheObject(uuid32,1, Duration.ofHours(1));
+        log.info("生产耗时: "+(System.currentTimeMillis()-l));
         asyncUtils.sendMsgToMQ(textMsgModel);
         long l1 = System.currentTimeMillis();
         log.info("接受到响应耗时：" +(l1-l)+"毫秒");

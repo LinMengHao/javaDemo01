@@ -138,7 +138,8 @@ public class MsgCustomerListen {
     //消息下行
     @RabbitListener(queues = DirectRabbitConfig.QUEUE_WORK_SEND,containerFactory = RabbitConfig.CONTAINER_FACTORY_ACCESS)
     public void send(Message message, Channel channel){
-        log.info("线程名称："+Thread.currentThread().getName());
+        long l = System.currentTimeMillis();
+        log.info("线程名称："+Thread.currentThread().getName()+"客户端接收时间："+l);
         long deliveryTag = message.getMessageProperties().getDeliveryTag();
         byte[] body = message.getBody();
         String id=null;

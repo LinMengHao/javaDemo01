@@ -34,9 +34,9 @@ public class AsyncUtils {
     public void sendAuditToMQ(Multimedia multimedia) {
         rabbitTemplate.convertAndSend(DirectRabbitConfig.EXCHANGE_WORK_ACCESS,DirectRabbitConfig.ROUTING_WORK_AUDIT, multimedia);
     }
-    @Async("asyncPoolTaskExecutor")
+    @Async("sendPoolTaskExecutor")
     public void sendMsgToMQ(TextMsgModel textMsgModel) {
-        log.info("异步线程： "+Thread.currentThread().getName());
+        log.info("异步线程： "+Thread.currentThread().getName()+"发送到客户端时间: "+System.currentTimeMillis());
         rabbitTemplate.convertAndSend(DirectRabbitConfig.EXCHANGE_WORK_SEND,DirectRabbitConfig.ROUTING_WORK_SEND,textMsgModel);
     }
 }

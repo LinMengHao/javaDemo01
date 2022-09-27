@@ -1,6 +1,8 @@
 package com.example.demo01.rabbitMQ.conf;
 
 
+import com.example.demo01.utils.Sha256Utils;
+import org.junit.jupiter.api.Test;
 import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.ReturnedMessage;
@@ -31,12 +33,14 @@ public class RabbitConfig {
     public RabbitTemplate createRabbitTemplate(ConnectionFactory connectionFactory){
         RabbitTemplate rabbitTemplate = new RabbitTemplate();
         rabbitTemplate.setConnectionFactory(connectionFactory);
+//        rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
         //设置开启Mandatory,才能触发回调函数,无论消息推送结果怎么样都强制调用回调函数
         rabbitTemplate.setMandatory(true);
 
         rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
             @Override
             public void confirm(CorrelationData correlationData, boolean ack, String cause) {
+                System.out.println("确认消息到服务端时间："+System.currentTimeMillis());
                 System.out.println("ConfirmCallback:     "+"相关数据："+correlationData);
                 System.out.println("ConfirmCallback:     "+"确认情况："+ack);
                 System.out.println("ConfirmCallback:     "+"原因："+cause);
@@ -64,14 +68,16 @@ public class RabbitConfig {
     ){
         SimpleRabbitListenerContainerFactory container = new SimpleRabbitListenerContainerFactory();
         //多消费者处理统一队列的消息（多线程监听）
-        container.setConcurrentConsumers(5);
+//        container.setConcurrentConsumers(50);
+        container.setConcurrentConsumers(1);
         //最大多线程监听数量
-        container.setMaxConcurrentConsumers(10);
+//        container.setMaxConcurrentConsumers(50);
+        container.setMaxConcurrentConsumers(1);
         configurer.configure(container,connectionFactory);
         //限流 单位时间内消费多少条记录
         container.setPrefetchCount(50);
         //使用自定义线程池来启动消费者。
-//        container.setTaskExecutor(taskExecutor);
+        container.setTaskExecutor(taskExecutor);
         //是否重返队列
         container.setDefaultRequeueRejected(true);
         //手动确认

@@ -643,3 +643,6 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at java.lang.Thread.run(Thread.java:745) ~[?:1.8.0_102]
+11:16:47.406 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
+11:17:09.115 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-3] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
+11:17:16.420 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
