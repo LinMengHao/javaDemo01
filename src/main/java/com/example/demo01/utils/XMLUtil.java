@@ -72,9 +72,9 @@ public class XMLUtil {
                 else if("smsBodyText".equals(value)||"bodyText".equals(value)
                         ||"mmsBodyText".equals(value)||"mmsBodyTextLarge".equals(value)){
                     StringBuilder stringBuilder2=new StringBuilder();
-                    stringBuilder2.append("![CDATA[");
+                    stringBuilder2.append("<![CDATA[");
                     stringBuilder2.append(key);
-                    stringBuilder2.append("]]");
+                    stringBuilder2.append("]]>");
                     Element body=outboundIMMessage.addElement(value);
                     body.setText(stringBuilder2.toString());
                 }else if(("conversationID".equals(value)||"contributionID".equals(value))
@@ -348,9 +348,9 @@ public class XMLUtil {
                 else if("smsBodyText".equals(key)||"bodyText".equals(key)
                         ||"mmsBodyText".equals(key)||"mmsBodyTextLarge".equals(key)){
                     StringBuilder stringBuilder2=new StringBuilder();
-                    stringBuilder2.append("![CDATA[");
+                    stringBuilder2.append("<![CDATA[");
                     stringBuilder2.append(value);
-                    stringBuilder2.append("]]");
+                    stringBuilder2.append("]]>");
                     Element body=outboundIMMessage.addElement(key);
                     body.setText(stringBuilder2.toString());
                 }else if("reportRequest".equals(key)){
