@@ -1,439 +1,235 @@
-00:10:26.510 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.510 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.510 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.510 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.510 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.681 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.683 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.685 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.685 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.685 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.690 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.691 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.698 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.698 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.698 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.698 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.698 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.707 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.707 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.707 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.707 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.707 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.711 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.713 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.713 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.715 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.717 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.717 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.718 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.720 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.721 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.723 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.725 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.726 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.726 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.728 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.730 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.730 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.732 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.733 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.735 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.735 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.735 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.736 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.737 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.738 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.739 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.739 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.740 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.741 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.742 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.743 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.743 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.744 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.761 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.761 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.761 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.761 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.761 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.762 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.766 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.768 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.768 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.771 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.771 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.771 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.771 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.772 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.772 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.776 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.776 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.776 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.777 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.778 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.778 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.781 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.781 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.781 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.782 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.783 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.784 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.785 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.786 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.787 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.788 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.788 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.788 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.790 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.790 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.792 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.792 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.792 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.792 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.793 [thread-queue15] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.793 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.796 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.796 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.796 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.797 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.799 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.801 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.801 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.801 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.802 [thread-queue14] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.803 [thread-queue11] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.805 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.805 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.806 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.808 [thread-queue12] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.808 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.809 [thread-queue13] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.813 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.815 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.819 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.822 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.825 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.828 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.832 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.835 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:10:26.838 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.614 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.614 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.614 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.614 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.614 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.627 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.627 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.627 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.627 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.627 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.632 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.638 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.638 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.638 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.638 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.638 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.642 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.643 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.646 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.646 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.646 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.649 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.649 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.653 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.653 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.653 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.655 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.656 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.658 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.659 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.662 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.662 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.662 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.666 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.666 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.669 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.670 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.670 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.672 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.672 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.674 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.675 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.676 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.676 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.676 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.677 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.678 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.679 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.680 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.681 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.681 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.683 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.683 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.683 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.684 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.685 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.687 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.687 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.688 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.689 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.703 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.703 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.703 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.703 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.703 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.703 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.708 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.708 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.708 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.708 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.709 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.709 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.715 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.715 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.715 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.717 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.717 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.717 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.719 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.719 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.719 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.720 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.721 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.721 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.722 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.722 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.723 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.724 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.725 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.726 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.727 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.729 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.730 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.730 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.731 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.731 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.733 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.735 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.737 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.737 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.738 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.738 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.738 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.739 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.742 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.742 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.744 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.745 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.747 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.747 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.747 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.747 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.747 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.748 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.750 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.750 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.751 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.752 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.753 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.753 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.754 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.754 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.754 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.755 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.756 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.757 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.759 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.759 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.759 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.759 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.761 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.761 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.763 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.763 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.765 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.765 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.765 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.766 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.766 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.767 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.768 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.769 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.769 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.771 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.774 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.774 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.774 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.775 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.776 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.778 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.778 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.779 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.779 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.779 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.780 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.781 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.781 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.783 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.783 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.783 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.784 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.784 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.785 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.786 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.786 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.787 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.787 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.788 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.790 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.790 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.790 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.792 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.792 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.792 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.793 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.793 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.794 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.795 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.796 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.798 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.799 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.799 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.799 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.800 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.800 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.801 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.802 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.804 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.805 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.806 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.806 [thread-queue6] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.807 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.807 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.808 [thread-queue8] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.808 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.811 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.812 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.812 [thread-queue7] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.813 [thread-queue9] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:13:01.813 [thread-queue10] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.385 [thread-queue16] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.431 [thread-queue18] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.495 [thread-queue20] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.509 [thread-queue21] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.547 [thread-queue22] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.558 [thread-queue23] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.588 [thread-queue24] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.723 [thread-queue25] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.728 [thread-queue27] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:56.747 [thread-queue28] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:57.763 [thread-queue35] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:57.777 [thread-queue34] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.024 [thread-queue37] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.418 [thread-queue40] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.471 [thread-queue42] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.487 [thread-queue43] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.496 [thread-queue44] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.510 [thread-queue45] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.554 [thread-queue46] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.820 [thread-queue48] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:58.868 [thread-queue50] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.049 [thread-queue53] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.419 [thread-queue55] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.446 [thread-queue56] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.475 [thread-queue57] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.483 [thread-queue58] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.933 [thread-queue62] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.952 [thread-queue63] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.966 [thread-queue65] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:16:59.994 [thread-queue64] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:00.004 [thread-queue65] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:00.537 [thread-queue70] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:00.553 [thread-queue71] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:00.578 [thread-queue72] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:00.637 [thread-queue75] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.121 [thread-queue77] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.129 [thread-queue79] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.138 [thread-queue80] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.165 [thread-queue82] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.180 [thread-queue83] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.648 [thread-queue85] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.664 [thread-queue87] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.672 [thread-queue88] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.679 [thread-queue89] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:01.707 [thread-queue91] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.158 [thread-queue93] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.179 [thread-queue95] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.187 [thread-queue94] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.192 [thread-queue95] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.211 [thread-queue96] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.234 [thread-queue98] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.672 [thread-queue86] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.686 [thread-queue86] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.699 [thread-queue86] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.708 [thread-queue90] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:17:02.713 [thread-queue86] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:45.814 [thread-queue20] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:45.834 [thread-queue21] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:45.857 [thread-queue22] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:45.874 [thread-queue23] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:45.908 [thread-queue24] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:45.929 [thread-queue25] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:45.955 [thread-queue26] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:45.974 [thread-queue27] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.005 [thread-queue28] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.807 [thread-queue34] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.824 [thread-queue35] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.839 [thread-queue36] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.852 [thread-queue37] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.885 [thread-queue38] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.927 [thread-queue40] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.941 [thread-queue41] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.956 [thread-queue42] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:46.999 [thread-queue44] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.075 [thread-queue52] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.090 [thread-queue53] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.107 [thread-queue54] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.117 [thread-queue55] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.132 [thread-queue56] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.144 [thread-queue57] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.160 [thread-queue58] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.382 [thread-queue60] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.417 [thread-queue62] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:48.426 [thread-queue63] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.227 [thread-queue69] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.244 [thread-queue70] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.256 [thread-queue71] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.274 [thread-queue72] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.300 [thread-queue73] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.308 [thread-queue74] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.324 [thread-queue75] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.470 [thread-queue77] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.484 [thread-queue78] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:49.494 [thread-queue79] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.429 [thread-queue85] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.441 [thread-queue86] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.453 [thread-queue87] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.468 [thread-queue88] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.476 [thread-queue89] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.488 [thread-queue90] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.502 [thread-queue91] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.524 [thread-queue93] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:50.532 [thread-queue94] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:51.572 [thread-queue95] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:51.579 [thread-queue95] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:51.591 [thread-queue95] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:51.643 [thread-queue21] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:51.654 [thread-queue21] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:19:51.663 [thread-queue21] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 缓存出错，拒绝重新入队
-00:22:50.441 [http-nio-8888-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+15:46:41.146 [http-nio-8888-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: argument type mismatch
+Controller [com.example.demo01.controller.operator.OperatorController]
+Method [public void com.example.demo01.controller.operator.OperatorController.test(com.alibaba.fastjson.JSONObject)] with argument values:
+ [0] [type=org.springframework.validation.support.BindingAwareModelMap] [value={}] ] with root cause
+java.lang.IllegalArgumentException: argument type mismatch
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+15:47:08.973 [http-nio-8888-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: argument type mismatch
+Controller [com.example.demo01.controller.operator.OperatorController]
+Method [public void com.example.demo01.controller.operator.OperatorController.test(com.alibaba.fastjson.JSONObject)] with argument values:
+ [0] [type=org.springframework.validation.support.BindingAwareModelMap] [value={}] ] with root cause
+java.lang.IllegalArgumentException: argument type mismatch
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+15:47:16.520 [http-nio-8888-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: argument type mismatch
+Controller [com.example.demo01.controller.operator.OperatorController]
+Method [public void com.example.demo01.controller.operator.OperatorController.test(com.alibaba.fastjson.JSONObject)] with argument values:
+ [0] [type=org.springframework.validation.support.BindingAwareModelMap] [value={}] ] with root cause
+java.lang.IllegalArgumentException: argument type mismatch
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+15:47:27.661 [http-nio-8888-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: argument type mismatch
+Controller [com.example.demo01.controller.operator.OperatorController]
+Method [public void com.example.demo01.controller.operator.OperatorController.test(com.alibaba.fastjson.JSONObject)] with argument values:
+ [0] [type=org.springframework.validation.support.BindingAwareModelMap] [value={}] ] with root cause
+java.lang.IllegalArgumentException: argument type mismatch
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_341]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.__invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:41002) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+15:54:14.943 [http-nio-8888-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
 java.lang.NullPointerException: null
-	at com.example.demo01.controller.sendmsg.TestMsgBodyController.sendTxTMsgBody(TestMsgBodyController.java:109) ~[classes/:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_102]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_102]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_102]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_102]
+	at com.example.demo01.controller.operator.OperatorController.verify(OperatorController.java:93) ~[classes/:?]
+	at com.example.demo01.controller.operator.OperatorController.getOrderInfo(OperatorController.java:48) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_341]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
@@ -480,14 +276,22 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at java.lang.Thread.run(Thread.java:745) ~[?:1.8.0_102]
-00:23:39.125 [http-nio-8888-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-java.lang.NullPointerException: null
-	at com.example.demo01.controller.sendmsg.TestMsgBodyController.sendTxTMsgBody(TestMsgBodyController.java:109) ~[classes/:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_102]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_102]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_102]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_102]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+15:54:15.084 [http-nio-8888-exec-10] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "<Map><timestamp>2022-09-29T07:54:14.971+00:00</timestamp><status>500</status><error>Internal Server Error</error><path>/xiuzhi/bj_mobile/MsgSync/oc/v1/syncproduct</path></Map>"] with root cause
+org.springframework.web.client.HttpServerErrorException$InternalServerError: 500 : "<Map><timestamp>2022-09-29T07:54:14.971+00:00</timestamp><status>500</status><error>Internal Server Error</error><path>/xiuzhi/bj_mobile/MsgSync/oc/v1/syncproduct</path></Map>"
+	at org.springframework.web.client.HttpServerErrorException.create(HttpServerErrorException.java:100) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:170) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:122) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:819) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:777) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:468) ~[spring-web-5.3.22.jar:5.3.22]
+	at com.example.demo01.controller.operator.OperatorController.test(OperatorController.java:110) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_341]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
@@ -497,8 +301,8 @@ java.lang.NullPointerException: null
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
@@ -534,14 +338,22 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at java.lang.Thread.run(Thread.java:745) ~[?:1.8.0_102]
-00:23:46.995 [http-nio-8888-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-java.lang.NullPointerException: null
-	at com.example.demo01.controller.sendmsg.TestMsgBodyController.sendTxTMsgBody(TestMsgBodyController.java:109) ~[classes/:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_102]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_102]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_102]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_102]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+15:58:27.779 [http-nio-8888-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: org.springframework.web.client.HttpClientErrorException$UnsupportedMediaType: 415 : "<Map><timestamp>2022-09-29T07:58:27.725+00:00</timestamp><status>415</status><error>Unsupported Media Type</error><path>/xiuzhi/bj_mobile/MsgSync/oc/v1/syncproduct</path></Map>"] with root cause
+org.springframework.web.client.HttpClientErrorException$UnsupportedMediaType: 415 : "<Map><timestamp>2022-09-29T07:58:27.725+00:00</timestamp><status>415</status><error>Unsupported Media Type</error><path>/xiuzhi/bj_mobile/MsgSync/oc/v1/syncproduct</path></Map>"
+	at org.springframework.web.client.HttpClientErrorException.create(HttpClientErrorException.java:133) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:168) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.DefaultResponseErrorHandler.handleError(DefaultResponseErrorHandler.java:122) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.ResponseErrorHandler.handleError(ResponseErrorHandler.java:63) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.handleResponse(RestTemplate.java:819) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:777) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:468) ~[spring-web-5.3.22.jar:5.3.22]
+	at com.example.demo01.controller.operator.OperatorController.test(OperatorController.java:113) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_341]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
@@ -551,8 +363,8 @@ java.lang.NullPointerException: null
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
@@ -588,14 +400,41 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at java.lang.Thread.run(Thread.java:745) ~[?:1.8.0_102]
-00:23:47.014 [http-nio-8888-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-java.lang.NullPointerException: null
-	at com.example.demo01.controller.sendmsg.TestMsgBodyController.sendTxTMsgBody(TestMsgBodyController.java:109) ~[classes/:?]
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_102]
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_102]
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_102]
-	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_102]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+16:28:58.015 [http-nio-8888-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8888/xiuzhi/bj_mobile/MsgSync/oc/v1/syncproduct": Read timed out; nested exception is java.net.SocketTimeoutException: Read timed out] with root cause
+java.net.SocketTimeoutException: Read timed out
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.15.jar:4.4.15]
+	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.15.jar:4.4.15]
+	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.15.jar:4.4.15]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.15.jar:4.4.15]
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.15.jar:4.4.15]
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:157) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.15.jar:4.4.15]
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.15.jar:4.4.15]
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:186) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56) ~[httpclient-4.5.13.jar:4.5.13]
+	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:87) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:66) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:776) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:711) ~[spring-web-5.3.22.jar:5.3.22]
+	at org.springframework.web.client.RestTemplate.postForEntity(RestTemplate.java:468) ~[spring-web-5.3.22.jar:5.3.22]
+	at com.example.demo01.controller.operator.OperatorController.test(OperatorController.java:114) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_341]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_341]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_341]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_341]
 	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
 	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
@@ -605,8 +444,8 @@ java.lang.NullPointerException: null
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.22.jar:5.3.22]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
@@ -642,7 +481,4 @@ java.lang.NullPointerException: null
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at java.lang.Thread.run(Thread.java:745) ~[?:1.8.0_102]
-11:16:47.406 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-1] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
-11:17:09.115 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-3] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
-11:17:16.420 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#2-2] ERROR com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 数据接收，转化问题，无法消费，建议不入队占有资源，人工日志排查
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]

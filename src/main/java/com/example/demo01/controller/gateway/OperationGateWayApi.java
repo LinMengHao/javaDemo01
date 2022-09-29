@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-
+//运营层网关
 @RestController
 @RequestMapping("xiuzhi/bj_mobile")
 public class OperationGateWayApi {

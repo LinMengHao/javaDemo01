@@ -159,7 +159,7 @@ public class MsgCustomerListen {
                 if(MsgType.TXT.equals(type)){
                     //纯文本消息
                     R r=sendService.sendTxtMsg(msg);
-                    code="200";
+                    code=r.getCode();
                 }else if(MsgType.CARD.equals(type)){
                     //卡片消息
                     R r=sendService.sendCardMsg(msg);

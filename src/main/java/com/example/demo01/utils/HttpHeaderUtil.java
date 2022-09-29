@@ -21,9 +21,11 @@ public class HttpHeaderUtil {
 
     //文本消息头,鉴权信息现生成
     public HttpHeaders getHttpHeadersByText(TextMsgModel textMsgModel){
+        String date = DateUtil.getGMTDate();
+        textMsgModel.setDate(date);
         String cspid = textMsgModel.getCspid();
         String csptoken = textMsgModel.getCsptoken();
-        String authorization = TokenUtils.getAuthorization(cspid, csptoken);
+        String authorization = TokenUtils.getAuthorization(cspid, csptoken,date);
         textMsgModel.setAuthorization(authorization);
         //请求头
         HttpHeaders headers=new HttpHeaders();
@@ -34,7 +36,7 @@ public class HttpHeaderUtil {
             address.append("+86");
         }
         address.append(textMsgModel.getAddress());
-        headers.set("address",address.toString());
+        headers.set("Address",address.toString());
         headers.set("Authorization",textMsgModel.getAuthorization());
         headers.set("Date",textMsgModel.getDate());
         return headers;
@@ -69,7 +71,7 @@ public class HttpHeaderUtil {
             address.append("+86");
         }
         address.append(textMsgModel.getAddress());
-        headers.set("address",address.toString());
+        headers.set("Address",address.toString());
         headers.set("Authorization",textMsgModel.getAuthorization());
         headers.set("Date",textMsgModel.getDate());
         return headers;

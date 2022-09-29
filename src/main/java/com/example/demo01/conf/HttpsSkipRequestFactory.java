@@ -8,11 +8,8 @@ import java.net.HttpURLConnection;
 import java.security.SecureRandom;
 import java.security.cert.X509Certificate;
 
-/**
- * 跳过证书
- */
-
-public class HttpsSkipRequestFactory extends SimpleClientHttpRequestFactory {
+public class HttpsSkipRequestFactory extends SimpleClientHttpRequestFactory
+{
     @Override
     protected void prepareConnection(HttpURLConnection connection, String httpMethod) throws IOException {
         if (connection instanceof HttpsURLConnection) {
@@ -61,5 +58,4 @@ public class HttpsSkipRequestFactory extends SimpleClientHttpRequestFactory {
         }
 
     }
-
 }
