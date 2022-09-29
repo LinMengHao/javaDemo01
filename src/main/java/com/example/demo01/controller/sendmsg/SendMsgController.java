@@ -3,6 +3,7 @@ package com.example.demo01.controller.sendmsg;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo01.common.R;
 import com.example.demo01.conf.HttpsClientRequestFactory;
+import com.example.demo01.conf.HttpsSkipRequestFactory;
 import com.example.demo01.entity.FileInfo;
 import com.example.demo01.entity.msgModel.MessageModel;
 import com.example.demo01.entity.msgModel.ResponseModel;
@@ -40,7 +41,8 @@ public class SendMsgController {
     @Autowired
     RestTemplate restTemplate;
     //https请求
-    private static RestTemplate httpsTemplate=new RestTemplate(new HttpsClientRequestFactory());
+//    private static RestTemplate httpsTemplate=new RestTemplate(new HttpsClientRequestFactory());
+    private static RestTemplate httpsTemplate=new RestTemplate(new HttpsSkipRequestFactory());
     @Autowired
     MessageModel messageModel;
     @Autowired
@@ -57,7 +59,7 @@ public class SendMsgController {
         System.out.println(textMsgModel.toString());
         Map<String, String> map = textMsgModel.getMap();
         //请求头 鉴权信息有效时间为24小时
-        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel);
         //请求体
         //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
@@ -67,12 +69,14 @@ public class SendMsgController {
         String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
         HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
         //https
-        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+         ResponseEntity<String> responseModelResponseEntity = httpsTemplate.postForEntity("https://" +textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+//        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
         //响应数据
         //xml转化bean
         ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModelResponseEntity.getStatusCode());
+        System.out.println(responseModelResponseEntity.getHeaders().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
@@ -84,7 +88,7 @@ public class SendMsgController {
         Map<String, String> map = textMsgModel.getMap();
         List<FileInfo> fileInfos = textMsgModel.getFileInfos();
         //请求头 鉴权信息有效时间为24小时
-        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel);
         //请求体
         //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
@@ -96,7 +100,7 @@ public class SendMsgController {
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        ResponseEntity<String> responseModelResponseEntity = httpsTemplate.postForEntity("https://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
         //响应数据
         //xml转化bean
         ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
@@ -110,7 +114,7 @@ public class SendMsgController {
         System.out.println(textMsgModel.toString());
         Map<String, String> map = textMsgModel.getMap();
         //请求头 鉴权信息有效时间为24小时
-        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel);
         //请求体
         //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
@@ -118,12 +122,11 @@ public class SendMsgController {
         String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
         HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
         //https
-        // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        ResponseEntity<String> responseModelResponseEntity = httpsTemplate.postForEntity("https://" +textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
-        //响应数据
-        //xml转化bean
         ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModelResponseEntity.getStatusCode());
+        System.out.println(responseModelResponseEntity.getHeaders().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
@@ -134,7 +137,7 @@ public class SendMsgController {
         System.out.println(textMsgModel.toString());
         Map<String, String> map = textMsgModel.getMap();
         //请求头 鉴权信息有效时间为24小时
-        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel);
         //请求体
         //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
@@ -144,10 +147,11 @@ public class SendMsgController {
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
-        //响应数据
-        //xml转化bean
+        ResponseEntity<String> responseModelResponseEntity = httpsTemplate.postForEntity("https://" +textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
         ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModelResponseEntity.getStatusCode());
+        System.out.println(responseModelResponseEntity.getHeaders().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
@@ -158,7 +162,7 @@ public class SendMsgController {
         System.out.println(textMsgModel.toString());
         Map<String, String> map = textMsgModel.getMap();
         //请求头 鉴权信息有效时间为24小时
-        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel);
         //请求体
         //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
@@ -168,10 +172,11 @@ public class SendMsgController {
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
-        //响应数据
-        //xml转化bean
+        ResponseEntity<String> responseModelResponseEntity = httpsTemplate.postForEntity("https://" +textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
         ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModelResponseEntity.getStatusCode());
+        System.out.println(responseModelResponseEntity.getHeaders().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
@@ -182,7 +187,7 @@ public class SendMsgController {
         System.out.println(textMsgModel.toString());
         Map<String, String> map = textMsgModel.getMap();
         //请求头 鉴权信息有效时间为24小时
-        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel);
         //请求体
         //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
@@ -192,10 +197,11 @@ public class SendMsgController {
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
-        //响应数据
-        //xml转化bean
+        ResponseEntity<String> responseModelResponseEntity = httpsTemplate.postForEntity("https://" +textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
         ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModelResponseEntity.getStatusCode());
+        System.out.println(responseModelResponseEntity.getHeaders().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
@@ -206,7 +212,7 @@ public class SendMsgController {
         System.out.println(textMsgModel.toString());
         Map<String, String> map = textMsgModel.getMap();
         //请求头 鉴权信息有效时间为24小时
-        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel);
         //请求体
         //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
@@ -218,11 +224,11 @@ public class SendMsgController {
         HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
+        ResponseEntity<String> responseModelResponseEntity = httpsTemplate.postForEntity("https://" +textMsgModel.getServerRoot() + "/messaging/interaction/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
-        //响应数据
-        //xml转化bean
         ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModelResponseEntity.getStatusCode());
+        System.out.println(responseModelResponseEntity.getHeaders().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
@@ -235,7 +241,7 @@ public class SendMsgController {
         Map<String, String> map = textMsgModel.getMap();
         List<FileInfo> fileInfos = textMsgModel.getFileInfos();
         //请求头 鉴权信息有效时间为24小时
-        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel);
         //请求体
         //标签 带上需要的随机id
         String uuid32 = UUIDUtil.getUUID32();
@@ -247,10 +253,11 @@ public class SendMsgController {
         //https
         // ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/messaging/group/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests", entity, String.class);
         //http测试使用
-        ResponseEntity<String> responseModelResponseEntity = restTemplate.postForEntity("http://" + textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
-        //响应数据
-        //xml转化bean
+        ResponseEntity<String> responseModelResponseEntity = httpsTemplate.postForEntity("https://" +textMsgModel.getServerRoot() + "/messaging/group/" + textMsgModel.getApiVersion() + "/outbound/" + textMsgModel.getChatbotURI() + "/requests", entity, String.class);
+        //http测试使用
         ResponseModel responseModel = XmlToBean.xmlToResponseModel(responseModelResponseEntity.getBody().toString());
+        System.out.println(responseModelResponseEntity.getStatusCode());
+        System.out.println(responseModelResponseEntity.getHeaders().toString());
         System.out.println(responseModel.toString());
         return R.ok();
     }
@@ -340,6 +347,7 @@ public class SendMsgController {
                 "--next--");
         System.out.println(object.toJSONString());
     }
+
 
 
 }

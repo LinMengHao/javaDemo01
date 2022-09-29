@@ -1,6 +1,7 @@
 package com.example.demo01.controller.sendmsg;
 
 import com.example.demo01.common.R;
+import com.example.demo01.conf.HttpsSkipRequestFactory;
 import com.example.demo01.entity.msgModel.MessageModel;
 import com.example.demo01.entity.msgModel.TextMsgModel;
 import com.example.demo01.utils.DateUtil;
@@ -41,6 +42,7 @@ public class FileController {
     HttpHeaderUtil httpHeaderUtil;
     @Autowired
     MessageModel messageModel;
+    private static RestTemplate httpsTemplate=new RestTemplate(new HttpsSkipRequestFactory());
 
 
     @RequestMapping("upload")
@@ -141,7 +143,10 @@ public class FileController {
         httpHeaders.set("X-3GPP-Intended-Identity",messageModel.getChatbotURI());
         httpHeaders.setContentType(MediaType.MULTIPART_FORM_DATA);
         HttpEntity<LinkedMultiValueMap<String, Object>> entity = new HttpEntity<>(map, httpHeaders);
-        restTemplate.postForEntity("http://localhost:8888/testbatchYD",entity,String.class);
+        ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/Content", entity, String.class);
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getHeaders().toString());
+        System.out.println(response.toString());
         return R.ok();
     }
     //多文件组包
@@ -230,7 +235,10 @@ public class FileController {
         headers.set("tid",textMsgModel.getTid());
         headers.set("fileURL",textMsgModel.getFileURL());
         HttpEntity<String> entity=new HttpEntity<>(headers);
-        restTemplate.exchange("",HttpMethod.DELETE,entity,String.class);
+        ResponseEntity<String> response = httpsTemplate.exchange("https://" + textMsgModel.getServerRoot() + "/Content/delete", HttpMethod.DELETE, entity, String.class);
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getHeaders().toString());
+        System.out.println(response.toString());
         return R.ok();
     }
 }
