@@ -6,6 +6,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import java.io.Serializable;
 
 public class FileInfos implements Serializable {
+    private static final long serialVersionUID = 12L;
     @JsonIgnore
     private String status;
 

@@ -6,6 +6,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlText;
 import java.io.Serializable;
 
 public class Link implements Serializable {
+    private static final long serialVersionUID = 14L;
     @JacksonXmlProperty(localName = "rel",isAttribute = true)
     private String rel;
     @JacksonXmlProperty(localName = "href",isAttribute = true)

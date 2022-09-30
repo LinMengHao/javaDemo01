@@ -2,11 +2,13 @@ package com.example.demo01.entity.msgModel;
 
 import com.example.demo01.entity.FileInfo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 //媒体审核
-public class AuditResponseModel {
+public class AuditResponseModel implements Serializable {
+    private static final long serialVersionUID = 1L;
     //审核状态
     private String authstatus;
     //文件传输ID

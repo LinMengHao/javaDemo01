@@ -1,7 +1,10 @@
 package com.example.demo01.entity;
 
+import java.io.Serializable;
+
 //群发响应属性实体
-public class DeliveryInfo {
+public class DeliveryInfo implements Serializable {
+    private static final long serialVersionUID = 18L;
     private String address;
     private String deliveryStatus;
     private String exceptionId;

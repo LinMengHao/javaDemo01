@@ -3,8 +3,11 @@ package com.example.demo01.entity;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+
 @Component
-public class UserModel {
+public class UserModel implements Serializable {
+    private static final long serialVersionUID = 20L;
     @Value("${XZKJ.APIKEY}")
     private String apiKey;
     @Value("${XZKJ.APISECRECT}")

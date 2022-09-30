@@ -1,13 +1,12 @@
-16:29:22.147 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 13452 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
-16:29:22.178 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
-16:29:25.419 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
-16:29:25.419 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-16:29:25.420 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
-16:29:25.608 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-16:29:27.683 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-16:29:28.637 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
-16:29:28.682 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
-16:29:28.724 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-16:29:28.789 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
-16:29:30.116 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 8.919 seconds (JVM running for 19.786)
-16:29:47.625 [http-nio-8888-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+16:51:11.103 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 2779 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+16:51:11.126 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+16:51:14.772 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+16:51:14.772 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+16:51:14.773 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+16:51:15.003 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+16:51:17.294 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+16:51:18.383 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+16:51:18.425 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+16:51:18.472 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+16:51:18.547 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+16:51:27.755 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 17.867 seconds (JVM running for 29.787)

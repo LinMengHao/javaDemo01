@@ -6,6 +6,7 @@ import java.io.Serializable;
  * 对接运营平台 订购消息实体类
  */
 public class OrderModel implements Serializable {
+    private static final long serialVersionUID = 9L;
     //EC集团客户编码，EC ID
     private String customerNum;
     //产品订单号

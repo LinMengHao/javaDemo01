@@ -2,10 +2,12 @@ package com.example.demo01.entity.msgModel;
 
 import com.example.demo01.entity.FileInfo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 //上行消息实体类
-public class SXMessage {
+public class SXMessage implements Serializable {
+    private static final long serialVersionUID = 5L;
     //要接收消息通知的目的地址To
     String destinationAddress;
     //消息发送方地址From。地址格式为TEL URI或SIP URI

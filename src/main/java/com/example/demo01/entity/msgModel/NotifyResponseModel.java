@@ -2,8 +2,11 @@ package com.example.demo01.entity.msgModel;
 
 import com.example.demo01.common.NotifyCode;
 
+import java.io.Serializable;
+
 //状态报告通知实体类
-public class NotifyResponseModel {
+public class NotifyResponseModel implements Serializable {
+    private static final long serialVersionUID = 3L;
     //发送失败还是成功
     private String code= NotifyCode.ERROR;
     //发送回执消息的发送方地址（原消息的目的方地址

@@ -3,12 +3,15 @@ package com.example.demo01.entity.msgModel;
 import com.example.demo01.common.GroupMsgResponseCode;
 import com.example.demo01.entity.DeliveryInfo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 //响应解析
 
-public class ResponseModel {
+public class ResponseModel implements Serializable {
+
+    private static final long serialVersionUID = 4L;
 
     private String code;
 

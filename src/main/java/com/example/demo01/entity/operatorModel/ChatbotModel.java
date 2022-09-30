@@ -3,6 +3,7 @@ package com.example.demo01.entity.operatorModel;
 import java.io.Serializable;
 //机器人信息实体类
 public class ChatbotModel implements Serializable {
+    private static final long serialVersionUID = 7L;
     //Chatbot ID，包含域名部分
     private String chatbotId;
     /*

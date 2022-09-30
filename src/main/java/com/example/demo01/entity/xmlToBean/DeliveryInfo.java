@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import java.io.Serializable;
 
 public class DeliveryInfo implements Serializable {
+    private static final long serialVersionUID = 11L;
     @JacksonXmlProperty(localName = "address")
     private String address;
 

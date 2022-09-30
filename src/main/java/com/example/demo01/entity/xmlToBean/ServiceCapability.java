@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import java.io.Serializable;
 
 public class ServiceCapability implements Serializable {
+    private static final long serialVersionUID = 17L;
     @JacksonXmlProperty(localName = "capabilityId")
     private String capabilityId;
     @JacksonXmlProperty(localName = "version")

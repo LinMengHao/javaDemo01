@@ -5,6 +5,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import java.io.Serializable;
 
 public class Data implements Serializable {
+    private static final long serialVersionUID = 10L;
     //data标签，属性： url：xxx  until：xxx
     @JacksonXmlProperty(localName = "url",isAttribute = true)
     private String url;

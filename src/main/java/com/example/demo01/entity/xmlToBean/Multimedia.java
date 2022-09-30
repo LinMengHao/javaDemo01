@@ -12,6 +12,7 @@ import java.util.List;
 @JacksonXmlRootElement(localName = "file")
 public class Multimedia implements Serializable {
 
+    private static final long serialVersionUID = 16L;
     @JsonIgnore
     private String id;
 

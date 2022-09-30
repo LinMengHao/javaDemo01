@@ -1,6 +1,9 @@
 package com.example.demo01.entity.operatorModel;
 
-public class OperatorResponse {
+import java.io.Serializable;
+
+public class OperatorResponse implements Serializable {
+    private static final long serialVersionUID = 8L;
     //数据同步结果，00000表示成功，其它值是失败。
     private String resultCode;
     //数据同步结果描述

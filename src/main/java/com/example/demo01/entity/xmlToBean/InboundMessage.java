@@ -6,6 +6,7 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import java.io.Serializable;
 
 public class InboundMessage implements Serializable {
+    private static final long serialVersionUID = 13L;
     @JacksonXmlProperty(localName = "destinationAddress")
     private String destinationAddress;
 

@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 //信息体基类(用于测试，实际使用，作为基类，接受参数)
 @Component
 @PropertySource("classpath:conf/msg.properties")
-public class MessageModel  {
+public class MessageModel  implements Serializable {
+    private static final long serialVersionUID = 2L;
     //服务器基础URL
     @Value("${serverRoot}")
     private String serverRoot;

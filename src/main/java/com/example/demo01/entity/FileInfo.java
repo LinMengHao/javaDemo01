@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 //构建file xml使用
 public class FileInfo implements Serializable {
+    private static final long serialVersionUID = 19L;
 
     //file-info标签type属性
     private String type;

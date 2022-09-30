@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class TextMsgModel implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 6L;
     private String id;
     //服务器基础URL
     private String serverRoot;

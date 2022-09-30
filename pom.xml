@@ -97,6 +97,7 @@
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
 
+<!--		jackson,可以处理xml-->
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>

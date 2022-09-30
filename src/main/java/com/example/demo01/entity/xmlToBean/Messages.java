@@ -11,6 +11,7 @@ import java.util.List;
 
 @JacksonXmlRootElement(localName = "msg")
 public class Messages implements Serializable {
+    private static final long serialVersionUID = 15L;
     //当前请求消息id
     @JsonIgnore
     private String id;
