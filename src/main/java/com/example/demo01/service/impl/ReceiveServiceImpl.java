@@ -1,5 +1,6 @@
 package com.example.demo01.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo01.common.R;
 import com.example.demo01.common.ResultCode;
 import com.example.demo01.entity.xmlToBean.*;
@@ -11,8 +12,13 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 @Slf4j
@@ -20,6 +26,9 @@ import java.util.List;
 public class ReceiveServiceImpl implements IReceiveService {
     //打印数据到特定日志文件
     private static final Logger logger= LogManager.getLogger("shortMessageRollingFile");
+
+    @Autowired
+    RestTemplate restTemplate;
     @Override
     public R notifyStatus(Messages messages) {
         List<DeliveryInfo> deliveryInfos = messages.getDeliveryInfos();
@@ -61,38 +70,69 @@ public class ReceiveServiceImpl implements IReceiveService {
         return R.ok();
     }
 
+    /**
+     * 接收上行消息
+     * @param messages
+     * @return
+     */
     @Override
     public R receiveMsg(Messages messages) {
         InboundMessage inboundMessage = messages.getInboundMessage();
         String contentType = inboundMessage.getContentType();
         if(StringUtils.hasText(contentType)){
-            String[] s = contentType.replace(" ", "").split(";");
-            if(s.length<2){
+            String[] s=new String[2];
+            String[] str = contentType.replace(" ", "").split(";");
+            s[0]=str[0];
+            if(str.length<2){
                 s[1]="charset=UTF-8";
+            }else {
+                s[1]=str[1];
             }
+
+            if(StringUtils.hasText(messages.getContentEncoding())||StringUtils.hasText(inboundMessage.getContentEncoding())){
+                s[1]="base64";
+            }
+
             if("text/plain".equals(s[0])){
                 //纯文本消息
-                if("UTF-8".equals(s[1].split("=")[1])){
+                if("UTF-8".equals(s[1].split("=")[1].toUpperCase())){
                     log.info("消息内容："+inboundMessage.getBodyText());
                 }else {
                     //base64编码内容  解码
                     String decode = Base64Utils.decode(inboundMessage.getBodyText());
-                    //TODO 对接机器人业务
-                    return R.ok().data("data",decode);
+                    log.info("消息内容："+decode);
+                    inboundMessage.setBodyText(decode);
                 }
+                //TODO 对接机器人业务 对接Rasa聊天机器人
+                //组包，json
+                JSONObject data=new JSONObject();
+                //主叫
+                data.put("sender",messages.getMainAddress());
+                data.put("message",inboundMessage.getBodyText());
+                System.out.println(data.toJSONString());
+                HttpHeaders headers=new HttpHeaders();
+                headers.set("Content-Type","application/json");
+                HttpEntity<JSONObject>entity=new HttpEntity<>(data,headers);
+                ResponseEntity<String> response = restTemplate.postForEntity("http://82.157.251.233:5005/webhooks/rest/webhook", entity, String.class);
+                log.info(response.getBody());
+
+
+                return R.ok().data("data",inboundMessage.getBodyText());
             }else if("application/vnd.gsma.rcs-ft-http+xml".equals(s[0])){
                 //媒体文件消息
+                Multimedia multimedia=null;
                 if("UTF-8".equals(s[1].split("=")[1])){
-                    Multimedia multimedia = XmlToBean.xmlToMultimedia(inboundMessage.getBodyText());
+                    //
+                    multimedia = XmlToBean.xmlToMultimedia(inboundMessage.getBodyText());
                     //...
                 }else {
                     //base64编码内容  解码
                     String decode = Base64Utils.decode(inboundMessage.getBodyText());
                     //解析xml文件，整理媒体文件信息
-                    Multimedia multimedia = XmlToBean.xmlToMultimedia(decode);
-                    //TODO 对接机器人业务
-                    return R.ok().data("data",multimedia);
+                    multimedia = XmlToBean.xmlToMultimedia(decode);
                 }
+                //TODO 对接机器人业务
+                return R.ok().data("data",multimedia);
             }else if("application/vnd.gsma.botsuggestion.response.v1.0+json".equals(s[0])){
                 //基于建议回复/操作消息的回复
                 if("UTF-8".equals(s[1].split("=")[1])){
@@ -100,9 +140,10 @@ public class ReceiveServiceImpl implements IReceiveService {
                 }else {
                     //base64编码内容  解码
                     String decode = Base64Utils.decode(inboundMessage.getBodyText());
-                    //TODO 对接机器人业务
-                    return R.ok().data("data",decode);
+                    inboundMessage.setBodyText(decode);
                 }
+                //TODO 对接机器人业务
+                return R.ok().data("data",inboundMessage.getBodyText());
             }
         }
         return R.ok();

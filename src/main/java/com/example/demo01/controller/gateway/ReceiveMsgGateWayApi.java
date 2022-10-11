@@ -31,9 +31,11 @@ public class ReceiveMsgGateWayApi {
     @Autowired
     RedisUtils redisUtils;
 
-    @PostMapping(value = "ChatBot/MsgMO",consumes = { MediaType.APPLICATION_XML_VALUE },
+    @PostMapping(value = "ChatBot/MsgMOs",consumes = { MediaType.APPLICATION_XML_VALUE },
             produces = MediaType.APPLICATION_XML_VALUE)
     public R receiveMsg(@RequestBody Messages messages, HttpServletRequest request){
+        StringBuffer requestURL = request.getRequestURL();
+        System.out.println(requestURL);
         log.info("线程名称"+Thread.currentThread().getName());
         long l = System.currentTimeMillis();
         String address = request.getHeader("Address");
@@ -74,4 +76,5 @@ public class ReceiveMsgGateWayApi {
         log.info("接受到响应耗时：" +(l1-l)+"毫秒");
         return R.ok();
     }
+
 }

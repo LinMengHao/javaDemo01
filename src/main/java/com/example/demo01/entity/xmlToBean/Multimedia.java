@@ -22,6 +22,9 @@ public class Multimedia implements Serializable {
     @JsonIgnore
     private String tid;
 
+    @JsonIgnore
+    private String chatbotURI;
+
     @JacksonXmlElementWrapper(useWrapping = false)
     @JacksonXmlProperty(localName = "file-info")
     List<FileInfos>fileInfos=new ArrayList<>();
@@ -59,5 +62,13 @@ public class Multimedia implements Serializable {
 
     public void setTid(String tid) {
         this.tid = tid;
+    }
+
+    public String getChatbotURI() {
+        return chatbotURI;
+    }
+
+    public void setChatbotURI(String chatbotURI) {
+        this.chatbotURI = chatbotURI;
     }
 }

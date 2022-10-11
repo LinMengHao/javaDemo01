@@ -19,6 +19,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -218,8 +219,8 @@ public class SendMsgController {
         String uuid32 = UUIDUtil.getUUID32();
         map.put("conversationID",uuid32);
         //获取上行信息交互id
-        String inReplyToContribution = textMsgModel.getContributionID();
-        map.put("inReplyToContribution",inReplyToContribution);
+        String inReplyToContributionID = textMsgModel.getContributionID();
+        map.put("inReplyToContributionID",inReplyToContributionID);
         String xml = XMLUtil.txtTemplateXml(map, "msg:outboundMessageRequest", "urn:oma:xml:rest:netapi:messaging:1", "outboundIMMessage");
         HttpEntity<String> entity=new HttpEntity<String>(xml,headers);
         //https
@@ -261,6 +262,29 @@ public class SendMsgController {
         System.out.println(responseModel.toString());
         return R.ok();
     }
+
+    @RequestMapping("withdraw")
+    @ApiOperation(value = "撤回消息",tags = "撤回消息")
+    public R withdraw(@RequestBody TextMsgModel textMsgModel){
+        System.out.println(textMsgModel.toString());
+        //请求头 鉴权信息有效时间为24小时
+        HttpHeaders headers = httpHeaderUtil.getHttpHeadersByText(textMsgModel, Duration.ofHours(24));
+        //请求体
+        Document document= DocumentHelper.createDocument();
+        Element root = document.addElement("msg:messageStatusReport", "urn:oma:xml:rest:netapi:messaging:1");
+        Element status = root.addElement("status");
+        status.setText("RevokeRequested");
+        Element address = root.addElement("address");
+        address.setText("tel:+86"+textMsgModel.getAddress());
+        String xmlStr = XMLUtil.getXmlStr(document, "UTF-8", false);
+        HttpEntity<String> entity=new HttpEntity<String>(xmlStr,headers);
+        //https
+        ResponseEntity<String> response = httpsTemplate.exchange("https://" + messageModel.getServerRoot() + "/messaging/" + messageModel.getApiVersion() + "/outbound/" + messageModel.getChatbotURI() + "/requests/"+textMsgModel.getMessageId()+"/status", HttpMethod.PUT, entity, String.class);
+        System.out.println(response.getStatusCode());
+        System.out.println(response.getHeaders().toString());
+        return R.ok();
+    }
+
 
     @Test
     public void test(){

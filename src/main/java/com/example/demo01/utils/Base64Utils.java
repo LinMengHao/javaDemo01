@@ -1,5 +1,7 @@
 package com.example.demo01.utils;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 
@@ -27,5 +29,10 @@ public class Base64Utils {
             throw new RuntimeException(e);
         }
         return decode;
+    }
+    @Test
+    public void test(){
+        String s = Base64Utils.encode("我想聊天");
+        System.out.println(s);
     }
 }

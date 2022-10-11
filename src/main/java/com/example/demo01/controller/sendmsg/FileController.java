@@ -116,9 +116,14 @@ public class FileController {
     @RequestMapping("/batchToYD")
     @ApiOperation(value = "多文件上传到YD",notes ="多文件上传YD")
     public R batchToYD(HttpServletRequest request){
+        String cspid = request.getParameter("cspid");
+        String csptoken = request.getParameter("csptoken");
+        String chatbotURI = request.getParameter("chatbotURI");
+        String serverRoot = request.getParameter("serverRoot");
+        String tid = request.getParameter("tid");
         List<MultipartFile> thumbnails = ((MultipartHttpServletRequest) request).getFiles("Thumbnail");
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("File");
-        String tid = request.getParameter("tid");
+
         LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
         if(files.size()<=0&&files==null){
             return R.error().message("文件上传失败因为文件为空");
@@ -132,18 +137,18 @@ public class FileController {
             getResource(thumbnails,map,"Thumbnail");
         }
         map.add("tid",tid);
-        //请求组包 TODO
+        //请求组包
         HttpHeaders httpHeaders = new HttpHeaders();
         String date = DateUtil.getGMTDate();
-        String authorization = TokenUtils.getAuthorization(messageModel.getCspid(), messageModel.getCsptoken(), date);
+        String authorization = TokenUtils.getAuthorization(cspid, csptoken, date);
         httpHeaders.set("Authorization",authorization);
         httpHeaders.set("Date",date);
         httpHeaders.set("Terminal-type","Chatbot");
-        httpHeaders.set("User-Agent","SP/"+messageModel.getChatbotURI());
-        httpHeaders.set("X-3GPP-Intended-Identity",messageModel.getChatbotURI());
+        httpHeaders.set("User-Agent","SP/"+chatbotURI);
+        httpHeaders.set("X-3GPP-Intended-Identity",chatbotURI);
         httpHeaders.setContentType(MediaType.MULTIPART_FORM_DATA);
         HttpEntity<LinkedMultiValueMap<String, Object>> entity = new HttpEntity<>(map, httpHeaders);
-        ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + messageModel.getServerRoot() + "/Content", entity, String.class);
+        ResponseEntity<String> response = httpsTemplate.postForEntity("https://" + serverRoot + "/Content", entity, String.class);
         System.out.println(response.getStatusCode());
         System.out.println(response.getHeaders().toString());
         System.out.println(response.toString());
@@ -172,8 +177,12 @@ public class FileController {
         }
         return s.toString();
     }
+
     @RequestMapping("downloadFile")
-    public R downloadFile(String filePath,String cspid,String cspToken){
+    public R downloadFile(HttpServletRequest request){
+        String cspid = request.getParameter("cspid");
+        String cspToken = request.getParameter("csptoken");
+        String filePath = request.getParameter("filePath");
         HttpHeaders headers=new HttpHeaders();
         headers.set("Terminal-type","Chatbot");
         headers.set("User-Agent","SP/"+filePath);
@@ -182,7 +191,7 @@ public class FileController {
         headers.set("Authorization", TokenUtils.getAuthorization(cspid,cspToken,date));
         headers.set("X-3GPP-Intended-Identity",filePath);
         HttpEntity<String>entity=new HttpEntity<>(headers);
-        ResponseEntity<byte[]> response = restTemplate.exchange("FILE_URL", HttpMethod.GET, entity, byte[].class);
+        ResponseEntity<byte[]> response = restTemplate.exchange(filePath, HttpMethod.GET, entity, byte[].class);
         FileOutputStream out=null;
         try{
             byte[] body=response.getBody();

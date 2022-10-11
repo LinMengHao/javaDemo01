@@ -324,25 +324,6 @@ public class XMLUtil {
                 }else if("senderAddress".equals(key)||"clientCorrelator".equals(key)){
                     Element e = element.addElement(key);
                     e.setText(value);
-                }else if("destinationAddress".equals(key)){
-                    if(value.indexOf(",")!=-1){
-                        String[] split = key.split(",");
-                        //address 多个或者一个目标地址时，默认写第一个。
-                        Element address = element.addElement("address");
-                        address.setText("tel:+86"+split[0]);
-                        for (int i = 0; i < split.length; i++) {
-                            Element phoneNum = element.addElement(key);
-                            phoneNum.setText("tel:+86"+split[i]);
-                        }
-                    }else if(StringUtils.hasText(value)){
-                        Element address = element.addElement("address");
-                        address.setText("tel:+86"+value);
-                        Element phoneNum = element.addElement(key);
-                        phoneNum.setText("tel:+86"+value);
-                    }
-                }else if("senderAddress".equals(key)||"clientCorrelator".equals(key)){
-                    Element e = element.addElement(key);
-                    e.setText(value);
                 }
                 //二级标签所属下的特殊格式标签
                 else if("smsBodyText".equals(key)||"bodyText".equals(key)

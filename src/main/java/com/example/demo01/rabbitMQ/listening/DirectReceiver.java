@@ -1,29 +1,29 @@
-package com.example.demo01.rabbitMQ.listening;
-
-import com.example.demo01.rabbitMQ.conf.DirectRabbitConfig;
-import com.example.demo01.rabbitMQ.conf.RabbitConfig;
-import com.example.demo01.utils.RedisUtils;
-import com.rabbitmq.client.Channel;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.core.Message;
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
-import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
-import java.util.Map;
-import java.util.concurrent.TimeoutException;
-
-//测试 消息监听
-@Slf4j
-@Component
-public class DirectReceiver {
-    @Autowired
-    RedisUtils redisUtils;
-
-    //
+//package com.example.demo01.rabbitMQ.listening;
+//
+//import com.example.demo01.rabbitMQ.conf.DirectRabbitConfig;
+//import com.example.demo01.rabbitMQ.conf.RabbitConfig;
+//import com.example.demo01.utils.RedisUtils;
+//import com.rabbitmq.client.Channel;
+//import lombok.extern.slf4j.Slf4j;
+//import org.springframework.amqp.core.Message;
+//import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+//import org.springframework.amqp.rabbit.annotation.RabbitListener;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Component;
+//
+//import javax.servlet.http.HttpServletRequest;
+//import java.io.IOException;
+//import java.util.Map;
+//import java.util.concurrent.TimeoutException;
+//
+////测试 消息监听
+//@Slf4j
+//@Component
+//public class DirectReceiver {
+//    @Autowired
+//    RedisUtils redisUtils;
+//
+//
 //    @RabbitListener(queues = DirectRabbitConfig.QUEUE_WORK_ACCESS,containerFactory = RabbitConfig.CONTAINER_FACTORY_ACCESS)
 //    public void process(Map testMessage, Message message, Channel channel) {
 //        try {
@@ -58,5 +58,5 @@ public class DirectReceiver {
 //            }
 //        }
 //    }
-
-}
+//
+//}

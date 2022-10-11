@@ -119,6 +119,16 @@ public class TextMsgModel implements Serializable {
     //  主叫地址
     private String callingAddress;
 
+    private String contentEncoding;
+
+    public String getContentEncoding() {
+        return contentEncoding;
+    }
+
+    public void setContentEncoding(String contentEncoding) {
+        this.contentEncoding = contentEncoding;
+    }
+
     public String getTid() {
         return tid;
     }

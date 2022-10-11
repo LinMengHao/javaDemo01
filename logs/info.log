@@ -1,29 +1,4 @@
-14:19:24.831 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on localhost with PID 2081 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
-14:19:24.912 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
-14:19:28.951 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
-14:19:28.952 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-14:19:28.952 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
-14:19:29.204 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-14:19:31.806 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-14:19:32.846 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
-14:19:32.888 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
-14:19:32.987 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-14:19:33.112 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
-14:19:44.301 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 20.594 seconds (JVM running for 34.595)
-14:21:21.510 [http-nio-8888-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-14:21:22.211 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 网关线程名称http-nio-8888-exec-1
-14:21:26.430 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 生产耗时: 4217
-14:21:26.470 [http-nio-8888-exec-1] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 接受到响应耗时：4258毫秒
-14:21:26.602 [sendAsync-1] INFO  com.example.demo01.utils.AsyncUtils - 异步线程： sendAsync-1发送到客户端时间: 1664518886602
-14:21:27.178 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1客户端接收时间：1664518887178
-14:21:27.182 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
-14:21:27.183 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : TextMsgModel{serverRoot='localhost:8888', apiVersion='v1', chatbotURI='sip%3A12599%40botplatform.rcs.chinamobile.com', callbackURL='null', cspid='test12345', csptoken='ff556388699c84a4ae73bc719eda6480c0d8290c575f297d7f65dad8f9c6804f', messageId='null', authorization='null', address='00000', destinationAddress=[], senderAddress='null', contentType='application/xml', conversationID='null', contributionID='null', capabilityId='null', version='null', bodyText='null', tid='null', fileURL='null', reportRequest=[], clientCorrelator='null', shortMessageSupported='null', storeSupported='null', multimediaMessageSupported='null', Date='null', map={senderAddress=sip%3A12599%40botplatform.rcs.chinamobile.com, destinationAddress=18756232770,18756232771,18756232772,18756232773, bodyText=Hello world, reportRequest=Delivered,Failed,Interworking, capabilityId=ChatbotSA, version=+g.gsma.rcs.botversion=&quot;#=1&quot;, contentType=text/plain, clientCorrelator=567895}, notify={}, fileInfos=[], callingAddress='null'}
-14:21:27.183 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：SendDirectQueue
-14:21:27.184 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费开始时间：1664518887184
-14:21:27.184 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费者线程： org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1
-14:21:28.413 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费结束时间：1664518888413
-14:21:28.413 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-1] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费时间: 1229
-15:02:01.315 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+00:13:07.101 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
 java.net.SocketException: Operation timed out (Read failed)
 	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
 	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
@@ -36,43 +11,7 @@ java.net.SocketException: Operation timed out (Read failed)
 	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
 	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
 	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
-15:20:46.763 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 网关线程名称http-nio-8888-exec-6
-15:20:46.797 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 生产耗时: 30
-15:20:46.799 [sendAsync-2] INFO  com.example.demo01.utils.AsyncUtils - 异步线程： sendAsync-2发送到客户端时间: 1664522446799
-15:20:46.799 [http-nio-8888-exec-6] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 接受到响应耗时：31毫秒
-15:20:46.844 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51客户端接收时间：1664522446844
-15:20:46.851 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
-15:20:46.852 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : TextMsgModel{serverRoot='localhost:8888', apiVersion='v1', chatbotURI='sip%3A12599%40botplatform.rcs.chinamobile.com', callbackURL='null', cspid='test12345', csptoken='ff556388699c84a4ae73bc719eda6480c0d8290c575f297d7f65dad8f9c6804f', messageId='null', authorization='null', address='00000', destinationAddress=[], senderAddress='null', contentType='application/xml', conversationID='null', contributionID='null', capabilityId='null', version='null', bodyText='null', tid='null', fileURL='null', reportRequest=[], clientCorrelator='null', shortMessageSupported='null', storeSupported='null', multimediaMessageSupported='null', Date='null', map={senderAddress=sip%3A12599%40botplatform.rcs.chinamobile.com, destinationAddress=18756232770,18756232771,18756232772,18756232773, bodyText=Hello world, reportRequest=Delivered,Failed,Interworking, capabilityId=ChatbotSA, version=+g.gsma.rcs.botversion=&quot;#=1&quot;, contentType=text/plain, clientCorrelator=567895}, notify={}, fileInfos=[], callingAddress='null'}
-15:20:46.852 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：SendDirectQueue
-15:20:46.853 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费开始时间：1664522446853
-15:20:46.854 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费者线程： org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51
-15:20:46.992 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费结束时间：1664522446992
-15:20:46.993 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-51] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费时间: 139
-15:20:54.786 [http-nio-8888-exec-9] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 网关线程名称http-nio-8888-exec-9
-15:20:54.792 [http-nio-8888-exec-9] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 生产耗时: 4
-15:20:54.792 [http-nio-8888-exec-9] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 接受到响应耗时：4毫秒
-15:20:54.793 [sendAsync-3] INFO  com.example.demo01.utils.AsyncUtils - 异步线程： sendAsync-3发送到客户端时间: 1664522454793
-15:20:54.810 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100客户端接收时间：1664522454809
-15:20:54.811 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
-15:20:54.811 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : TextMsgModel{serverRoot='localhost:8888', apiVersion='v1', chatbotURI='sip%3A12599%40botplatform.rcs.chinamobile.com', callbackURL='null', cspid='test12345', csptoken='ff556388699c84a4ae73bc719eda6480c0d8290c575f297d7f65dad8f9c6804f', messageId='null', authorization='null', address='00000', destinationAddress=[], senderAddress='null', contentType='application/xml', conversationID='null', contributionID='null', capabilityId='null', version='null', bodyText='null', tid='null', fileURL='null', reportRequest=[], clientCorrelator='null', shortMessageSupported='null', storeSupported='null', multimediaMessageSupported='null', Date='null', map={senderAddress=sip%3A12599%40botplatform.rcs.chinamobile.com, destinationAddress=18756232770,18756232771,18756232772,18756232773, bodyText=Hello world, reportRequest=Delivered,Failed,Interworking, capabilityId=ChatbotSA, version=+g.gsma.rcs.botversion=&quot;#=1&quot;, contentType=text/plain, clientCorrelator=567895}, notify={}, fileInfos=[], callingAddress='null'}
-15:20:54.812 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：SendDirectQueue
-15:20:54.812 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费开始时间：1664522454812
-15:20:54.812 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费者线程： org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100
-15:20:54.848 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费结束时间：1664522454848
-15:20:54.849 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-100] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费时间: 36
-15:21:22.138 [http-nio-8888-exec-3] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 网关线程名称http-nio-8888-exec-3
-15:21:22.144 [http-nio-8888-exec-3] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 生产耗时: 4
-15:21:22.145 [http-nio-8888-exec-3] INFO  com.example.demo01.controller.gateway.SendMsgGateWayApi - 接受到响应耗时：5毫秒
-15:21:22.146 [sendAsync-4] INFO  com.example.demo01.utils.AsyncUtils - 异步线程： sendAsync-4发送到客户端时间: 1664522482146
-15:21:22.171 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 线程名称：org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99客户端接收时间：1664522482171
-15:21:22.173 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - deliveryTag：
-15:21:22.174 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - DirectReceiver消费者收到消息  : TextMsgModel{serverRoot='localhost:8888', apiVersion='v1', chatbotURI='sip%3A12599%40botplatform.rcs.chinamobile.com', callbackURL='null', cspid='test12345', csptoken='ff556388699c84a4ae73bc719eda6480c0d8290c575f297d7f65dad8f9c6804f', messageId='null', authorization='null', address='00000', destinationAddress=[], senderAddress='null', contentType='application/xml', conversationID='null', contributionID='null', capabilityId='null', version='null', bodyText='null', tid='null', fileURL='null', reportRequest=[], clientCorrelator='null', shortMessageSupported='null', storeSupported='null', multimediaMessageSupported='null', Date='null', map={senderAddress=sip%3A12599%40botplatform.rcs.chinamobile.com, destinationAddress=18756232770,18756232771,18756232772,18756232773, bodyText=Hello world, reportRequest=Delivered,Failed,Interworking, capabilityId=ChatbotSA, version=+g.gsma.rcs.botversion=&quot;#=1&quot;, contentType=text/plain, clientCorrelator=567895}, notify={}, fileInfos=[], callingAddress='null'}
-15:21:22.175 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99] INFO  com.example.demo01.rabbitMQ.listening.MsgCustomerListen - 消费主题来自：SendDirectQueue
-15:21:22.175 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费开始时间：1664522482175
-15:21:22.175 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费者线程： org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99
-15:21:22.212 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费结束时间：1664522482212
-15:21:22.213 [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-99] INFO  com.example.demo01.service.impl.SendServiceImpl - 消费时间: 37
-15:51:57.444 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+00:23:46.684 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
 java.net.SocketException: Operation timed out (Read failed)
 	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
 	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
@@ -85,15 +24,395 @@ java.net.SocketException: Operation timed out (Read failed)
 	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
 	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
 	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
-16:51:11.103 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 2779 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
-16:51:11.126 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
-16:51:14.772 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
-16:51:14.772 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
-16:51:14.773 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
-16:51:15.003 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-16:51:17.294 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-16:51:18.383 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
-16:51:18.425 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
-16:51:18.472 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-16:51:18.547 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
-16:51:27.755 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 17.867 seconds (JVM running for 29.787)
+00:53:57.775 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+01:04:36.091 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+01:15:15.178 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+01:25:09.091 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+01:35:46.371 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+01:55:50.803 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+02:06:29.697 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+02:16:40.230 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+02:26:36.236 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+02:37:15.520 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+02:57:03.299 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+03:07:41.855 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+03:18:21.120 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+03:28:15.119 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+03:38:53.109 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+03:49:00.473 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+03:59:26.802 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+04:29:37.019 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+04:40:15.994 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+04:50:17.568 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+05:20:45.491 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+com.rabbitmq.client.MissedHeartbeatException: Heartbeat missing with heartbeat = 60 seconds
+	at com.rabbitmq.client.impl.AMQConnection.handleSocketTimeout(AMQConnection.java:847) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:747) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:47) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:666) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+05:31:23.994 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+05:41:21.564 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+05:52:03.563 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+06:01:33.172 [AMQP Connection 82.157.251.233:5672] WARN  com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred (Exception message: Socket closed)
+06:12:12.026 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+06:42:42.847 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+com.rabbitmq.client.MissedHeartbeatException: Heartbeat missing with heartbeat = 60 seconds
+	at com.rabbitmq.client.impl.AMQConnection.handleSocketTimeout(AMQConnection.java:847) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:747) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:47) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:666) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+06:52:56.184 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+07:03:07.916 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+07:13:45.612 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+07:33:35.632 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+08:37:55.517 [AMQP Connection 82.157.251.233:5672] ERROR com.rabbitmq.client.impl.ForgivingExceptionHandler - An unexpected connection driver error occurred
+java.net.SocketException: Operation timed out (Read failed)
+	at java.net.SocketInputStream.socketRead0(SocketInputStream.java) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.socketRead(SocketInputStream.java:116) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:171) ~[?:1.8.0_341]
+	at java.net.SocketInputStream.read(SocketInputStream.java:141) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246) ~[?:1.8.0_341]
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265) ~[?:1.8.0_341]
+	at java.io.DataInputStream.readUnsignedByte(DataInputStream.java:288) ~[?:1.8.0_341]
+	at com.rabbitmq.client.impl.Frame.readFrom(Frame.java:91) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.SocketFrameHandler.readFrame(SocketFrameHandler.java:184) ~[amqp-client-5.13.1.jar:5.13.1]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:665) ~[amqp-client-5.13.1.jar:5.13.1]
+	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]

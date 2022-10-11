@@ -6,6 +6,7 @@ import com.example.demo01.utils.AsyncUtils;
 import com.example.demo01.utils.RedisUtils;
 import com.example.demo01.utils.UUIDUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -28,6 +31,16 @@ public class SendMsgGateWayApi {
     public R sendMsg(@RequestBody TextMsgModel textMsgModel){
         log.info("网关线程名称"+Thread.currentThread().getName());
         long l = System.currentTimeMillis();
+
+        Map<String, String> map = textMsgModel.getMap();
+        if(map.containsKey("destinationAddress")){
+            String destinationAddress = map.get("destinationAddress");
+            String[] split = destinationAddress.split(",");
+            if (split.length>100){
+                return R.error().message("群发消息中可携带接收方地址数组，最多支持100个号码");
+            }
+        }
+
         String uuid32 = UUIDUtil.getUUID32();
         textMsgModel.setId(uuid32);
         //记录重试，不超过3次,一个小时自动删除

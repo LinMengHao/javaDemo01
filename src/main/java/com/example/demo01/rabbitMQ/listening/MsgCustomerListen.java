@@ -2,8 +2,6 @@ package com.example.demo01.rabbitMQ.listening;
 
 import com.example.demo01.common.MsgType;
 import com.example.demo01.common.R;
-import com.example.demo01.conf.TaskExecutorConfiguration;
-import com.example.demo01.entity.msgModel.ResponseModel;
 import com.example.demo01.entity.msgModel.TextMsgModel;
 import com.example.demo01.entity.xmlToBean.Messages;
 import com.example.demo01.entity.xmlToBean.Multimedia;
@@ -19,18 +17,14 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
-import org.springframework.web.client.RestTemplate;
+
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.time.Duration;
-import java.util.Map;
+
 
 //上行消息和状态通知 消息监听
 @Slf4j
@@ -47,18 +41,18 @@ public class MsgCustomerListen {
     @Autowired
     ISendService sendService;
 
-    @Autowired
-    HttpHeaderUtil httpHeaderUtil;
-    @Autowired
-    RestTemplate restTemplate;
 
-    @Autowired
-    TaskExecutorConfiguration executor;
 
-    //状态通知，上行，撤回通知消息上行消费
+
+    /**
+     * 用户终端主动上行消息
+     * @param message
+     * @param channel
+     */
     @RabbitListener(queues = DirectRabbitConfig.QUEUE_WORK_ACCESS,containerFactory = RabbitConfig.CONTAINER_FACTORY_ACCESS)
     public void process( Message message, Channel channel) {
         log.info("线程名称："+Thread.currentThread().getName());
+        //消费消息的唯一标识
         long deliveryTag = message.getMessageProperties().getDeliveryTag();
         byte[] body = message.getBody();
         String id=null;
@@ -68,23 +62,53 @@ public class MsgCustomerListen {
             log.info("deliveryTag：",deliveryTag);
             log.info("DirectReceiver消费者收到消息  : " + msg.toString());
             log.info("消费主题来自："+message.getMessageProperties().getConsumerQueue());
-            //第二个参数，手动确认可以被批处理，当该参数为 true 时，则可以一次性确认 delivery_tag 小于等于传入值的所有消息
+
+            //此id用于该消息的唯一标识，当消费异常，可更具此id判断重回消息队列次数，可设计重回队列的策略
             id = msg.getId();
-            //划分场景：状态上报，上行消息，消息撤回通知
-            if(msg.getDeliveryInfos()!=null&&msg.getDeliveryInfos().size()>0){
-                //状态上报...
-                //结合deliveryStatus 和 description判断成功与否
-                R r = receiveService.notifyStatus(msg);
+
+            if(msg.getInboundMessage()!=null&&msg.getDeliveryInfos().size()==0){
+                //终端主动上行消息...
+                //根据contentType 判断是什么类型信息
+                R r = receiveService.receiveMsg(msg);
                 if("200".equals(r.getCode())){
+                    //第二个参数，手动确认可以被批处理，当该参数为 true 时，则可以一次性确认 delivery_tag 小于等于传入值的所有消息
                     channel.basicAck(deliveryTag,false);
                 }else {
                     //重发
                     fallback(id,deliveryTag,3,channel);
                 }
-            }else if(msg.getInboundMessage()!=null&&msg.getDeliveryInfos()==null){
-                //终端主动上行消息...
-                //根据contentType 判断是什么类型信息
-                R r = receiveService.receiveMsg(msg);
+            }
+        }catch (Exception e){
+            fallback(id,deliveryTag,3,channel);
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 消息发送后，消息的状态的通知包含撤回消息的结果
+     * @param message
+     * @param channel
+     */
+    @RabbitListener(queues = DirectRabbitConfig.QUEUE_WORK_NOTIFY,containerFactory = RabbitConfig.CONTAINER_FACTORY_ACCESS)
+    public void notify( Message message, Channel channel) {
+        log.info("线程名称："+Thread.currentThread().getName());
+        long deliveryTag = message.getMessageProperties().getDeliveryTag();
+        byte[] body = message.getBody();
+        String id=null;
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(body));
+            Messages msg = (Messages) ois.readObject();
+            log.info("deliveryTag：", deliveryTag);
+            log.info("DirectReceiver消费者收到消息  : " + msg.toString());
+            log.info("消费主题来自：" + message.getMessageProperties().getConsumerQueue());
+            //第二个参数，手动确认可以被批处理，当该参数为 true 时，则可以一次性确认 delivery_tag 小于等于传入值的所有消息
+            id = msg.getId();
+            //状态上报...
+            //结合deliveryStatus 和 description判断成功与否
+            if(msg.getDeliveryInfos()!=null&&msg.getDeliveryInfos().size()>0){
+                //状态上报...
+                //结合deliveryStatus 和 description判断成功与否
+                R r = receiveService.notifyStatus(msg);
                 if("200".equals(r.getCode())){
                     channel.basicAck(deliveryTag,false);
                 }else {
@@ -101,12 +125,18 @@ public class MsgCustomerListen {
                     fallback(id,deliveryTag,3,channel);
                 }
             }
+
         }catch (Exception e){
             fallback(id,deliveryTag,3,channel);
             e.printStackTrace();
         }
     }
 
+    /**
+     * 媒体文件上传到接入层后，接入层审核结果通知
+     * @param message
+     * @param channel
+     */
     @RabbitListener(queues = DirectRabbitConfig.QUEUE_WORK_AUDIT,containerFactory = RabbitConfig.CONTAINER_FACTORY_ACCESS)
     public void audit(Message message, Channel channel){
         log.info("线程名称："+Thread.currentThread().getName());
@@ -121,7 +151,6 @@ public class MsgCustomerListen {
             log.info("消费主题来自："+message.getMessageProperties().getConsumerQueue());
             //第二个参数，手动确认可以被批处理，当该参数为 true 时，则可以一次性确认 delivery_tag 小于等于传入值的所有消息
             id = msg.getId();
-            //划分场景：状态上报，上行消息，消息撤回通知
             R r = receiveService.auditFile(msg);
             if("200".equals(r.getCode())){
                 channel.basicAck(deliveryTag,false);
@@ -179,6 +208,10 @@ public class MsgCustomerListen {
                 }else if(MsgType.UP1.equals(type)){
                     //回落消息
                     R r=sendService.sendUpMsg(msg);
+                    code=r.getCode();
+                }else if(MsgType.WITHDRAW.equals(type)){
+                    //撤回
+                    R r=sendService.withdraw(msg);
                     code=r.getCode();
                 }
             }else {

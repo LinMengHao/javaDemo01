@@ -23,10 +23,16 @@ public class AsyncUtils {
     @Autowired
     RabbitTemplate rabbitTemplate;
 
-    //状态通知，上行，撤回通知消息上行
+    //上行，撤回通知消息上行
     @Async("asyncPoolTaskExecutor")
     public void sendMessageToMQ(Messages messages) {
         rabbitTemplate.convertAndSend(DirectRabbitConfig.EXCHANGE_WORK_ACCESS,DirectRabbitConfig.ROUTING_WORK_ACCESS, messages);
+    }
+
+    //状态通知
+    @Async("asyncPoolTaskExecutor")
+    public void sendNotifyToMQ(Messages messages) {
+        rabbitTemplate.convertAndSend(DirectRabbitConfig.EXCHANGE_WORK_ACCESS,DirectRabbitConfig.ROUTING_WORK_NOTIFY, messages);
     }
 
     //审核消息上行

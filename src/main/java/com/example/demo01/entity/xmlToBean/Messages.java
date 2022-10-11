@@ -40,6 +40,12 @@ public class Messages implements Serializable {
     @JacksonXmlProperty(localName = "status")
     private String status;
 
+    @JacksonXmlProperty(localName = "contentEncoding")
+    private String contentEncoding;
+
+    @JsonIgnore
+    private String chatbotURI;
+
     public Messages() {
     }
 
@@ -115,6 +121,22 @@ public class Messages implements Serializable {
         this.status = status;
     }
 
+    public String getContentEncoding() {
+        return contentEncoding;
+    }
+
+    public void setContentEncoding(String contentEncoding) {
+        this.contentEncoding = contentEncoding;
+    }
+
+    public String getChatbotURI() {
+        return chatbotURI;
+    }
+
+    public void setChatbotURI(String chatbotURI) {
+        this.chatbotURI = chatbotURI;
+    }
+
     @Override
     public String toString() {
         return "Messages{" +
@@ -127,6 +149,8 @@ public class Messages implements Serializable {
                 ", messageId='" + messageId + '\'' +
                 ", address='" + address + '\'' +
                 ", status='" + status + '\'' +
+                ", contentEncoding='" + contentEncoding + '\'' +
+                ", chatbotURI='" + chatbotURI + '\'' +
                 '}';
     }
 }

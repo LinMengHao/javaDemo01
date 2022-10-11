@@ -41,6 +41,9 @@ public class InboundMessage implements Serializable {
     @JacksonXmlProperty(localName = "serviceCapability")
     private ServiceCapability serviceCapability;
 
+    @JacksonXmlProperty(localName = "contentEncoding")
+    private String contentEncoding;
+
     public String getDestinationAddress() {
         return destinationAddress;
     }
@@ -129,6 +132,14 @@ public class InboundMessage implements Serializable {
         this.serviceCapability = serviceCapability;
     }
 
+    public String getContentEncoding() {
+        return contentEncoding;
+    }
+
+    public void setContentEncoding(String contentEncoding) {
+        this.contentEncoding = contentEncoding;
+    }
+
     @Override
     public String toString() {
         return "InboundMessage{" +
@@ -142,7 +153,6 @@ public class InboundMessage implements Serializable {
                 ", bodyText='" + bodyText + '\'' +
                 ", conversationID='" + conversationID + '\'' +
                 ", contributionID='" + contributionID + '\'' +
-                ", serviceCapability=" + serviceCapability.toString() +
                 '}';
     }
 

@@ -49,6 +49,15 @@ public class XmlToBean {
                 responseModel.setText(text.getText());
                 responseModel.setExceptionId(exceptionId.getText());
                 responseModel.setResponseCode(GroupMsgResponseCode.ERROR);
+            }else if(rootElement.element("serviceException")!=null){
+                Element policyException = rootElement.element("serviceException");
+                Element exceptionId = policyException.element("exceptionId");
+                Element text = policyException.element("text");
+                Element variables = policyException.element("variables");
+                responseModel.setVariables(variables.getText());
+                responseModel.setText(text.getText());
+                responseModel.setExceptionId(exceptionId.getText());
+                responseModel.setResponseCode(GroupMsgResponseCode.ERROR);
             }else {
                 //群发响应节点
                 List<DeliveryInfo> deliveryInfos = responseModel.getDeliveryInfos();
@@ -304,8 +313,9 @@ public class XmlToBean {
 
     //上行文件
     public static Multimedia xmlToMultimedia(String s){
-        Multimedia multimedia=null;
+        Multimedia multimedia=new Multimedia();
         try {
+            //出现 不允许有匹配 "[xX][mM][lL]" 的处理指令目标 则表示<?xml version="1.0" encoding="UTF-8"?>没有顶格写
             Document document=DocumentHelper.parseText(s);
             Element file = document.getRootElement();
             String xmlns = file.attributeValue("xmlns");
@@ -346,5 +356,23 @@ public class XmlToBean {
             throw new RuntimeException(e);
         }
         return multimedia;
+    }
+    @Test
+    void test3(){
+        Multimedia multimedia = xmlToMultimedia("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+                "<file xmlns=\"urn:gsma:params:xml:ns:rcs:rcs:fthttp\">\n" +
+                " <file-info type=\"thumbnail\">\n" +
+                "   <file-size>7427</file-size>\n" +
+                "   <content-type>image/jpeg</content-type>\n" +
+                "   <data url=\"https://ftcontentserver.rcs.mnc123.mcc456.pub.3gppnetwork.org/ftsf-58cdb29d1-a3d3-427c-a8a4-a496759fbf6b\" until=\"2017-04-25T12:17:07Z\"/>\n" +
+                " </file-info>\n" +
+                "  <file-info type=\"file\">\n" +
+                "   <file-size>183524</file-size>\n" +
+                "   <file-name>DSC_379395051.JPG</file-name>\n" +
+                "   <content-type>image/jpeg</content-type>\n" +
+                "   <data url=\"https://ftcontentserver.rcs.mnc123.mcc456.pub.3gppnetwork.org/ftsf-0d5ea6d1-a94c-2-9634-2d90244d3e8e\" until=\"2017-04-25T12:17:07Z\"/>\n" +
+                " </file-info>\n" +
+                "</file>");
+        System.out.println(multimedia.toString());
     }
 }

@@ -29,7 +29,7 @@ public class FileInfos implements Serializable {
     @JacksonXmlProperty(localName = "content-type")
     private String contentType;
 
-    @JacksonXmlProperty(localName = "date")
+    @JacksonXmlProperty(localName = "data")
     private Data data;
 
     public String getType() {

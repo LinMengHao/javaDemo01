@@ -1,5 +1,8 @@
 package com.example.demo01.common;
 
+/**
+ *     消息类型
+ */
 public class MsgType {
     //文本
     public final static String TXT="txt";
@@ -13,4 +16,6 @@ public class MsgType {
     public final static String CONTRIBUTION="contribution";
     //回落
     public final static String UP1="up1.0";
+    //撤回消息
+    public final static String WITHDRAW="withdraw";
 }

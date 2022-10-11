@@ -52,5 +52,7 @@ public interface ISendService {
      * @return
      */
     R sendUpMsg(TextMsgModel msg);
+
+    R withdraw(TextMsgModel msg);
 }
 

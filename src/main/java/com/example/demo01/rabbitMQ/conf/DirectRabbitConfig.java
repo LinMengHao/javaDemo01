@@ -19,6 +19,10 @@ public class DirectRabbitConfig {
     public static final String QUEUE_WORK_AUDIT="AuditDirectQueue";
     public static final String ROUTING_WORK_AUDIT="AuditDirectRouting";
 
+    //上行消息
+    public static final String QUEUE_WORK_NOTIFY="NotifyDirectQueue";
+    public static final String ROUTING_WORK_NOTIFY="NotifyDirectRouting";
+
     //上行
     public static final String QUEUE_WORK_SEND="SendDirectQueue";
     public static final String EXCHANGE_WORK_SEND="SendDirectExchange";
@@ -57,6 +61,15 @@ public class DirectRabbitConfig {
     @Bean
     Binding bindingAuditDirect(){
         return BindingBuilder.bind(AuditDirectQueue()).to(AccessDirectExchange()).with(ROUTING_WORK_AUDIT);
+    }
+
+    @Bean
+    Queue NotifyDirectQueue(){
+        return new Queue(QUEUE_WORK_NOTIFY,true);
+    }
+    @Bean
+    Binding bindingNotifyDirect(){
+        return BindingBuilder.bind(NotifyDirectQueue()).to(AccessDirectExchange()).with(ROUTING_WORK_NOTIFY);
     }
 
     @Bean
