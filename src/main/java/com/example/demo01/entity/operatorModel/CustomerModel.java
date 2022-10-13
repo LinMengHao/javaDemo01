@@ -31,6 +31,8 @@ public class CustomerModel implements Serializable {
     private String certificateType;
     private String certificateCode;
 
+    private String customerNum;
+
     public CustomerModel() {
     }
 
@@ -248,5 +250,13 @@ public class CustomerModel implements Serializable {
 
     public void setCertificateCode(String certificateCode) {
         this.certificateCode = certificateCode;
+    }
+
+    public String getCustomerNum() {
+        return customerNum;
+    }
+
+    public void setCustomerNum(String customerNum) {
+        this.customerNum = customerNum;
     }
 }

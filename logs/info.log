@@ -165,3 +165,16 @@ java.net.SocketTimeoutException: connect timed out
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
 	at java.lang.Thread.run(Thread.java:750) ~[?:1.8.0_341]
+17:42:47.913 [main] INFO  com.example.demo01.Demo01Application - Starting Demo01Application using Java 1.8.0_341 on bogon with PID 18378 (/Users/yoca-391/Documents/demo01/target/classes started by yoca-391 in /Users/yoca-391/Documents/demo01)
+17:42:47.935 [main] INFO  com.example.demo01.Demo01Application - No active profile set, falling back to 1 default profile: "default"
+17:42:52.008 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8888"]
+17:42:52.009 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+17:42:52.009 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+17:42:52.263 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+17:42:54.683 [main] INFO  springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+17:42:55.808 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8888"]
+17:42:55.848 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+17:42:55.892 [main] INFO  springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+17:42:55.966 [main] INFO  springfox.documentation.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+17:43:07.072 [main] INFO  com.example.demo01.Demo01Application - Started Demo01Application in 20.134 seconds (JVM running for 32.808)
+17:43:14.594 [http-nio-8888-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
