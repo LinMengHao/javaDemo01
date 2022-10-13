@@ -1,5 +1,6 @@
 package com.example.demo01.utils;
 
+import com.example.demo01.common.Keys;
 import com.example.demo01.entity.msgModel.TextMsgModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -8,6 +9,7 @@ import org.springframework.util.StringUtils;
 
 import javax.xml.ws.Action;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -17,6 +19,8 @@ import java.util.Map;
 public class HttpHeaderUtil {
     @Autowired
     RedisUtils redisUtils;
+    @Autowired
+    Keys keys;
 
 
     //文本消息头,鉴权信息现生成
@@ -91,6 +95,26 @@ public class HttpHeaderUtil {
         headers.set("address",address.toString());
         headers.set("Authorization",map.get("Authorization"));
         headers.set("Date",map.get("Date"));
+        return headers;
+    }
+
+    /**
+     * 运营对接请求头
+     * @return
+     */
+    public HttpHeaders getHttpHeaderByRAS(){
+        HttpHeaders headers=new HttpHeaders();
+        long time = new Date().getTime();
+        String timestamp = String.valueOf(time);
+        headers.set("Timestamp",timestamp);
+        String requestId=UUIDUtil.getUUID32();
+        headers.set("Request-ID",requestId);
+        headers.set("App-ID",keys.getXzcspAppId());
+        //鉴权字段
+        String token = Sha256Utils.getSHA256(keys.getXzkjPassword());
+        String signatureStr=token+timestamp+requestId;
+        String sign = RSAUtils.sign(keys.getXzcspPrivateKey(), signatureStr);
+        headers.set("Authorization","Basic "+sign);
         return headers;
     }
 }

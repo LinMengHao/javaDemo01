@@ -2,13 +2,21 @@ package com.example.demo01.controller.operator;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo01.common.Keys;
+import com.example.demo01.common.R;
+import com.example.demo01.conf.HttpsSkipRequestFactory;
+import com.example.demo01.entity.operatorModel.CustomerModel;
 import com.example.demo01.entity.operatorModel.OperatorResponse;
 import com.example.demo01.entity.operatorModel.OrderModel;
 import com.example.demo01.utils.HttpHeaderUtil;
 import com.example.demo01.utils.RSAUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.TimeoutUtils;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +26,11 @@ import org.springframework.web.client.RestTemplate;
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
 import java.io.IOException;
-
+@Slf4j
 @RestController
 @RequestMapping("xiuzhi/bj_mobile/MsgSync/oc/v1")
 public class OperatorController {
+    private static RestTemplate httpsTemplate=new RestTemplate(new HttpsSkipRequestFactory());
     //YD运营公钥
     private static final String publicKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0bL+oIFm9AhGJmvOlL8jn5XBkpGucfe1o2+1kvw7Npwq0Amb5fHoGnurtF+pwLm4uEuTIe98dq/d7v4ykjS39ISesrhkNw+UB/UpqoL4D50O5gqTNxOrLFyIN4BxdrxLA9sWBfQF6aqLhXDN5Uzf8Ibc+H2MjkF7rycPl2Xxckzabr5201rH91Tz4jZXdqdVO//8mbmoaOfTY0UR/VJcNXOfFKOLnLXBAbcusDfsC+JjyYXbSD55lST32jUwxYS5SzLrTfuj0RFEGAbDqA2g4sN2NZP+NuomPc6K7X9eLr6FGnT7HdMNNRxbQK0kqt3WlGL+cw4xMyDt8YQsTc0YcQIDAQAB";
 
@@ -34,6 +43,18 @@ public class OperatorController {
 
     @Autowired
     Keys keys;
+
+    @PostMapping(value = "addCustomer",consumes = {MediaType.APPLICATION_JSON_VALUE},
+    produces = {MediaType.APPLICATION_JSON_VALUE})
+    public R addCustomer(@RequestBody CustomerModel customerModel){
+        HttpHeaders header = httpHeaderUtil.getHttpHeaderByRAS();
+        header.set("Content-Type",MediaType.APPLICATION_JSON_VALUE);
+        HttpEntity<CustomerModel> entity=new HttpEntity<>(customerModel,header);
+        ResponseEntity<OperatorResponse> response = restTemplate.postForEntity("http://183.233.87.255:2999/iodd/operation/v1/client/new", entity, OperatorResponse.class);
+        log.info("获取响应码："+response.getStatusCode());
+        log.info("响应内容："+response.getBody());
+        return R.ok();
+    }
 
     /**
      * 订购信息
@@ -90,6 +111,8 @@ public class OperatorController {
     public OperatorResponse statusChange(){
         return OperatorResponse.ok();
     }
+
+
 
     public boolean verify(HttpServletRequest request){
         String authorization = request.getHeader("Authorization").split(" ")[1];

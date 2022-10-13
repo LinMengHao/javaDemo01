@@ -1,6 +1,8 @@
 package com.example.demo01.entity.operatorModel;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OperatorResponse implements Serializable {
     private static final long serialVersionUID = 8L;
@@ -8,6 +10,16 @@ public class OperatorResponse implements Serializable {
     private String resultCode;
     //数据同步结果描述
     private String resultDesc;
+
+    private Map<String,Object> data=new HashMap<>();
+
+    public Map<String, Object> getData() {
+        return data;
+    }
+
+    public void setData(Map<String, Object> data) {
+        this.data = data;
+    }
 
     public OperatorResponse resultCode(String code){
         this.resultCode=code;

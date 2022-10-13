@@ -109,10 +109,50 @@
 			<version>2.11.1</version>
 		</dependency>
 
+<!--		&lt;!&ndash; 阿里数据库连接池 &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.alibaba</groupId>-->
+<!--			<artifactId>druid-spring-boot-starter</artifactId>-->
+<!--			<version>1.2.11</version>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; SpringBoot集成mybatis框架 &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>org.mybatis.spring.boot</groupId>-->
+<!--			<artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--			<version>2.2.2</version>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; pagehelper 分页插件 &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>com.github.pagehelper</groupId>-->
+<!--			<artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--			<version>1.4.3</version>-->
+<!--		</dependency>-->
+
+<!--		&lt;!&ndash; Mysql驱动包 &ndash;&gt;-->
+<!--		<dependency>-->
+<!--			<groupId>mysql</groupId>-->
+<!--			<artifactId>mysql-connector-java</artifactId>-->
+<!--		</dependency>-->
+
+
+
 
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+					<include>**/*.yml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

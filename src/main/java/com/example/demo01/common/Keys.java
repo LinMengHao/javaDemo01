@@ -15,7 +15,29 @@ public class Keys {
     @Value("${XZ.CSP.PRIVATEKEY}")
     private String xzcspPrivateKey;
 
+    @Value("${XZ.CSP.APPID}")
+    private String xzcspAppId;
+
+    @Value("${XZ.CSP.PASSWORD}")
+    private String xzkjPassword;
+
     public Keys() {
+    }
+
+    public String getXzcspAppId() {
+        return xzcspAppId;
+    }
+
+    public void setXzcspAppId(String xzcspAppId) {
+        this.xzcspAppId = xzcspAppId;
+    }
+
+    public String getXzkjPassword() {
+        return xzkjPassword;
+    }
+
+    public void setXzkjPassword(String xzkjPassword) {
+        this.xzkjPassword = xzkjPassword;
     }
 
     public String getYdyyPublicKey() {
