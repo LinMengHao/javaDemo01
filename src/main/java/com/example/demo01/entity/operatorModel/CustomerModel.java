@@ -33,6 +33,8 @@ public class CustomerModel implements Serializable {
 
     private String customerNum;
 
+    private String status;
+
     public CustomerModel() {
     }
 
@@ -258,5 +260,48 @@ public class CustomerModel implements Serializable {
 
     public void setCustomerNum(String customerNum) {
         this.customerNum = customerNum;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "CustomerModel{" +
+                "applyTime='" + applyTime + '\'' +
+                ", customerName='" + customerName + '\'' +
+                ", customerContactPerson='" + customerContactPerson + '\'' +
+                ", contactPersonPhone='" + contactPersonPhone + '\'' +
+                ", contactPersonEmail='" + contactPersonEmail + '\'' +
+                ", belongRegionCode='" + belongRegionCode + '\'' +
+                ", belongAgentName='" + belongAgentName + '\'' +
+                ", belongAgentCode='" + belongAgentCode + '\'' +
+                ", industryTypeCode='" + industryTypeCode + '\'' +
+                ", customerUrl='" + customerUrl + '\'' +
+                ", remarkText='" + remarkText + '\'' +
+                ", contractCode='" + contractCode + '\'' +
+                ", contractName='" + contractName + '\'' +
+                ", contractValidDate='" + contractValidDate + '\'' +
+                ", contractInvalidDate='" + contractInvalidDate + '\'' +
+                ", isRenewed='" + isRenewed + '\'' +
+                ", contractRenewDate='" + contractRenewDate + '\'' +
+                ", contractUrl='" + contractUrl + '\'' +
+                ", messageId='" + messageId + '\'' +
+                ", eTag='" + eTag + '\'' +
+                ", auditPerson='" + auditPerson + '\'' +
+                ", auditOpinion='" + auditOpinion + '\'' +
+                ", auditTime='" + auditTime + '\'' +
+                ", unifySocialCreditCodes='" + unifySocialCreditCodes + '\'' +
+                ", enterpriseOwnerName='" + enterpriseOwnerName + '\'' +
+                ", certificateType='" + certificateType + '\'' +
+                ", certificateCode='" + certificateCode + '\'' +
+                ", customerNum='" + customerNum + '\'' +
+                ", status='" + status + '\'' +
+                '}';
     }
 }

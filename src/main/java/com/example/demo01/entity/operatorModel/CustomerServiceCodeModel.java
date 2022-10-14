@@ -39,4 +39,14 @@ public class CustomerServiceCodeModel implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "CustomerServiceCodeModel{" +
+                "serviceCode='" + serviceCode + '\'' +
+                ", extCode='" + extCode + '\'' +
+                ", customerNum='" + customerNum + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 }

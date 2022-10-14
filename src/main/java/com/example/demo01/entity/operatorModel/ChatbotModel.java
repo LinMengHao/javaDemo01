@@ -7,6 +7,7 @@ import java.util.List;
 //机器人信息实体类
 public class ChatbotModel implements Serializable {
     private static final long serialVersionUID = 7L;
+    private String chatBotId;
     //Chatbot ID，包含域名部分
     private String chatbotId;
     /*
@@ -62,6 +63,14 @@ public class ChatbotModel implements Serializable {
     private String actualIssueIndustry;
 
     public ChatbotModel() {
+    }
+
+    public String getChatBotId() {
+        return chatBotId;
+    }
+
+    public void setChatBotId(String chatBotId) {
+        this.chatBotId = chatBotId;
     }
 
     public String getChatbotId() {
@@ -350,5 +359,48 @@ public class ChatbotModel implements Serializable {
 
     public void setActualIssueIndustry(String actualIssueIndustry) {
         this.actualIssueIndustry = actualIssueIndustry;
+    }
+
+    @Override
+    public String toString() {
+        return "ChatbotModel{" +
+                "chatBotId='" + chatBotId + '\'' +
+                ", chatbotId='" + chatbotId + '\'' +
+                ", status='" + status + '\'' +
+                ", customerNum='" + customerNum + '\'' +
+                ", agentCustomerNum='" + agentCustomerNum + '\'' +
+                ", cspId='" + cspId + '\'' +
+                ", serviceCode='" + serviceCode + '\'' +
+                ", name='" + name + '\'' +
+                ", logo='" + logo + '\'' +
+                ", sms='" + sms + '\'' +
+                ", callback='" + callback + '\'' +
+                ", email='" + email + '\'' +
+                ", website='" + website + '\'' +
+                ", tcPage='" + tcPage + '\'' +
+                ", address='" + address + '\'' +
+                ", colour='" + colour + '\'' +
+                ", backgroundImage='" + backgroundImage + '\'' +
+                ", category=" + category +
+                ", provider='" + provider + '\'' +
+                ", providerSwitchCode='" + providerSwitchCode + '\'' +
+                ", description='" + description + '\'' +
+                ", provinceCode='" + provinceCode + '\'' +
+                ", cityCode='" + cityCode + '\'' +
+                ", officeCode='" + officeCode + '\'' +
+                ", lon='" + lon + '\'' +
+                ", lat='" + lat + '\'' +
+                ", autograph='" + autograph + '\'' +
+                ", attachment='" + attachment + '\'' +
+                ", createTime='" + createTime + '\'' +
+                ", opTime='" + opTime + '\'' +
+                ", eTag='" + eTag + '\'' +
+                ", messageId='" + messageId + '\'' +
+                ", debugWhiteAddress='" + debugWhiteAddress + '\'' +
+                ", auditPerson='" + auditPerson + '\'' +
+                ", auditOpinion='" + auditOpinion + '\'' +
+                ", auditTime='" + auditTime + '\'' +
+                ", actualIssueIndustry='" + actualIssueIndustry + '\'' +
+                '}';
     }
 }

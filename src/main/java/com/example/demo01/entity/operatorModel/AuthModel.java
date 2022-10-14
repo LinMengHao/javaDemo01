@@ -93,4 +93,19 @@ public class AuthModel implements Serializable {
     public void setCustomerNum(String customerNum) {
         this.customerNum = customerNum;
     }
+
+    @Override
+    public String toString() {
+        return "AuthModel{" +
+                "authMessageId='" + authMessageId + '\'' +
+                ", authStatus='" + authStatus + '\'' +
+                ", comment='" + comment + '\'' +
+                ", authPerson='" + authPerson + '\'' +
+                ", authTime='" + authTime + '\'' +
+                ", messageId='" + messageId + '\'' +
+                ", authType='" + authType + '\'' +
+                ", chatbotId='" + chatbotId + '\'' +
+                ", customerNum='" + customerNum + '\'' +
+                '}';
+    }
 }

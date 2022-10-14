@@ -2,7 +2,6 @@ package com.example.demo01.controller.operator;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo01.common.Keys;
-import com.example.demo01.common.R;
 import com.example.demo01.conf.HttpsSkipRequestFactory;
 import com.example.demo01.entity.operatorModel.*;
 import com.example.demo01.utils.HttpHeaderUtil;
@@ -13,8 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -23,7 +23,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -54,7 +56,6 @@ public class OperatorReceiveController {
      */
     @PostMapping("syncproduct")
     public OperatorResponse getOrderInfo(@RequestBody OrderModel orderModel, HttpServletRequest request){
-//    public OperatorResponse getOrderInfo(HttpServletRequest request){
         //使用过滤器鉴权，下面代码可以去掉
         //鉴权
         boolean b = verify(request);
@@ -62,30 +63,33 @@ public class OperatorReceiveController {
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
 
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            OrderModel order = JSONObject.parseObject(dencrypt, OrderModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())){
+            //TODO 请求体解密 如果不用解密则直接使用参数
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+                reader=request.getReader();
+                StringBuilder s=new StringBuilder();
+                String s1=null;
+                while ((s1=reader.readLine())!=null){
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文："+dencrypt);
+                OrderModel order = JSONObject.parseObject(dencrypt, OrderModel.class);
+                System.out.println("解密后:"+order.toString());
 
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }else {
+            log.info("订购信息同步消息内容："+orderModel.toString());
+        }
 
         //TODO 存日志，存数据，同步数据
         return OperatorResponse.ok();
@@ -105,28 +109,32 @@ public class OperatorReceiveController {
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
 
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            ChatbotModel order = JSONObject.parseObject(dencrypt, ChatbotModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())){
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader=request.getReader();
+                StringBuilder s=new StringBuilder();
+                String s1=null;
+                while ((s1=reader.readLine())!=null){
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文："+dencrypt);
+                ChatbotModel order = JSONObject.parseObject(dencrypt, ChatbotModel.class);
+                System.out.println("解密后:"+order.toString());
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            log.info("chatbot状态变更同步消息内容："+chatbotModel.toString());
         }
 
 
@@ -135,7 +143,7 @@ public class OperatorReceiveController {
     }
 
     /**
-     * CSP平台同步注销Chatbot到运营平台(运营->csp)
+     * 运营平台把注销的Chatbot同步给CSP平台(运营->csp)
      */
     @PostMapping("cancel")
     public OperatorResponse cancel(@RequestBody ChatbotModel chatbotModel,HttpServletRequest request){
@@ -146,31 +154,33 @@ public class OperatorReceiveController {
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
 
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            ChatbotModel order = JSONObject.parseObject(dencrypt, ChatbotModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                ChatbotModel order = JSONObject.parseObject(dencrypt, ChatbotModel.class);
+                System.out.println("解密后:" + order.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            log.info("运营平台把注销的Chatbot同步给CSP平台内容："+chatbotModel.toString());
         }
-
-
         //TODO 存日志，存数据，同步数据
         return OperatorResponse.ok();
     }
@@ -190,28 +200,32 @@ public class OperatorReceiveController {
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
 
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            AuthModel order = JSONObject.parseObject(dencrypt, AuthModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                AuthModel order = JSONObject.parseObject(dencrypt, AuthModel.class);
+                System.out.println("解密后:" + order.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            log.info(" 运营平台—>CSP平台 固定菜单审核结果通知内容："+authModel.toString());
         }
 
 
@@ -220,7 +234,7 @@ public class OperatorReceiveController {
     }
 
     /**
-     * Chatbot审核（运营平台—>CSP平台）
+     * 2.7.9 Chatbot审核（运营平台—>CSP平台）
      * @param authModel
      * @param request
      * @return
@@ -234,30 +248,32 @@ public class OperatorReceiveController {
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
 
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            AuthModel order = JSONObject.parseObject(dencrypt, AuthModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                AuthModel order = JSONObject.parseObject(dencrypt, AuthModel.class);
+                System.out.println("解密后:" + order.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            log.info("运营平台把Chatbot新增和变更的审核结果同步给CSP平台 内容："+authModel.toString());
         }
-
 
         //TODO 存日志，存数据，同步数据
         return OperatorResponse.ok();
@@ -278,31 +294,93 @@ public class OperatorReceiveController {
         if(!b){
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
-
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            ChatbotConfModel order = JSONObject.parseObject(dencrypt, ChatbotConfModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                ChatbotConfModel order = JSONObject.parseObject(dencrypt, ChatbotConfModel.class);
+                System.out.println("解密后:" + order.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            //10进制转6位二进制
+            String state = binaryString(confModel.getState(), 6);
+            /*
+            CSP平台自行转换为6位二进制，
+                从右往左，最右位为第一位：
+                第一位：0支持主动消息下发（即允许群发，主动发送1条消息也属于群发） 1不支持主动消息下发（即不允许群发）
+                第二位：0支持上行触发消息下发（即支持交互消息） 1不支持上行触发消息下发（即不支持交互消息，若不支持交互，则MaaP平台将拒绝Chatbot下行的所有带有InReplyTo-Contribution-id的消息，并返回HTTP 403 Forbidden响应。）
+                第三位：0容许回落 1禁止回落
+                第四位: 0支持上行UP1.0消息 1不支持上行UP1.0消息
+                第五位：0 允许上行  1不允许上行
+                第六位：0允许回落UP1.0  1不允许回落UP1.0
+                （注：上行触发的消息下发，消息体会携带inReplyTo-Contribution-ID字段）
+             */
+            log.info("将chatbot配置信息同步CSP平台 内容："+confModel.toString());
         }
 
+
+        //TODO 存日志，存数据，同步数据
+        return OperatorResponse.ok();
+    }
+
+    /**
+     * ChatBot视频短信平台配置信息（运营平台—>CSP平台）
+     * @param confModel
+     * @param request
+     * @return
+     */
+    @PostMapping("syncvideoconf")
+    public OperatorResponse syncvideoconf(@RequestBody SmsConfModel confModel,HttpServletRequest request){
+//使用过滤器鉴权，下面代码可以去掉
+        //鉴权
+        boolean b = verify(request);
+        if(!b){
+            return OperatorResponse.error().resultDesc("鉴权失败");
+        }
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
+            try {
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                SmsConfModel order = JSONObject.parseObject(dencrypt, SmsConfModel.class);
+                System.out.println("解密后:" + order.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }else {
+            log.info("运营平台收到视频短信平台返回的 “线上报备签名”消息后，给Chatbot关联的CSP平台同步视频短信平台的配置信息和归属EC的接口账号、接口密码 内容："+confModel.toString());
+        }
 
         //TODO 存日志，存数据，同步数据
         return OperatorResponse.ok();
@@ -325,31 +403,34 @@ public class OperatorReceiveController {
         if(!b){
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
-
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            CustomerModel order = JSONObject.parseObject(dencrypt, CustomerModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                CustomerModel order = JSONObject.parseObject(dencrypt, CustomerModel.class);
+                System.out.println("解密后:" + order.toString());
 
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }else {
+            //url 下载文件，可以调研downloadFiles下载到本地
+            log.info("运营平台页面注册的非直签客户，在业务管理平台审核通过后，同步此消息给CSP平台 内容："+customerModel.toString());
+        }
 
         //TODO 存日志，存数据，同步数据
         return OperatorResponse.ok();
@@ -370,29 +451,33 @@ public class OperatorReceiveController {
         if(!b){
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
-
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            CustomerModel order = JSONObject.parseObject(dencrypt, CustomerModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                CustomerModel order = JSONObject.parseObject(dencrypt, CustomerModel.class);
+                System.out.println("解密后:" + order.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            //url 下载文件，可以调研downloadFiles下载到本地
+            log.info("运营平台页面修改的非直签客户，在业务管理平台审核通过后，同步此消息给CSP平台 内容："+customerModel.toString());
         }
 
 
@@ -415,29 +500,32 @@ public class OperatorReceiveController {
         if(!b){
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
-
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            AuthModel order = JSONObject.parseObject(dencrypt, AuthModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                AuthModel order = JSONObject.parseObject(dencrypt, AuthModel.class);
+                System.out.println("解密后:" + order.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            log.info("运营平台把非直签客户注册和变更的审核结果同步给CSP平台 内容："+authModel.toString());
         }
 
 
@@ -461,28 +549,32 @@ public class OperatorReceiveController {
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
 
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            CustomerModel order = JSONObject.parseObject(dencrypt, CustomerModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                CustomerModel order = JSONObject.parseObject(dencrypt, CustomerModel.class);
+                System.out.println("解密后:" + order.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            log.info("非直签客户状态发生变化后，运营平台把最新状态同步给CSP平台 内容："+customerModel.toString());
         }
 
 
@@ -506,28 +598,32 @@ public class OperatorReceiveController {
             return OperatorResponse.error().resultDesc("鉴权失败");
         }
 
-        //TODO 请求体解密
-        BufferedReader reader = null;
-        try {
-            reader=request.getReader();
-            StringBuilder s=new StringBuilder();
-            String s1=null;
-            while ((s1=reader.readLine())!=null){
-                s.append(s1);
-            }
-            String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
-            System.out.println("解密报文："+dencrypt);
-            CustomerServiceCodeModel order = JSONObject.parseObject(dencrypt, CustomerServiceCodeModel.class);
-            System.out.println("解密后:"+order.toString());
-
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
+        if("0".equals(keys.getIsEncrypt())) {
+            //TODO 请求体解密
+            BufferedReader reader = null;
             try {
-                reader.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                reader = request.getReader();
+                StringBuilder s = new StringBuilder();
+                String s1 = null;
+                while ((s1 = reader.readLine()) != null) {
+                    s.append(s1);
+                }
+                String dencrypt = RSAUtils.dencrypt(s.toString(), keys.getXzcspPrivateKey());
+                System.out.println("解密报文：" + dencrypt);
+                CustomerServiceCodeModel order = JSONObject.parseObject(dencrypt, CustomerServiceCodeModel.class);
+                System.out.println("解密后:" + order.toString());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
+        }else {
+            log.info("代理商在运营平台给非直签客户分配服务代码后，运营平台将信息同步给CSP平台 内容："+serviceCodeModel.toString());
         }
 
 
@@ -560,12 +656,61 @@ public class OperatorReceiveController {
     }
 
 
+    /**
+     * 下载运营文件保存本地，并将返回文件本地地址
+     * @param url
+     * @return
+     */
+    public String downloadFiles(String url){
+        String filePath="";
+        HttpHeaders header = httpHeaderUtil.getHttpHeaderByRAS();
+        HttpEntity<CustomerServiceCodeModel> entity=new HttpEntity<>(header);
+        ResponseEntity<byte[]> response = restTemplate.exchange("http://183.233.87.255:8092/iodd/v1/downloadImage?attachFileId="+url, HttpMethod.GET, entity, byte[].class);
+        FileOutputStream out=null;
+        try{
+            byte[] body=response.getBody();
+            //获取文件名
+            HttpHeaders headers1 = response.getHeaders();
+            List<String> list = headers1.get("Content-Disposition");
+            String s2 = list.get(0);
+            String[] split = s2.split(";");
+            String filename=null;
+            for (String value : split) {
+                if (value.trim().startsWith("filename")) {
+                    filename = value.substring(value.indexOf('=') + 1).trim();
+                }
+                if(StringUtils.hasText(filename)){
+                    if(body!=null){
+                        String file="./FILE/KING/"+filename;
+                        File dest = new File(file);
+                        // 检测是否存在目录
+                        if (!dest.exists()) {
+                            dest.mkdirs();// 新建文件夹
+                        }
+                        out = new FileOutputStream(dest);
+                        out.write(body,0,body.length);
+                        out.flush();
+                        filePath=file;
+                    }
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return filePath;
+    }
 
 
 
-
-
-
+    /**
+     * 鉴权认证方法
+     */
     public boolean verify(HttpServletRequest request){
         String authorization = request.getHeader("Authorization").split(" ")[1];
         String timestamp = request.getHeader("Timestamp");
@@ -574,8 +719,25 @@ public class OperatorReceiveController {
         //通过appid找到token，先写死测试，后面可以使用名单这种方式
         String token="b4e10cf1b467e25247400a454c5099971448aeea798921dd94524af25224ba82";
         String sign=token+timestamp+requestId;
-        boolean b = RSAUtils.verifySign(publicKey, sign, authorization);
+        boolean b = RSAUtils.verifySign(keys.getXzcspPublicKey(), sign, authorization);
         return b;
+    }
+
+    /**
+     * 10进制转n位二进制
+     * @param num
+     * @param n
+     * @return
+     */
+    public static String binaryString(int num,int n) {
+        StringBuilder result = new StringBuilder();
+        int flag = 1 << (n-1);
+        for (int i = 0; i < n; i++) {
+            int val = (flag & num) == 0 ? 0 : 1;
+            result.append(val);
+            num <<= 1;
+        }
+        return result.toString();
     }
 
     @RequestMapping("test")

@@ -20,6 +20,8 @@ public class Keys {
 
     @Value("${XZ.CSP.PASSWORD}")
     private String xzkjPassword;
+    @Value("${XZ.CSP.ENCRYPT}")
+    private String isEncrypt;
 
     public Keys() {
     }
@@ -62,5 +64,13 @@ public class Keys {
 
     public void setXzcspPrivateKey(String xzcspPrivateKey) {
         this.xzcspPrivateKey = xzcspPrivateKey;
+    }
+
+    public String getIsEncrypt() {
+        return isEncrypt;
+    }
+
+    public void setIsEncrypt(String isEncrypt) {
+        this.isEncrypt = isEncrypt;
     }
 }

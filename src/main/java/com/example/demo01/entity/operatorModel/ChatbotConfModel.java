@@ -114,4 +114,22 @@ public class ChatbotConfModel implements Serializable {
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
+
+    @Override
+    public String toString() {
+        return "ChatbotConfModel{" +
+                "chatbotId='" + chatbotId + '\'' +
+                ", opType=" + opType +
+                ", concurrent=" + concurrent +
+                ", State=" + State +
+                ", amount=" + amount +
+                ", mAmount=" + mAmount +
+                ", serviceRange=" + serviceRange +
+                ", filesizeLimit=" + filesizeLimit +
+                ", eTag=" + eTag +
+                ", cspToken='" + cspToken + '\'' +
+                ", opTime='" + opTime + '\'' +
+                ", messageId='" + messageId + '\'' +
+                '}';
+    }
 }

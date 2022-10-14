@@ -5,13 +5,13 @@ import com.example.demo01.common.Keys;
 import com.example.demo01.common.R;
 import com.example.demo01.conf.HttpsSkipRequestFactory;
 import com.example.demo01.entity.operatorModel.*;
+import com.example.demo01.utils.Base64Utils;
 import com.example.demo01.utils.HttpHeaderUtil;
-import com.example.demo01.utils.RSAUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.TimeoutUtils;
 import org.springframework.http.*;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,16 +23,18 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * csp->运营平台
+ */
 @Slf4j
 @RestController
-@RequestMapping("xiuzhi/bj_mobile/send")
-public class OperatorController {
+@RequestMapping("xiuzhi/bj_mobile/operator")
+public class OperatorSendController {
     private static RestTemplate httpsTemplate=new RestTemplate(new HttpsSkipRequestFactory());
     //YD运营公钥
     private static final String publicKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0bL+oIFm9AhGJmvOlL8jn5XBkpGucfe1o2+1kvw7Npwq0Amb5fHoGnurtF+pwLm4uEuTIe98dq/d7v4ykjS39ISesrhkNw+UB/UpqoL4D50O5gqTNxOrLFyIN4BxdrxLA9sWBfQF6aqLhXDN5Uzf8Ibc+H2MjkF7rycPl2Xxckzabr5201rH91Tz4jZXdqdVO//8mbmoaOfTY0UR/VJcNXOfFKOLnLXBAbcusDfsC+JjyYXbSD55lST32jUwxYS5SzLrTfuj0RFEGAbDqA2g4sN2NZP+NuomPc6K7X9eLr6FGnT7HdMNNRxbQK0kqt3WlGL+cw4xMyDt8YQsTc0YcQIDAQAB";
@@ -94,6 +96,9 @@ public class OperatorController {
     public R syncmenu(@RequestBody ChatbotMenuModel chatbotMenuModel){
         HttpHeaders header = httpHeaderUtil.getHttpHeaderByRAS();
         header.set("Content-Type",MediaType.APPLICATION_JSON_VALUE);
+        //菜单，源json 需要base64加密
+        String encode = Base64Utils.encode(chatbotMenuModel.getMenu());
+        chatbotMenuModel.setMenu(encode);
         HttpEntity<ChatbotMenuModel> entity=new HttpEntity<>(chatbotMenuModel,header);
         ResponseEntity<OperatorResponse> response = restTemplate.postForEntity("http://183.233.87.255:8092/iodd/operation/v1/syncmenu", entity, OperatorResponse.class);
         log.info("获取响应码："+response.getStatusCode());
@@ -220,34 +225,7 @@ public class OperatorController {
         return R.ok();
     }
 
-    //TODO 2.8.6非直签客户批量新增（CSP平台—>运营平台)文档有问题
-    @PostMapping("batchCustomer")
-    public R batchCustomer(HttpServletRequest request) throws IOException {
-        //获取上传的xls文件
-        MultipartFile customerList = ((MultipartHttpServletRequest) request).getFile("xls");
-        String cspid = request.getParameter("cspid");
-        String messageId = request.getParameter("messageId");
-        ByteArrayResource resource = new ByteArrayResource(customerList.getBytes()) {
-            @Override
-            public String getFilename() {
-                return customerList.getOriginalFilename();
-            }
-        };
-        //TODO 上传文件到文件服务器后，获取url
 
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("clientUrl","file_path");
-        jsonObject.put("cspId","cspid");
-        jsonObject.put("messageId","messageId");
-        HttpHeaders header = httpHeaderUtil.getHttpHeaderByRAS();
-        header.set("Content-Type",MediaType.APPLICATION_JSON_VALUE);
-        HttpEntity<JSONObject> entity=new HttpEntity<>(jsonObject,header);
-        ResponseEntity<OperatorResponse> response = restTemplate.postForEntity("http://183.233.87.255:8092/iodd/operation/v1/client/ allotServiceCode", entity, OperatorResponse.class);
-        log.info("获取响应码："+response.getStatusCode());
-        log.info("响应内容："+response.getBody());
-
-        return R.ok();
-    }
 
     /**
      * 下载运营文件保存本地，并将返回文件本地地址
