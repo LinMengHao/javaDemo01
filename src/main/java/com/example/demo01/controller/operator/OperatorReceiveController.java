@@ -29,7 +29,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("xiuzhi/bj_mobile/MsgSync/oc/v1")
+@RequestMapping("xiuzhi/bj_mobile/MsgSync")
 public class OperatorReceiveController {
     private static RestTemplate httpsTemplate=new RestTemplate(new HttpsSkipRequestFactory());
     //YD运营公钥
@@ -54,7 +54,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("syncproduct")
+    @PostMapping("oc/v1/syncproduct")
     public OperatorResponse getOrderInfo(@RequestBody OrderModel orderModel, HttpServletRequest request){
         //使用过滤器鉴权，下面代码可以去掉
         //鉴权
@@ -99,7 +99,7 @@ public class OperatorReceiveController {
      * chatbot状态变更(运营平台->csp)
      * @return
      */
-    @PostMapping("status")
+    @PostMapping("oc/v1/status")
     public OperatorResponse statusChange(@RequestBody ChatbotModel chatbotModel,HttpServletRequest request){
 
         //使用过滤器鉴权，下面代码可以去掉
@@ -145,7 +145,7 @@ public class OperatorReceiveController {
     /**
      * 运营平台把注销的Chatbot同步给CSP平台(运营->csp)
      */
-    @PostMapping("cancel")
+    @PostMapping("oc/v1/cancel")
     public OperatorResponse cancel(@RequestBody ChatbotModel chatbotModel,HttpServletRequest request){
         //使用过滤器鉴权，下面代码可以去掉
         //鉴权
@@ -191,7 +191,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("authnotification")
+    @PostMapping("oc/v1/authnotification")
     public OperatorResponse authnotification(@RequestBody AuthModel authModel,HttpServletRequest request){
 //使用过滤器鉴权，下面代码可以去掉
         //鉴权
@@ -239,7 +239,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("audit")
+    @PostMapping("oc/v1/audit")
     public OperatorResponse audit(@RequestBody AuthModel authModel,HttpServletRequest request){
 //使用过滤器鉴权，下面代码可以去掉
         //鉴权
@@ -286,7 +286,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("syncconfigchatbot")
+    @PostMapping("oc/v1/syncconfigchatbot")
     public OperatorResponse syncconfigchatbot(@RequestBody ChatbotConfModel confModel,HttpServletRequest request){
 //使用过滤器鉴权，下面代码可以去掉
         //鉴权
@@ -346,7 +346,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("syncvideoconf")
+    @PostMapping("oc/v1/syncvideoconf")
     public OperatorResponse syncvideoconf(@RequestBody SmsConfModel confModel,HttpServletRequest request){
 //使用过滤器鉴权，下面代码可以去掉
         //鉴权
@@ -394,7 +394,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("client/new")
+    @PostMapping("oc/v1/client/new")
     public OperatorResponse clientNew(@RequestBody CustomerModel customerModel,HttpServletRequest request){
 
         //使用过滤器鉴权，下面代码可以去掉
@@ -442,7 +442,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("client/change")
+    @PostMapping("oc/v1/client/change")
     public OperatorResponse clientChange(@RequestBody CustomerModel customerModel,HttpServletRequest request){
 
         //使用过滤器鉴权，下面代码可以去掉
@@ -492,7 +492,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("client/audit")
+    @PostMapping("oc/v1/client/audit")
     public OperatorResponse clientAudit(@RequestBody AuthModel authModel,HttpServletRequest request){
 //使用过滤器鉴权，下面代码可以去掉
         //鉴权
@@ -539,7 +539,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("client/status")
+    @PostMapping("oc/v1/client/status")
     public OperatorResponse clientStatusChange(@RequestBody CustomerModel customerModel,HttpServletRequest request){
 
         //使用过滤器鉴权，下面代码可以去掉
@@ -588,7 +588,7 @@ public class OperatorReceiveController {
      * @param request
      * @return
      */
-    @PostMapping("client/allotServiceCode")
+    @PostMapping("oc/v1/client/allotServiceCode")
     public OperatorResponse allotServiceCode(@RequestBody CustomerServiceCodeModel serviceCodeModel,HttpServletRequest request){
 
         //使用过滤器鉴权，下面代码可以去掉
@@ -719,7 +719,7 @@ public class OperatorReceiveController {
         //通过appid找到token，先写死测试，后面可以使用名单这种方式
         String token="b4e10cf1b467e25247400a454c5099971448aeea798921dd94524af25224ba82";
         String sign=token+timestamp+requestId;
-        boolean b = RSAUtils.verifySign(keys.getXzcspPublicKey(), sign, authorization);
+        boolean b = RSAUtils.verifySign(keys.getYdyyPublicKey(), sign, authorization);
         return b;
     }
 
