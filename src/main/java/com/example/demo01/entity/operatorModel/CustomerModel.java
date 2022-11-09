@@ -429,6 +429,9 @@ public class CustomerModel implements Serializable {
                 ", certificateCode='" + certificateCode + '\'' +
                 ", customerNum='" + customerNum + '\'' +
                 ", status='" + status + '\'' +
+                ", ServiceCode='" + ServiceCode + '\'' +
+                ", extCode='" + extCode + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }

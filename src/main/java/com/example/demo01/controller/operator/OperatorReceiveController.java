@@ -79,7 +79,7 @@ public class OperatorReceiveController {
                 }
             }
         }else {
-            log.info("运营平台对Chatbot进行新增、修改操作时，将生效后信息同步至CSP平台："+chatbotModel.toString());
+            log.info("运营平台对Chatbot进行新增、修改操作时，将生效后信息同步至CSP平台：{}",chatbotModel.toString());
         }
 
         //TODO 存日志，存数据，同步数据

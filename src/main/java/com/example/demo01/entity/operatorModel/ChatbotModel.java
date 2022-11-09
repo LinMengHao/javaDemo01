@@ -689,15 +689,21 @@ public class ChatbotModel implements Serializable {
     @Override
     public String toString() {
         return "ChatbotModel{" +
-                ", chatbotId='" + chatbotId + '\'' +
+                "chatbotId='" + chatbotId + '\'' +
                 ", status='" + status + '\'' +
                 ", customerNum='" + customerNum + '\'' +
                 ", agentCustomerNum='" + agentCustomerNum + '\'' +
                 ", cspId='" + cspId + '\'' +
+                ", cspToken='" + cspToken + '\'' +
                 ", serviceCode='" + serviceCode + '\'' +
+                ", opType=" + opType +
                 ", name='" + name + '\'' +
                 ", logo='" + logo + '\'' +
                 ", sms='" + sms + '\'' +
+                ", isAuth='" + isAuth + '\'' +
+                ", authName='" + authName + '\'' +
+                ", authExpires='" + authExpires + '\'' +
+                ", authOrg='" + authOrg + '\'' +
                 ", callback='" + callback + '\'' +
                 ", email='" + email + '\'' +
                 ", website='" + website + '\'' +
@@ -709,13 +715,21 @@ public class ChatbotModel implements Serializable {
                 ", provider='" + provider + '\'' +
                 ", providerSwitchCode='" + providerSwitchCode + '\'' +
                 ", description='" + description + '\'' +
+                ", menu='" + menu + '\'' +
                 ", provinceCode='" + provinceCode + '\'' +
                 ", cityCode='" + cityCode + '\'' +
                 ", officeCode='" + officeCode + '\'' +
                 ", lon='" + lon + '\'' +
                 ", lat='" + lat + '\'' +
+                ", version='" + version + '\'' +
                 ", autograph='" + autograph + '\'' +
                 ", attachment='" + attachment + '\'' +
+                ", concurrent=" + concurrent +
+                ", state=" + state +
+                ", amount=" + amount +
+                ", mAmount=" + mAmount +
+                ", serviceRanage=" + serviceRanage +
+                ", filesizeLimit=" + filesizeLimit +
                 ", createTime='" + createTime + '\'' +
                 ", opTime='" + opTime + '\'' +
                 ", eTag='" + eTag + '\'' +
@@ -725,6 +739,9 @@ public class ChatbotModel implements Serializable {
                 ", auditOpinion='" + auditOpinion + '\'' +
                 ", auditTime='" + auditTime + '\'' +
                 ", actualIssueIndustry='" + actualIssueIndustry + '\'' +
+                ", testReportUrl='" + testReportUrl + '\'' +
+                ", putAwayExplain='" + putAwayExplain + '\'' +
+                ", chatBotWhiteList='" + chatBotWhiteList + '\'' +
                 '}';
     }
 }
